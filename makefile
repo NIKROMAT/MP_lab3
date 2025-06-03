@@ -1,7 +1,7 @@
-TARGET = lab3
+TARGET = create_samples
 CXX = g++
 PY = python3
-OBJ = main.o lab3.o
+OBJ = create_samples.o prng.o
 
 
 
@@ -14,8 +14,8 @@ all : ${TARGET}
 ${TARGET} : ${OBJ}
 	${CXX} $^ -o $@
 
-main.o : main.cpp
+create_samples.o : create_samples.cpp
 	${CXX} -c $^ -o $@
 
-lab3.o : lab3.cpp
+prng.o : prng.cpp
 	${CXX} -c $^ -o $@
