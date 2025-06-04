@@ -6,7 +6,7 @@ OBJ = create_samples.o prng.o
 
 
 
-.PHONY : all
+.PHONY : all test results
 
 all : ${TARGET} 
 
@@ -19,3 +19,15 @@ create_samples.o : create_samples.cpp
 
 prng.o : prng.cpp
 	${CXX} -c $^ -o $@
+
+
+results : get_results.cpp
+	${CXX} $^ -o get_results
+	./get_results
+
+
+test : t
+	./t
+
+t : test.cpp
+	${CXX} $^ -o t

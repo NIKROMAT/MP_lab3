@@ -6,13 +6,16 @@
 #include "prng.h"
 
 
+namespace fs = std::filesystem;
+
+
 int main()
 {
   std::ofstream sample_file;
   std::string dir_path = "./samples/";
 
 
-  std::filesystem::create_directory(dir_path);
+  fs::create_directory(dir_path);
 
 
   int sizes[20] =  { 1000,  1000,  1000,  1000,
@@ -36,7 +39,7 @@ int main()
   std::string prng_dir;
 
   prng_dir = "mid_xor/";
-  std::filesystem::create_directory(dir_path + prng_dir);
+  fs::create_directory(dir_path + prng_dir);
 
   for (int i=0; i<20; ++i)
   {
