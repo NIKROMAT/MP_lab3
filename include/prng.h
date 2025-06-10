@@ -1,17 +1,23 @@
-// #include <vector>
-#include <cstdint> // для типов int
-#include <iostream>
+#ifndef PRNG_H
+#define PRNG_H
 
-// typedef uint32_t;
-// typedef uint64_t;
+#include <cstdint> // для типов int
+
 
 class PRNG
 {
 
-public:
-  // virtual uint32_t generate() = 0;
-  virtual uint32_t generate() = 0;
+protected:
+  const uint32_t min_lim;
+  const uint32_t max_lim;
 
+  PRNG (uint32_t, uint32_t);
+
+  virtual uint32_t generate() = 0;
+  
+  uint32_t result(uint32_t) const;
+  
+public:
   void generate_sample(std::ostream&, int);
 
 };
@@ -26,7 +32,8 @@ class MidPRNG: public PRNG
 
 public:
   MidPRNG () = delete;
-  MidPRNG ( uint32_t );
+  // MidPRNG ( uint32_t );
+  MidPRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
 };
@@ -39,7 +46,8 @@ class ShufflePRNG: public PRNG
 
 public:
   ShufflePRNG () = delete;
-  ShufflePRNG ( uint32_t );
+  // ShufflePRNG ( uint32_t );
+  ShufflePRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
 };
@@ -56,7 +64,8 @@ class LCG: public PRNG
 public:
   LCG () = delete;
   // LCG ( uint32_t, uint32_t, uint32_t, uint32_t );
-  LCG ( uint32_t );
+  // LCG ( uint32_t );
+  LCG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
 };
@@ -70,7 +79,8 @@ class mid_xor_PRNG: public PRNG
 
 public:
   mid_xor_PRNG () = delete;
-  mid_xor_PRNG ( uint32_t );
+  // mid_xor_PRNG ( uint32_t );
+  mid_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
 };
@@ -83,7 +93,11 @@ class shuf_xor_PRNG: public PRNG
 
 public:
   shuf_xor_PRNG () = delete;
-  shuf_xor_PRNG ( uint32_t );
+  // shuf_xor_PRNG ( uint32_t );
+  shuf_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
 };
+
+
+#endif // PRNG_H
