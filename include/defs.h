@@ -1,11 +1,14 @@
-#ifndef CONSTS_H
-#define CONSTS_H
+#ifndef DEFS_H
+#define DEFS_H
+
+#define SAMPLES_DIR "./samples/"
 
 #define MIN_LIM 0
-#define MAX_LIM 5000
+#define MAX_LIM 4095
 
 #define ALPHA 0.01
+#define SERIAL_M 2
+#define AP_ENTROPY_M 2
 
 
-
-#endif // CONSTS_H
+#endif // DEFS_H

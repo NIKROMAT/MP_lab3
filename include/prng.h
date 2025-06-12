@@ -24,7 +24,6 @@ public:
 
 
 class MidPRNG: public PRNG
-// class MidPRNG
 {
   uint32_t base;
   uint32_t seed;
@@ -32,7 +31,6 @@ class MidPRNG: public PRNG
 
 public:
   MidPRNG () = delete;
-  // MidPRNG ( uint32_t );
   MidPRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
@@ -46,7 +44,6 @@ class ShufflePRNG: public PRNG
 
 public:
   ShufflePRNG () = delete;
-  // ShufflePRNG ( uint32_t );
   ShufflePRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
@@ -63,8 +60,6 @@ class LCG: public PRNG
 
 public:
   LCG () = delete;
-  // LCG ( uint32_t, uint32_t, uint32_t, uint32_t );
-  // LCG ( uint32_t );
   LCG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
@@ -79,7 +74,6 @@ class mid_xor_PRNG: public PRNG
 
 public:
   mid_xor_PRNG () = delete;
-  // mid_xor_PRNG ( uint32_t );
   mid_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
@@ -93,7 +87,6 @@ class shuf_xor_PRNG: public PRNG
 
 public:
   shuf_xor_PRNG () = delete;
-  // shuf_xor_PRNG ( uint32_t );
   shuf_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
