@@ -1,19 +1,31 @@
+/**
+ * @file prng.h
+ * @brief Заголовочный файл, в котором определяются классы генераторов.
+ * 
+ * Объявляемые классы:
+ *  - PRNG
+ *  - mid_xor_PRNG
+ *  - mul_xor_PRNG
+ *  - LCG
+ */
+
 #ifndef PRNG_H
 #define PRNG_H
 
 #include <cstdint> // для типов int
 
 
+/// @brief Абстрактный базовый класс генераторов
 class PRNG
 {
 
 protected:
-  const uint32_t min_lim;
-  const uint32_t max_lim;
+  const uint32_t min_lim; ///< Нижняя  граница генерации
+  const uint32_t max_lim; ///< Верхняя граница генерации
 
-  PRNG (uint32_t, uint32_t);
+  PRNG (uint32_t, uint32_t); 
 
-  virtual uint32_t generate() = 0;
+  virtual uint32_t generate() = 0; ///< Чистая функция для генерации следующего числа
   
   uint32_t result(uint32_t) const;
   
@@ -23,71 +35,47 @@ public:
 };
 
 
-class MidPRNG: public PRNG
-{
-  uint32_t base;
-  uint32_t seed;
 
-
-public:
-  MidPRNG () = delete;
-  MidPRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
-
-  uint32_t generate() override;
-};
-
-
-class ShufflePRNG: public PRNG
-{
-  uint32_t seed;
-
-
-public:
-  ShufflePRNG () = delete;
-  ShufflePRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
-
-  uint32_t generate() override;
-};
-
-
-class LCG: public PRNG
-{
-  uint32_t seed;
-  uint32_t k;
-  uint32_t b;
-  uint32_t M;
-
-
-public:
-  LCG () = delete;
-  LCG ( uint32_t, uint32_t = 0, uint32_t = -1);
-
-  uint32_t generate() override;
-};
-
-
-
+/// @brief Генератор, основанный на среднем квадрата и Xor
 class mid_xor_PRNG: public PRNG
 {
-  uint32_t seed;
+  uint32_t seed;  ///< Семя генерации 
 
 
 public:
-  mid_xor_PRNG () = delete;
-  mid_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
+  mid_xor_PRNG () = delete; ///< Запрет на конструктор по умолчанию 
+  mid_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);  
 
   uint32_t generate() override;
 };
 
 
-class shuf_xor_PRNG: public PRNG
+/// @brief Генератор, основанный на произведении и Xor
+class mul_xor_PRNG: public PRNG
 {
-  uint32_t seed;
+  uint32_t seed;  ///< Семя генерации 
 
 
 public:
-  shuf_xor_PRNG () = delete;
-  shuf_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
+  mul_xor_PRNG () = delete; ///< Запрет на конструктор по умолчанию 
+  mul_xor_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
+
+  uint32_t generate() override;
+};
+
+
+/// @brief Генератор, основанный на линейном конгруэнтном методе
+class LCG: public PRNG
+{
+  uint32_t seed;  ///< Семя генерации
+  uint32_t k;     ///< Коэффициент
+  uint32_t b;     ///< Смещение
+  uint32_t M;     ///< Модуль
+
+
+public:
+  LCG () = delete;  ///< Запрет на конструктор по умолчанию 
+  LCG ( uint32_t, uint32_t = 0, uint32_t = -1);
 
   uint32_t generate() override;
 };

@@ -1,3 +1,8 @@
+/**
+ * @file nist_funcs.cpp
+ * @brief Файл, содержащий реализации вспомогательных функций для nist-тестов
+ */
+
 #include <cmath>
 
 #include "../include/tests.h"
@@ -7,7 +12,9 @@
 #include<iostream>
 
 
-
+/// @brief Функция, преобразовывающая вектор выборки в последовательность битов этой выборки
+/// @param vec Вектор выборки
+/// @return Последовательность битов
 std::vector<bool> sample_to_bit_sequence ( std::vector<unsigned int>& vec )
 {
   int max_len = 1 + std::log2(MAX_LIM); // Находим наибольший бит, который может принять значение 1
@@ -28,6 +35,11 @@ std::vector<bool> sample_to_bit_sequence ( std::vector<unsigned int>& vec )
 
 }
 
+
+/// @brief Функция, которая выявляет паттерны битов заданной длины в последовательности и считает их количество
+/// @param bit_seq Последовательность битов
+/// @param m Длина паттерна
+/// @return Количество встреченных паттернов одного вида. Паттерну, являющемуся двоичным представление числа num, соответствует индекс num
 std::vector<unsigned int> get_pattern_counts ( std::vector<bool>& bit_seq, int m )
 {
   std::vector<unsigned int> pattern_counts(1<<m, 0);
@@ -47,6 +59,10 @@ std::vector<unsigned int> get_pattern_counts ( std::vector<bool>& bit_seq, int m
 }
 
 
+/// @brief Вспомогательная функция теста на периодичность
+/// @param bit_seq Последовательность битов
+/// @param m Длина блока
+/// @return Искомое значение
 double get_psi2 ( std::vector<bool>& bit_seq, int m )
 {
   std::vector<unsigned int> pattern_counts = get_pattern_counts(bit_seq, m);
@@ -66,6 +82,10 @@ double get_psi2 ( std::vector<bool>& bit_seq, int m )
 }
 
 
+/// @brief Вспомогательная функциятеста приблизительной энтропии
+/// @param bit_seq Последовательность битов
+/// @param m Длина блока
+/// @return Искомое значение
 double get_apEn ( std::vector<bool>& bit_seq, int m )
 {
   std::vector<unsigned int> pattern_counts = get_pattern_counts(bit_seq, m);

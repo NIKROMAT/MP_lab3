@@ -1,14 +1,20 @@
+/**
+ * @file defs.h
+ * @brief Заголовочный файл, содержащий определения, испульзуемые во всей лабораторной работе
+ */
+
+
 #ifndef DEFS_H
 #define DEFS_H
 
-#define SAMPLES_DIR "./samples/"
+#define SAMPLES_DIR "./samples/"  ///< Папка, в которой создаются выборки 
 
-#define MIN_LIM 0
-#define MAX_LIM 4095
+#define MIN_LIM 0       ///< Нижняя  граница генерации чисел генераторами
+#define MAX_LIM 4095    ///< Верхняя граница генерации чисел генераторами
 
-#define ALPHA 0.01
-#define SERIAL_M 2
-#define AP_ENTROPY_M 2
+#define ALPHA 0.01      ///< Уровень значимости для nist-тестов 
+#define SERIAL_M 2      ///< Длина блока в тесте на периодичность
+#define AP_ENTROPY_M 2  ///< Длина блока в тесте приблизительной энтропии
 
 
 #endif // DEFS_H

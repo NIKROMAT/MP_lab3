@@ -1,11 +1,28 @@
+/**
+ * @file prng.cpp
+ * @brief Файл, с определением методов классов генераторов
+ */
+
 #include <iostream>
 
 #include "../include/prng.h"
 
 
+////////////////////////////////
+//            PRNG            //
+////////////////////////////////
+
+
+/// @brief Конструктор для базового абстрактного класса
+/// @param min_lim Нижняя  граница генерации
+/// @param max_lim Верхняя граница генерации
 PRNG::PRNG ( uint32_t min_lim, uint32_t max_lim )
 : min_lim(min_lim), max_lim(max_lim) {}
 
+
+/// @brief Метод для генерации и записи в поток целой выборки
+/// @param out  Поток для записи
+/// @param size Размер генерируемой выборки
 void PRNG::generate_sample (std::ostream& out, int size)
 {
   for (int i=0; i < size; ++i)
@@ -14,6 +31,10 @@ void PRNG::generate_sample (std::ostream& out, int size)
   }
 }
 
+
+/// @brief Метод для перевода сгенерированного числа в требуемый диапазон
+/// @param result Сгенерированное число
+/// @return Сгенерированное число в требуемом диапазоне
 uint32_t PRNG::result (uint32_t result) const
 {
   return min_lim + result % (1ul + max_lim - min_lim); // поскольку max_lim - верхняя граница включительно, то нужно брать модуль +1
@@ -22,50 +43,21 @@ uint32_t PRNG::result (uint32_t result) const
 
 
 
-MidPRNG::MidPRNG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
-: PRNG(min_lim, max_lim), base((1<<29)-1), seed(seed) {} // base = 2^29-1
 
-uint32_t MidPRNG::generate ()
-{
-  uint64_t product = base * seed;
+////////////////////////////////
+//           mid_xor          //
+////////////////////////////////
 
-  base = seed;
-  seed = (product >> 16) & 0xffffffff;
-
-  return result(seed);
-}
-
-
-ShufflePRNG::ShufflePRNG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
-: PRNG(min_lim, max_lim), seed(seed) {}
-
-uint32_t ShufflePRNG::generate ()
-{
-  uint32_t num1 = (seed<<8) + (seed>>24);
-  uint32_t num2 = (seed>>8) + (seed<<24);
-
-  seed = num1 + num2;
-
-  return result(seed);
-}
-
-
-LCG::LCG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
-: PRNG(min_lim, max_lim), seed(seed), k((1<<16)+1), b((1<<8)-1), M(1<<31) {}
-
-uint32_t LCG::generate ()
-{
-  seed = (seed * k + b) & (M-1); // Если M = 2^N
-  // seed = (seed * k + b) % (M); // иначе
-
-  return result(seed);
-}
-
-
-
+/// @brief Конструктор класса mid_xor_PRNG
+/// @param seed Семя генерации
+/// @param min_lim Нижняя  граница генерации
+/// @param max_lim Верхняя граница генерации
 mid_xor_PRNG::mid_xor_PRNG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
 : PRNG(min_lim, max_lim), seed(seed) {} 
 
+
+/// @brief Генерация следующего числа
+/// @return Следующее случайное число
 uint32_t mid_xor_PRNG::generate ()
 {
   uint64_t product = seed * seed;
@@ -78,15 +70,57 @@ uint32_t mid_xor_PRNG::generate ()
 
 
 
-shuf_xor_PRNG::shuf_xor_PRNG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
+////////////////////////////////
+//           mul_xor          //
+////////////////////////////////
+
+/// @brief 
+/// @param seed Семя генерации
+/// @param min_lim Нижняя  граница генерации
+/// @param max_lim Верхняя граница генерации
+mul_xor_PRNG::mul_xor_PRNG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
 : PRNG(min_lim, max_lim), seed(seed) {}
 
-uint32_t shuf_xor_PRNG::generate ()
-{
-  uint32_t num1 = (seed<<8 + seed>>24) ^ 0xAAAAAAAA; // инвертируем у смещённого числа каждый 2 бит начиная со старшего
-  uint32_t num2 = (seed>>8 + seed<<24) ^ 0x55555555; // инвертируем у смещённого числа каждый 2 бит начиная с  младшего
 
-  seed = num1 + num2;
+/// @brief Генерация следующего числа
+/// @return Следующее случайное число
+uint32_t mul_xor_PRNG::generate ()
+{
+  seed ^= seed << 13;
+  seed ^= (seed >> 7) * 0x9AE77B3D;
+  seed ^= (seed >> 5) | (seed << 17);
 
   return result(seed);
 }
+
+
+
+////////////////////////////////
+//             LCG            //
+////////////////////////////////
+
+/// @brief 
+/// @param seed Семя генерации
+/// @param min_lim Нижняя  граница генерации
+/// @param max_lim Верхняя граница генерации
+LCG::LCG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
+: PRNG(min_lim, max_lim), seed(seed), k((1<<16)+1), b((1<<8)-1), M(1<<31) {}
+
+
+/// @brief Генерация следующего числа
+/// @return Следующее случайное число
+uint32_t LCG::generate ()
+{
+  seed = (seed * k + b) & (M-1); // Если M = 2^N
+  // seed = (seed * k + b) % (M); // иначе
+
+  // (k-1) - делится на все простые делители M (2)
+  // b и M взаимно простые
+  // M делится на 4 и (k-1) делится на 4
+  // 
+  // Поэтому у этого линейного конгруэнтного генератора макцимальная периодичность  
+
+  return result(seed);
+}
+
+

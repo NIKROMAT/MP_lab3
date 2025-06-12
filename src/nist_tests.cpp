@@ -1,3 +1,15 @@
+/**
+ * @file nist_tests.cpp
+ * @brief Файл, содержащий реализации 5 nist-тестов.
+ * 
+ * Реализованные nist-тесты:
+ *  - Частотный побитовый тест
+ *  - Тест на последовательность одинаковых битов
+ *  - Тест на периодичность
+ *  - Тест приблизительной энтропии
+ *  - Тест кумулятивных сумм
+ */
+
 #include <cmath>
 #include <algorithm>
 
@@ -11,7 +23,9 @@
 
 
 
-
+/// @brief Частотный побитовый тест
+/// @param bit_seq Последовательность битов выборки
+/// @return p_value 
 double nist_frequency ( std::vector<bool>& bit_seq )
 {
   int sum = 0;
@@ -28,6 +42,9 @@ double nist_frequency ( std::vector<bool>& bit_seq )
 }
 
 
+/// @brief Тест на последовательность одинаковых битов
+/// @param bit_seq Последовательность битов выборки
+/// @return p_value
 double nist_runs ( std::vector<bool>& bit_seq )
 {
 
@@ -37,7 +54,6 @@ double nist_runs ( std::vector<bool>& bit_seq )
 
   if (fabs(pi - 0.5) >= 2 / std::sqrt(bit_seq.size()))
   {
-    std::cerr << ">>> Критерий для runs-теста не выполнен." << std::endl;
     return 0;
   }
 
@@ -56,7 +72,10 @@ double nist_runs ( std::vector<bool>& bit_seq )
 
 }
 
-
+/// @brief Тест на периодичность
+/// @param bit_seq Последовательность битов выборки
+/// @param m Длина рассматриваемого блока бит
+/// @return p_value
 double nist_serial ( std::vector<bool>& bit_seq, int m )
 {
   double psi_m   = get_psi2(bit_seq, m);
@@ -67,7 +86,10 @@ double nist_serial ( std::vector<bool>& bit_seq, int m )
   return p_value; 
 }
 
-
+/// @brief Тест приблизительной энтропии
+/// @param bit_seq Последовательность битов выборки
+/// @param m Длина рассматриваемого блока бит
+/// @return p_value
 double nist_apEntropy ( std::vector<bool>& bit_seq, int m )
 {
   double apEn_m  = get_apEn(bit_seq, m);
@@ -80,7 +102,9 @@ double nist_apEntropy ( std::vector<bool>& bit_seq, int m )
   return p_value; 
 }
 
-
+/// @brief Тест кумулятивных сумм
+/// @param bit_seq Последовательность битов выборки
+/// @return p_value
 double nist_cusum ( std::vector<bool>& bit_seq )
 {
   int S = 0;

@@ -1,7 +1,5 @@
-# TARGET = create_samples
 CXX = g++
 PY 	= python3
-# OBJ = create_samples.o prng.o
 
 SAMPLES_OBJ = create_samples.o prng.o
 RESULTS_OBJ = get_results.o tests.o nist_tests.o nist_funcs.o cephes.o
@@ -11,17 +9,21 @@ EXEC_FILES  = create_samples get_results time_check
 
 
 
-.PHONY : all test results samples time clean cleanall
+.PHONY : all
 
-all : ${EXEC_FILES}
-	./create_samples
-	./get_results
-	./time_check
+all : samples results time graph
+# all : ${EXEC_FILES} 
+# 	./create_samples
+# 	./get_results
+# 	./time_check
+
+
+
+.PHONY : samples
 
 samples : create_samples
 	./$^
 
-# create_samples : create_samples.o prng.o
 create_samples : ${SAMPLES_OBJ}
 	${CXX} $^ -o $@
 
@@ -33,8 +35,10 @@ prng.o : src/prng.cpp
 
 
 
+.PHONY : results
+
 results : get_results
-	./get_results
+	./$^
 
 get_results : ${RESULTS_OBJ}
 	${CXX} $^ -o get_results
@@ -55,8 +59,11 @@ cephes.o : src/external/cephes.cpp
 	${CXX} -c $^ -o $@
 
 
+
+.PHONY : time
+
 time : time_check
-	./time_check
+	./$^
 
 time_check : ${TIME_OBJ}
 	${CXX} $^ -o $@
@@ -65,19 +72,33 @@ time_check.o : time_check.cpp
 	${CXX} -c $^ -o $@
 
 
+
+.PHONY : graph
+
+graph : generation_time.csv time_graph.py
+	${PY} time_graph.py
+
+generation_time.csv : time
+
+
+.PHONY : doc pdf
+
+doc : Doxyfile
+	doxygen Doxyfile
+
+Doxyfile : 
+	doxygen -g
+
+pdf : doc
+	cd latex/ && make
+
+
+.PHONY : clean cleanall
+
 clean : 
-	rm -f ${SAMPLES_OBJ} ${RESULTS_OBJ} ${TIME_OBJ}
+	rm -f ${SAMPLES_OBJ} ${RESULTS_OBJ} ${TIME_OBJ} ${EXEC_FILES}
 
 cleanall : clean
-	rm -rI ${EXEC_FILES} samples generation_time.csv
+	rm -rI samples generation_time.csv generation_time.png html latex
 
 
-
-test : t
-	./t
-
-t : test.o nist_tests.o
-	${CXX} $^ -o t
-
-test.o : test.cpp
-	${CXX} -c $^ -o $@
