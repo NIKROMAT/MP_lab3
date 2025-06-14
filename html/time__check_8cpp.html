@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная работа 3: Файл time_check.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторная работа 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл time_check.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Файл, в котором производится измерение времени генерации выборок разных размеров разными генераторами и одним из стандартных генераторов  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;experimental/random&gt;</code><br />
+<code>#include &quot;<a class="el" href="prng_8h_source.html">include/prng.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="defs_8h_source.html">include/defs.h</a>&quot;</code><br />
+</div>
+<p><a href="time__check_8cpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ad75fab0042b685db8e5f2cb28e3d045d" id="r_ad75fab0042b685db8e5f2cb28e3d045d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad75fab0042b685db8e5f2cb28e3d045d">check_time</a> (std::ostream &amp;out, int size)</td></tr>
+<tr class="memdesc:ad75fab0042b685db8e5f2cb28e3d045d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция, в которой производится измерение и запись времени генерации выборки для каждого из генераторов  <br /></td></tr>
+<tr class="separator:ad75fab0042b685db8e5f2cb28e3d045d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основная функция, в которой происходит измерение времени генерации выборок разных размеров всеми генераторами и одним из стандартных генераторов  <br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Файл, в котором производится измерение времени генерации выборок разных размеров разными генераторами и одним из стандартных генераторов </p>
+
+<p class="definition">См. определение в файле <a class="el" href="time__check_8cpp_source.html">time_check.cpp</a></p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="ad75fab0042b685db8e5f2cb28e3d045d" name="ad75fab0042b685db8e5f2cb28e3d045d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75fab0042b685db8e5f2cb28e3d045d">&#9670;&#160;</a></span>check_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void check_time </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция, в которой производится измерение и запись времени генерации выборки для каждого из генераторов </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>Поток, куда будет записан результат </td></tr>
+    <tr><td class="paramname">size</td><td>Размер генерируемой выборки </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="time__check_8cpp_source.html">time_check.cpp</a> строка <a class="el" href="time__check_8cpp_source.html#l00044">44</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
+<div class="line"><span class="lineno">   46</span>  <span class="keyword">namespace </span>ch = std::chrono;               <span class="comment">// Для удобства</span></div>
+<div class="line"><span class="lineno">   47</span>  <span class="keyword">using </span>clock  = ch::high_resolution_clock; <span class="comment">// Для удобства</span></div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>  <span class="comment">// Записываем размер выборки</span></div>
+<div class="line"><span class="lineno">   50</span>  out &lt;&lt; size &lt;&lt; <span class="charliteral">&#39;,&#39;</span>;</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>  ch::time_point&lt;clock&gt; start, end; <span class="comment">// Метки начала и конца измерения</span></div>
+<div class="line"><span class="lineno">   53</span>  std::ofstream trash(<span class="stringliteral">&quot;/dev/null&quot;</span>); <span class="comment">// Мусорка, чтобы не хранить сгенерированные выборки</span></div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>  </div>
+<div class="line"><span class="lineno">   56</span>  <span class="comment">// Замер для генератора mid_xor</span></div>
+<div class="line"><span class="lineno">   57</span>  {</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_class" href="classmid__xor__PRNG.html">mid_xor_PRNG</a> prng(42, <a class="code hl_define" href="defs_8h.html#a02b80698716dcc8d773d1168b63b903a">MIN_LIM</a>, <a class="code hl_define" href="defs_8h.html#a35430215013e24474f3682ace9660230">MAX_LIM</a>);  <span class="comment">// Создание генератора</span></div>
+<div class="line"><span class="lineno">   59</span>    start = clock::now();                     <span class="comment">// Начало измерения</span></div>
+<div class="line"><span class="lineno">   60</span>    prng.generate_sample(trash, size);        <span class="comment">// Генерация выборки</span></div>
+<div class="line"><span class="lineno">   61</span>    end = clock::now();                       <span class="comment">// Конец измерения</span></div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    out &lt;&lt; ch::duration_cast&lt;ch::microseconds&gt;(end-start).count() &lt;&lt; <span class="charliteral">&#39;,&#39;</span>; <span class="comment">// Запись результата</span></div>
+<div class="line"><span class="lineno">   64</span>  }</div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>  </div>
+<div class="line"><span class="lineno">   67</span>  <span class="comment">// Замер для генератора mul_xor</span></div>
+<div class="line"><span class="lineno">   68</span>  {</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_class" href="classmul__xor__PRNG.html">mul_xor_PRNG</a> prng(42, <a class="code hl_define" href="defs_8h.html#a02b80698716dcc8d773d1168b63b903a">MIN_LIM</a>, <a class="code hl_define" href="defs_8h.html#a35430215013e24474f3682ace9660230">MAX_LIM</a>);  <span class="comment">// Создание генератора</span></div>
+<div class="line"><span class="lineno">   70</span>    start = clock::now();                     <span class="comment">// Начало измерения</span></div>
+<div class="line"><span class="lineno">   71</span>    prng.generate_sample(trash, size);        <span class="comment">// Генерация выборки</span></div>
+<div class="line"><span class="lineno">   72</span>    end = clock::now();                       <span class="comment">// Конец измерения</span></div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>    out &lt;&lt; ch::duration_cast&lt;ch::microseconds&gt;(end-start).count() &lt;&lt; <span class="charliteral">&#39;,&#39;</span>; <span class="comment">// Запись результата</span></div>
+<div class="line"><span class="lineno">   75</span>  }</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>  </div>
+<div class="line"><span class="lineno">   78</span>  <span class="comment">// Замер для генератора LCG</span></div>
+<div class="line"><span class="lineno">   79</span>  {</div>
+<div class="line"><span class="lineno">   80</span>    <a class="code hl_class" href="classLCG.html">LCG</a> prng(42, <a class="code hl_define" href="defs_8h.html#a02b80698716dcc8d773d1168b63b903a">MIN_LIM</a>, <a class="code hl_define" href="defs_8h.html#a35430215013e24474f3682ace9660230">MAX_LIM</a>);           <span class="comment">// Создание генератора</span></div>
+<div class="line"><span class="lineno">   81</span>    start = clock::now();                     <span class="comment">// Начало измерения</span></div>
+<div class="line"><span class="lineno">   82</span>    prng.generate_sample(trash, size);        <span class="comment">// Генерация выборки</span></div>
+<div class="line"><span class="lineno">   83</span>    end = clock::now();                       <span class="comment">// Конец измерения</span></div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>    out &lt;&lt; ch::duration_cast&lt;ch::microseconds&gt;(end-start).count() &lt;&lt; <span class="charliteral">&#39;,&#39;</span>; <span class="comment">// Запись результата</span></div>
+<div class="line"><span class="lineno">   86</span>  }</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>  </div>
+<div class="line"><span class="lineno">   89</span>  <span class="comment">// Замер для генератора randint</span></div>
+<div class="line"><span class="lineno">   90</span>  {</div>
+<div class="line"><span class="lineno">   91</span>    std::srand(42);                                 <span class="comment">// Задание семени</span></div>
+<div class="line"><span class="lineno">   92</span>    start = clock::now();                           <span class="comment">// Начало измерения</span></div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;size; ++i)                      <span class="comment">// Генерация выборки</span></div>
+<div class="line"><span class="lineno">   94</span>      std::experimental::randint(<a class="code hl_define" href="defs_8h.html#a02b80698716dcc8d773d1168b63b903a">MIN_LIM</a>, <a class="code hl_define" href="defs_8h.html#a35430215013e24474f3682ace9660230">MAX_LIM</a>);</div>
+<div class="line"><span class="lineno">   95</span>    end = clock::now();                             <span class="comment">// Конец измерения</span></div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>    out &lt;&lt; ch::duration_cast&lt;ch::microseconds&gt;(end-start).count() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>; <span class="comment">// Запись результата</span></div>
+<div class="line"><span class="lineno">   98</span>  }</div>
+<div class="line"><span class="lineno">   99</span>}</div>
+<div class="ttc" id="aclassLCG_html"><div class="ttname"><a href="classLCG.html">LCG</a></div><div class="ttdoc">Генератор, основанный на линейном конгруэнтном методе</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00068">prng.h:69</a></div></div>
+<div class="ttc" id="aclassmid__xor__PRNG_html"><div class="ttname"><a href="classmid__xor__PRNG.html">mid_xor_PRNG</a></div><div class="ttdoc">Генератор, основанный на среднем квадрата и Xor.</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00040">prng.h:41</a></div></div>
+<div class="ttc" id="aclassmul__xor__PRNG_html"><div class="ttname"><a href="classmul__xor__PRNG.html">mul_xor_PRNG</a></div><div class="ttdoc">Генератор, основанный на произведении и Xor.</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00054">prng.h:55</a></div></div>
+<div class="ttc" id="adefs_8h_html_a02b80698716dcc8d773d1168b63b903a"><div class="ttname"><a href="defs_8h.html#a02b80698716dcc8d773d1168b63b903a">MIN_LIM</a></div><div class="ttdeci">#define MIN_LIM</div><div class="ttdoc">Нижняя граница генерации чисел генераторами</div><div class="ttdef"><b>Определения</b> <a href="defs_8h_source.html#l00012">defs.h:12</a></div></div>
+<div class="ttc" id="adefs_8h_html_a35430215013e24474f3682ace9660230"><div class="ttname"><a href="defs_8h.html#a35430215013e24474f3682ace9660230">MAX_LIM</a></div><div class="ttdeci">#define MAX_LIM</div><div class="ttdoc">Верхняя граница генерации чисел генераторами</div><div class="ttdef"><b>Определения</b> <a href="defs_8h_source.html#l00013">defs.h:13</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основная функция, в которой происходит измерение времени генерации выборок разных размеров всеми генераторами и одним из стандартных генераторов </p>
+<dl class="section return"><dt>Возвращает</dt><dd></dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="time__check_8cpp_source.html">time_check.cpp</a> строка <a class="el" href="time__check_8cpp_source.html#l00021">21</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>{</div>
+<div class="line"><span class="lineno">   23</span>  <span class="comment">// Файл для записи результатов</span></div>
+<div class="line"><span class="lineno">   24</span>  std::ofstream time_results(<span class="stringliteral">&quot;generation_time.csv&quot;</span>);</div>
+<div class="line"><span class="lineno">   25</span>  </div>
+<div class="line"><span class="lineno">   26</span>  time_results &lt;&lt; <span class="stringliteral">&quot;Size,Mid_xor,Mul_xor,LCG,randint\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>  <span class="comment">// Список размеров выборок</span></div>
+<div class="line"><span class="lineno">   29</span>  std::vector&lt;int&gt; sizes = {  1&#39;000,   2&#39;000,   3&#39;000,   5&#39;000,    10&#39;000,</div>
+<div class="line"><span class="lineno">   30</span>                             20&#39;000,  30&#39;000,  50&#39;000,  75&#39;000,   100&#39;000,</div>
+<div class="line"><span class="lineno">   31</span>                            200&#39;000, 300&#39;000, 500&#39;000, 750&#39;000, 1&#39;000&#39;000};</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>  <span class="comment">// Цикл измерения и записи времени генерации выборок для разных размеров</span></div>
+<div class="line"><span class="lineno">   35</span>  <span class="keywordflow">for</span> ( <span class="keyword">auto</span> size : sizes )</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_function" href="#ad75fab0042b685db8e5f2cb28e3d045d">check_time</a> (time_results, size);</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>}</div>
+<div class="ttc" id="atime__check_8cpp_html_ad75fab0042b685db8e5f2cb28e3d045d"><div class="ttname"><a href="#ad75fab0042b685db8e5f2cb28e3d045d">check_time</a></div><div class="ttdeci">void check_time(std::ostream &amp;, int)</div><div class="ttdoc">Функция, в которой производится измерение и запись времени генерации выборки для каждого из генератор...</div><div class="ttdef"><b>Определения</b> <a href="time__check_8cpp_source.html#l00044">time_check.cpp:44</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

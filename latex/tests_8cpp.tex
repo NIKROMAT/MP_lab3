@@ -1,0 +1,194 @@
+\doxysection{Файл src/tests.cpp}
+\hypertarget{tests_8cpp}{}\label{tests_8cpp}\index{src/tests.cpp@{src/tests.cpp}}
+
+
+Файл, в котором определяются все функции, производящие оценки выборок и хи-\/квадрат тест  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}../include/tests.\+h"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\+\_\+mean}} (std\+::vector$<$ unsigned int $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Оценка выборки на среднее значение \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8cpp_a2349a26b6a571890f8d9d1b5faa31d88}{get\+\_\+std\+Dev}} (std\+::vector$<$ unsigned int $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Оценка выборки на стандартное отклонение \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8cpp_a9773d5dd79b04559a24bbcbc272426a7}{get\+\_\+cv}} (std\+::vector$<$ unsigned int $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Оценка выборки на коэффициент вариации \end{DoxyCompactList}\item 
+std\+::pair$<$ double, int $>$ \mbox{\hyperlink{tests_8cpp_a2479df567e90952c367166a1b7ce8aad}{get\+\_\+chi2}} (std\+::vector$<$ unsigned int $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Тест хи-\/квадрат \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Файл, в котором определяются все функции, производящие оценки выборок и хи-\/квадрат тест 
+
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{tests_8cpp_a2479df567e90952c367166a1b7ce8aad}\index{tests.cpp@{tests.cpp}!get\_chi2@{get\_chi2}}
+\index{get\_chi2@{get\_chi2}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_chi2()}{get\_chi2()}}
+{\footnotesize\ttfamily \label{tests_8cpp_a2479df567e90952c367166a1b7ce8aad} 
+std\+::pair$<$ double, int $>$ get\+\_\+chi2 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Тест хи-\/квадрат 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Верктор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Пара значений (значение хи-\/квадрат, количество степеней свободы) 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00056}{56}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{if}\ (vec.empty())}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \{-\/1,-\/1\};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{auto}\ min\_val\ =\ *std::min\_element(vec.begin(),\ vec.end());\ \textcolor{comment}{//\ Наименьший\ элемент\ выборки}}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{auto}\ max\_val\ =\ *std::max\_element(vec.begin(),\ vec.end());\ \textcolor{comment}{//\ Наибольший\ элемент\ выборки}}
+\DoxyCodeLine{00063\ \ \ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{int}\ bin\_number\ =\ \ 1\ +\ std::log2(vec.size());\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Количество\ промежутков\ по\ правилу\ Стерджеса}}
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{float}\ bin\_width\ =\ (float)(max\_val-\/min\_val)/bin\_number;\ \ \textcolor{comment}{//\ Ширина\ промежутка}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{float}\ expected\ =\ (float)vec.size()\ /\ bin\_number;\ \ \textcolor{comment}{//\ Количество\ ожидаемых\ наблюдений\ в\ каждом\ промежутке}}
+\DoxyCodeLine{00068\ \ \ std::vector<int>\ observed(bin\_number,\ 0);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Количество\ фактических\ наблюдений\ в\ каждом\ промежутке}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ val\ :\ vec\ )}
+\DoxyCodeLine{00072\ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ bin\_ind\ =\ (int)\ ((val\ -\/\ min\_val)\ /\ bin\_width);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (bin\_ind\ >=\ bin\_number)\ -\/-\/bin\_ind;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ ++observed.at(bin\_ind);}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{double}\ chi2\ =\ 0;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ obs\ :\ observed)}
+\DoxyCodeLine{00083\ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ chi2\ +=\ (obs\ -\/\ expected)\ *\ (obs\ -\/\ expected)\ /\ expected;}
+\DoxyCodeLine{00085\ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \{chi2,\ bin\_number-\/1\};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8cpp_a9773d5dd79b04559a24bbcbc272426a7}\index{tests.cpp@{tests.cpp}!get\_cv@{get\_cv}}
+\index{get\_cv@{get\_cv}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_cv()}{get\_cv()}}
+{\footnotesize\ttfamily \label{tests_8cpp_a9773d5dd79b04559a24bbcbc272426a7} 
+double get\+\_\+cv (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Оценка выборки на коэффициент вариации 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Коэффициент вариации 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00047}{47}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tests_8cpp_a2349a26b6a571890f8d9d1b5faa31d88}{get\_stdDev}}(vec)\ /\ \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\_mean}}(vec);}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}\index{tests.cpp@{tests.cpp}!get\_mean@{get\_mean}}
+\index{get\_mean@{get\_mean}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_mean()}{get\_mean()}}
+{\footnotesize\ttfamily \label{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067} 
+double get\+\_\+mean (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Оценка выборки на среднее значение 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Среднее значение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00014}{14}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\ num\ :\ vec\ )}
+\DoxyCodeLine{00019\ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ sum\ +=\ num;}
+\DoxyCodeLine{00021\ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordflow}{return}\ sum\ /\ vec.size();}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8cpp_a2349a26b6a571890f8d9d1b5faa31d88}\index{tests.cpp@{tests.cpp}!get\_stdDev@{get\_stdDev}}
+\index{get\_stdDev@{get\_stdDev}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_stdDev()}{get\_stdDev()}}
+{\footnotesize\ttfamily \label{tests_8cpp_a2349a26b6a571890f8d9d1b5faa31d88} 
+double get\+\_\+std\+Dev (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Оценка выборки на стандартное отклонение 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Стандартное отклонение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00030}{30}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ sum\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{auto}\ mean\ =\ \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\_mean}}(vec);}
+\DoxyCodeLine{00034\ \ \ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\ num\ :\ vec\ )}
+\DoxyCodeLine{00036\ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ sum\ +=\ (num\ -\/\ mean)\ *\ (num\ -\/\ mean);}
+\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(sum\ /\ vec.size());}
+\DoxyCodeLine{00041\ \}\ }
+
+\end{DoxyCode}

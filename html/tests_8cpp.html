@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная работа 3: Файл src/tests.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторная работа 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл tests.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Файл, в котором определяются все функции, производящие оценки выборок и хи-квадрат тест  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="tests_8h_source.html">../include/tests.h</a>&quot;</code><br />
+</div>
+<p><a href="tests_8cpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a63496e8ecb92de43249898fe3ddfd067" id="r_a63496e8ecb92de43249898fe3ddfd067"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63496e8ecb92de43249898fe3ddfd067">get_mean</a> (std::vector&lt; unsigned int &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a63496e8ecb92de43249898fe3ddfd067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Оценка выборки на среднее значение  <br /></td></tr>
+<tr class="separator:a63496e8ecb92de43249898fe3ddfd067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2349a26b6a571890f8d9d1b5faa31d88" id="r_a2349a26b6a571890f8d9d1b5faa31d88"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2349a26b6a571890f8d9d1b5faa31d88">get_stdDev</a> (std::vector&lt; unsigned int &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a2349a26b6a571890f8d9d1b5faa31d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Оценка выборки на стандартное отклонение  <br /></td></tr>
+<tr class="separator:a2349a26b6a571890f8d9d1b5faa31d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9773d5dd79b04559a24bbcbc272426a7" id="r_a9773d5dd79b04559a24bbcbc272426a7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9773d5dd79b04559a24bbcbc272426a7">get_cv</a> (std::vector&lt; unsigned int &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a9773d5dd79b04559a24bbcbc272426a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Оценка выборки на коэффициент вариации  <br /></td></tr>
+<tr class="separator:a9773d5dd79b04559a24bbcbc272426a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2479df567e90952c367166a1b7ce8aad" id="r_a2479df567e90952c367166a1b7ce8aad"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2479df567e90952c367166a1b7ce8aad">get_chi2</a> (std::vector&lt; unsigned int &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a2479df567e90952c367166a1b7ce8aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тест хи-квадрат  <br /></td></tr>
+<tr class="separator:a2479df567e90952c367166a1b7ce8aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Файл, в котором определяются все функции, производящие оценки выборок и хи-квадрат тест </p>
+
+<p class="definition">См. определение в файле <a class="el" href="tests_8cpp_source.html">tests.cpp</a></p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="a2479df567e90952c367166a1b7ce8aad" name="a2479df567e90952c367166a1b7ce8aad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2479df567e90952c367166a1b7ce8aad">&#9670;&#160;</a></span>get_chi2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; double, int &gt; get_chi2 </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vec</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Тест хи-квадрат </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>Верктор выборки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Пара значений (значение хи-квадрат, количество степеней свободы) </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="tests_8cpp_source.html">tests.cpp</a> строка <a class="el" href="tests_8cpp_source.html#l00056">56</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
+<div class="line"><span class="lineno">   58</span>  <span class="keywordflow">if</span> (vec.empty())</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> {-1,-1};</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>  <span class="keyword">auto</span> min_val = *std::min_element(vec.begin(), vec.end()); <span class="comment">// Наименьший элемент выборки</span></div>
+<div class="line"><span class="lineno">   62</span>  <span class="keyword">auto</span> max_val = *std::max_element(vec.begin(), vec.end()); <span class="comment">// Наибольший элемент выборки</span></div>
+<div class="line"><span class="lineno">   63</span>  </div>
+<div class="line"><span class="lineno">   64</span>  <span class="keywordtype">int</span> bin_number =  1 + std::log2(vec.size());            <span class="comment">// Количество промежутков по правилу Стерджеса</span></div>
+<div class="line"><span class="lineno">   65</span>  <span class="keywordtype">float</span> bin_width = (float)(max_val-min_val)/bin_number;  <span class="comment">// Ширина промежутка</span></div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>  <span class="keywordtype">float</span> expected = (float)vec.size() / bin_number;  <span class="comment">// Количество ожидаемых наблюдений в каждом промежутке</span></div>
+<div class="line"><span class="lineno">   68</span>  std::vector&lt;int&gt; observed(bin_number, 0);         <span class="comment">// Количество фактических наблюдений в каждом промежутке</span></div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>  </div>
+<div class="line"><span class="lineno">   71</span>  <span class="keywordflow">for</span> ( <span class="keyword">auto</span> val : vec )</div>
+<div class="line"><span class="lineno">   72</span>  {</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordtype">int</span> bin_ind = (int) ((val - min_val) / bin_width);</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">if</span> (bin_ind &gt;= bin_number) --bin_ind;</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>    ++observed.at(bin_ind);</div>
+<div class="line"><span class="lineno">   77</span>  }</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>  <span class="keywordtype">double</span> chi2 = 0;</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>  <span class="keywordflow">for</span> ( <span class="keyword">auto</span> obs : observed)</div>
+<div class="line"><span class="lineno">   83</span>  {</div>
+<div class="line"><span class="lineno">   84</span>    chi2 += (obs - expected) * (obs - expected) / expected;</div>
+<div class="line"><span class="lineno">   85</span>  }</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>  <span class="keywordflow">return</span> {chi2, bin_number-1};</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9773d5dd79b04559a24bbcbc272426a7" name="a9773d5dd79b04559a24bbcbc272426a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9773d5dd79b04559a24bbcbc272426a7">&#9670;&#160;</a></span>get_cv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double get_cv </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vec</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Оценка выборки на коэффициент вариации </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>Вектор выборки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Коэффициент вариации </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="tests_8cpp_source.html">tests.cpp</a> строка <a class="el" href="tests_8cpp_source.html#l00047">47</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>{</div>
+<div class="line"><span class="lineno">   49</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="#a2349a26b6a571890f8d9d1b5faa31d88">get_stdDev</a>(vec) / <a class="code hl_function" href="#a63496e8ecb92de43249898fe3ddfd067">get_mean</a>(vec);</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+<div class="ttc" id="atests_8cpp_html_a2349a26b6a571890f8d9d1b5faa31d88"><div class="ttname"><a href="#a2349a26b6a571890f8d9d1b5faa31d88">get_stdDev</a></div><div class="ttdeci">double get_stdDev(std::vector&lt; unsigned int &gt; &amp;vec)</div><div class="ttdoc">Оценка выборки на стандартное отклонение</div><div class="ttdef"><b>Определения</b> <a href="tests_8cpp_source.html#l00030">tests.cpp:30</a></div></div>
+<div class="ttc" id="atests_8cpp_html_a63496e8ecb92de43249898fe3ddfd067"><div class="ttname"><a href="#a63496e8ecb92de43249898fe3ddfd067">get_mean</a></div><div class="ttdeci">double get_mean(std::vector&lt; unsigned int &gt; &amp;vec)</div><div class="ttdoc">Оценка выборки на среднее значение</div><div class="ttdef"><b>Определения</b> <a href="tests_8cpp_source.html#l00014">tests.cpp:14</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a63496e8ecb92de43249898fe3ddfd067" name="a63496e8ecb92de43249898fe3ddfd067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63496e8ecb92de43249898fe3ddfd067">&#9670;&#160;</a></span>get_mean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double get_mean </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vec</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Оценка выборки на среднее значение </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>Вектор выборки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Среднее значение </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="tests_8cpp_source.html">tests.cpp</a> строка <a class="el" href="tests_8cpp_source.html#l00014">14</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
+<div class="line"><span class="lineno">   16</span>  <span class="keywordtype">double</span> sum = 0;</div>
+<div class="line"><span class="lineno">   17</span> </div>
+<div class="line"><span class="lineno">   18</span>  <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; num : vec )</div>
+<div class="line"><span class="lineno">   19</span>  {</div>
+<div class="line"><span class="lineno">   20</span>    sum += num;</div>
+<div class="line"><span class="lineno">   21</span>  }</div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>  <span class="keywordflow">return</span> sum / vec.size();</div>
+<div class="line"><span class="lineno">   24</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2349a26b6a571890f8d9d1b5faa31d88" name="a2349a26b6a571890f8d9d1b5faa31d88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2349a26b6a571890f8d9d1b5faa31d88">&#9670;&#160;</a></span>get_stdDev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double get_stdDev </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vec</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Оценка выборки на стандартное отклонение </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>Вектор выборки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Стандартное отклонение </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="tests_8cpp_source.html">tests.cpp</a> строка <a class="el" href="tests_8cpp_source.html#l00030">30</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>{</div>
+<div class="line"><span class="lineno">   32</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> sum = 0;</div>
+<div class="line"><span class="lineno">   33</span>  <span class="keyword">auto</span> mean = <a class="code hl_function" href="#a63496e8ecb92de43249898fe3ddfd067">get_mean</a>(vec);</div>
+<div class="line"><span class="lineno">   34</span>  </div>
+<div class="line"><span class="lineno">   35</span>  <span class="keywordflow">for</span> ( <span class="keyword">auto</span>&amp; num : vec )</div>
+<div class="line"><span class="lineno">   36</span>  {</div>
+<div class="line"><span class="lineno">   37</span>    sum += (num - mean) * (num - mean);</div>
+<div class="line"><span class="lineno">   38</span>  }</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>  <span class="keywordflow">return</span> std::sqrt(sum / vec.size());</div>
+<div class="line"><span class="lineno">   41</span>} </div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

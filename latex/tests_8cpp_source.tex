@@ -1,0 +1,82 @@
+\doxysection{tests.\+cpp}
+\hypertarget{tests_8cpp_source}{}\label{tests_8cpp_source}\index{src/tests.cpp@{src/tests.cpp}}
+\mbox{\hyperlink{tests_8cpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tests_8h}{../include/tests.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00014}\mbox{\hyperlink{tests_8h_a9e3c3d5ab8a7fbee951e827cbe065903}{00014}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\_mean}}\ (\ std::vector<unsigned\ int>\&\ vec\ )}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00016}00016\ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00018}00018\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\ num\ :\ vec\ )}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00019}00019\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00020}00020\ \ \ \ \ sum\ +=\ num;}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00021}00021\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00023}00023\ \ \ \textcolor{keywordflow}{return}\ sum\ /\ vec.size();}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00030}\mbox{\hyperlink{tests_8h_ac21276803576f405fc00e3b9f0cef67b}{00030}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{tests_8cpp_a2349a26b6a571890f8d9d1b5faa31d88}{get\_stdDev}}\ (\ std::vector<unsigned\ int>\&\ vec\ )}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00032}00032\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ sum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00033}00033\ \ \ \textcolor{keyword}{auto}\ mean\ =\ \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\_mean}}(vec);}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00034}00034\ \ \ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00035}00035\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\ num\ :\ vec\ )}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00036}00036\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00037}00037\ \ \ \ \ sum\ +=\ (num\ -\/\ mean)\ *\ (num\ -\/\ mean);}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00038}00038\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00040}00040\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(sum\ /\ vec.size());}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00041}00041\ \}\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00047}\mbox{\hyperlink{tests_8h_a22d058c63f27e3646006bd345e19fac3}{00047}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{tests_8cpp_a9773d5dd79b04559a24bbcbc272426a7}{get\_cv}}\ (\ std::vector<unsigned\ int>\&\ vec\ )}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00048}00048\ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00049}00049\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tests_8cpp_a2349a26b6a571890f8d9d1b5faa31d88}{get\_stdDev}}(vec)\ /\ \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\_mean}}(vec);}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00056}\mbox{\hyperlink{tests_8h_ac51a16d54242d9724145612a1c643dd5}{00056}}\ std::pair<double,int>\ \mbox{\hyperlink{tests_8cpp_a2479df567e90952c367166a1b7ce8aad}{get\_chi2}}\ (\ std::vector<unsigned\ int>\&\ vec\ )}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00058}00058\ \ \ \textcolor{keywordflow}{if}\ (vec.empty())}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \{-\/1,-\/1\};}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00061}00061\ \ \ \textcolor{keyword}{auto}\ min\_val\ =\ *std::min\_element(vec.begin(),\ vec.end());\ \textcolor{comment}{//\ Наименьший\ элемент\ выборки}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00062}00062\ \ \ \textcolor{keyword}{auto}\ max\_val\ =\ *std::max\_element(vec.begin(),\ vec.end());\ \textcolor{comment}{//\ Наибольший\ элемент\ выборки}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00063}00063\ \ \ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00064}00064\ \ \ \textcolor{keywordtype}{int}\ bin\_number\ =\ \ 1\ +\ std::log2(vec.size());\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Количество\ промежутков\ по\ правилу\ Стерджеса}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00065}00065\ \ \ \textcolor{keywordtype}{float}\ bin\_width\ =\ (float)(max\_val-\/min\_val)/bin\_number;\ \ \textcolor{comment}{//\ Ширина\ промежутка}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00067}00067\ \ \ \textcolor{keywordtype}{float}\ expected\ =\ (float)vec.size()\ /\ bin\_number;\ \ \textcolor{comment}{//\ Количество\ ожидаемых\ наблюдений\ в\ каждом\ промежутке}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00068}00068\ \ \ std::vector<int>\ observed(bin\_number,\ 0);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Количество\ фактических\ наблюдений\ в\ каждом\ промежутке}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00070}00070\ \ \ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00071}00071\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ val\ :\ vec\ )}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00072}00072\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{int}\ bin\_ind\ =\ (int)\ ((val\ -\/\ min\_val)\ /\ bin\_width);}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (bin\_ind\ >=\ bin\_number)\ -\/-\/bin\_ind;}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00076}00076\ \ \ \ \ ++observed.at(bin\_ind);}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00077}00077\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00080}00080\ \ \ \textcolor{keywordtype}{double}\ chi2\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00082}00082\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ obs\ :\ observed)}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00083}00083\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00084}00084\ \ \ \ \ chi2\ +=\ (obs\ -\/\ expected)\ *\ (obs\ -\/\ expected)\ /\ expected;}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00085}00085\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00087}00087\ \ \ \textcolor{keywordflow}{return}\ \{chi2,\ bin\_number-\/1\};}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{tests_8cpp_source_l00091}00091\ }
+
+\end{DoxyCode}

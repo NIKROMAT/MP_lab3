@@ -1,0 +1,51 @@
+\doxysection{time\+\_\+graph.\+py}
+\hypertarget{time__graph_8py_source}{}\label{time__graph_8py_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00001}00001\ \textcolor{keyword}{import}\ pandas\ \textcolor{keyword}{as}\ pd}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00002}00002\ \textcolor{keyword}{import}\ matplotlib.pyplot\ \textcolor{keyword}{as}\ plt}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00005}00005\ res\_filepath\ =\ \textcolor{stringliteral}{"{}./generation\_time.csv"{}}}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00006}00006\ res\_picpath\ \ =\ \textcolor{stringliteral}{"{}./generation\_time.png"{}}}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00009}00009\ results\ =\ pd.read\_csv(res\_filepath)}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00011}00011\ names\ =\ results.columns[1:]}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00014}00014\ plt.figure(figsize=(10,10),layout=\textcolor{stringliteral}{"{}tight"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00018}00018\ plt.subplot(211)}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00020}00020\ plt.title(\textcolor{stringliteral}{"{}Зависимость\ времени\ генерации\ от\ объёма\ выборки\ для\ различных\ методов"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00022}00022\ \textcolor{keywordflow}{for}\ name\ \textcolor{keywordflow}{in}\ names:}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00023}00023\ \ \ plt.plot(results[\textcolor{stringliteral}{"{}Size"{}}],\ results[name],\ \textcolor{stringliteral}{"{}-\/-\/o"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00024}00024\ \ \ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00025}00025\ plt.grid(linestyle=\textcolor{stringliteral}{"{}:"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00026}00026\ plt.legend(results.columns[1:])}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00028}00028\ plt.xlabel(\textcolor{stringliteral}{"{}Количесто\ элементов"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00029}00029\ plt.ylabel(\textcolor{stringliteral}{"{}Время\ генерации,\ µs"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00032}00032\ plt.subplot(212)}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00034}00034\ \textcolor{keywordflow}{for}\ name\ \textcolor{keywordflow}{in}\ names:}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00035}00035\ \ \ plt.plot(results[\textcolor{stringliteral}{"{}Size"{}}],\ results[name],\ \textcolor{stringliteral}{"{}-\/-\/o"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00036}00036\ \ \ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00037}00037\ plt.grid(linestyle=\textcolor{stringliteral}{"{}:"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00038}00038\ plt.legend(results.columns[1:])}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00040}00040\ plt.xlabel(\textcolor{stringliteral}{"{}Количесто\ элементов"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00041}00041\ plt.ylabel(\textcolor{stringliteral}{"{}Время\ генерации,\ µs"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00043}00043\ plt.yscale(\textcolor{stringliteral}{"{}log"{}})}
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{time__graph_8py_source_l00046}00046\ plt.savefig(res\_picpath)}
+
+\end{DoxyCode}

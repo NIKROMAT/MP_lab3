@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная работа 3: Исходный файл include/prng.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторная работа 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">prng.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="prng_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef PRNG_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define PRNG_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;cstdint&gt;</span> <span class="comment">// для типов int</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classPRNG.html">   19</a></span><span class="keyword">class </span><a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">   23</a></span>  <span class="keyword">const</span> uint32_t <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>; </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">   24</a></span>  <span class="keyword">const</span> uint32_t <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>; </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a> (uint32_t, uint32_t); </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13">   28</a></span>  <span class="keyword">virtual</span> uint32_t <a class="code hl_function" href="classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13">generate</a>() = 0; </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  uint32_t <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a>(uint32_t) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classPRNG.html#acab864bc62527b1295be0c9faac0ffe4">generate_sample</a>(std::ostream&amp;, <span class="keywordtype">int</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classmid__xor__PRNG.html">   40</a></span><span class="keyword">class </span><a class="code hl_function" href="classmid__xor__PRNG.html#aa95754756423ba0593cf96ee6b72632a">mid_xor_PRNG</a>: <span class="keyword">public</span> <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">   42</a></span>  uint32_t <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a>;  </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classmid__xor__PRNG.html#aa95754756423ba0593cf96ee6b72632a">   46</a></span>  <a class="code hl_function" href="classmid__xor__PRNG.html#aa95754756423ba0593cf96ee6b72632a">mid_xor_PRNG</a> () = <span class="keyword">delete</span>; </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <a class="code hl_function" href="classmid__xor__PRNG.html#aa95754756423ba0593cf96ee6b72632a">mid_xor_PRNG</a> ( uint32_t, uint32_t = 0, uint32_t = -1);  </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  uint32_t <a class="code hl_function" href="classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa">generate</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classmul__xor__PRNG.html">   54</a></span><span class="keyword">class </span><a class="code hl_function" href="classmul__xor__PRNG.html#a8696933fee50b42611d30538969efc21">mul_xor_PRNG</a>: <span class="keyword">public</span> <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">   56</a></span>  uint32_t <a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a>;  </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classmul__xor__PRNG.html#a8696933fee50b42611d30538969efc21">   60</a></span>  <a class="code hl_function" href="classmul__xor__PRNG.html#a8696933fee50b42611d30538969efc21">mul_xor_PRNG</a> () = <span class="keyword">delete</span>; </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <a class="code hl_function" href="classmul__xor__PRNG.html#a8696933fee50b42611d30538969efc21">mul_xor_PRNG</a> ( uint32_t, uint32_t = 0, uint32_t = -1);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  uint32_t <a class="code hl_function" href="classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480">generate</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classLCG.html">   68</a></span><span class="keyword">class </span><a class="code hl_function" href="classLCG.html#a25fbd80dbe6522264e34989119d4dddf">LCG</a>: <span class="keyword">public</span> <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>{</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">   70</a></span>  uint32_t <a class="code hl_variable" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">seed</a>;  </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classLCG.html#af5b37b1971001206597e236a2696ad0d">   71</a></span>  uint32_t <a class="code hl_variable" href="classLCG.html#af5b37b1971001206597e236a2696ad0d">k</a>;     </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classLCG.html#ad9a164fbb047ce2c326dca8b432ede52">   72</a></span>  uint32_t <a class="code hl_variable" href="classLCG.html#ad9a164fbb047ce2c326dca8b432ede52">b</a>;     </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classLCG.html#a2cf9dbb0d114728a0037dea231974917">   73</a></span>  uint32_t <a class="code hl_variable" href="classLCG.html#a2cf9dbb0d114728a0037dea231974917">M</a>;     </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classLCG.html#a25fbd80dbe6522264e34989119d4dddf">   77</a></span>  <a class="code hl_function" href="classLCG.html#a25fbd80dbe6522264e34989119d4dddf">LCG</a> () = <span class="keyword">delete</span>;  </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <a class="code hl_function" href="classLCG.html#a25fbd80dbe6522264e34989119d4dddf">LCG</a> ( uint32_t, uint32_t = 0, uint32_t = -1);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  uint32_t <a class="code hl_function" href="classLCG.html#ab12621664f5fd0b560a852aecbdb293d">generate</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif </span><span class="comment">// PRNG_H</span></div>
+<div class="ttc" id="aclassLCG_html_a25fbd80dbe6522264e34989119d4dddf"><div class="ttname"><a href="classLCG.html#a25fbd80dbe6522264e34989119d4dddf">LCG::LCG</a></div><div class="ttdeci">LCG()=delete</div><div class="ttdoc">Запрет на конструктор по умолчанию</div></div>
+<div class="ttc" id="aclassLCG_html_a2cf9dbb0d114728a0037dea231974917"><div class="ttname"><a href="classLCG.html#a2cf9dbb0d114728a0037dea231974917">LCG::M</a></div><div class="ttdeci">uint32_t M</div><div class="ttdoc">Модуль</div><div class="ttdef"><b>Определения</b> <a href="#l00073">prng.h:73</a></div></div>
+<div class="ttc" id="aclassLCG_html_a91cfbff4540065bc089d7607eec8b888"><div class="ttname"><a href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">LCG::seed</a></div><div class="ttdeci">uint32_t seed</div><div class="ttdoc">Семя генерации</div><div class="ttdef"><b>Определения</b> <a href="#l00070">prng.h:70</a></div></div>
+<div class="ttc" id="aclassLCG_html_ab12621664f5fd0b560a852aecbdb293d"><div class="ttname"><a href="classLCG.html#ab12621664f5fd0b560a852aecbdb293d">LCG::generate</a></div><div class="ttdeci">uint32_t generate() override</div><div class="ttdoc">Генерация следующего числа</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00117">prng.cpp:117</a></div></div>
+<div class="ttc" id="aclassLCG_html_ad9a164fbb047ce2c326dca8b432ede52"><div class="ttname"><a href="classLCG.html#ad9a164fbb047ce2c326dca8b432ede52">LCG::b</a></div><div class="ttdeci">uint32_t b</div><div class="ttdoc">Смещение</div><div class="ttdef"><b>Определения</b> <a href="#l00072">prng.h:72</a></div></div>
+<div class="ttc" id="aclassLCG_html_af5b37b1971001206597e236a2696ad0d"><div class="ttname"><a href="classLCG.html#af5b37b1971001206597e236a2696ad0d">LCG::k</a></div><div class="ttdeci">uint32_t k</div><div class="ttdoc">Коэффициент</div><div class="ttdef"><b>Определения</b> <a href="#l00071">prng.h:71</a></div></div>
+<div class="ttc" id="aclassPRNG_html_a797b44bddd9d78b37e40ba421b25f1a6"><div class="ttname"><a href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">PRNG::min_lim</a></div><div class="ttdeci">const uint32_t min_lim</div><div class="ttdoc">Нижняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="#l00023">prng.h:23</a></div></div>
+<div class="ttc" id="aclassPRNG_html_ab8e546080f61a72a5a272989deea8a7c"><div class="ttname"><a href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG::PRNG</a></div><div class="ttdeci">PRNG(uint32_t, uint32_t)</div><div class="ttdoc">Конструктор для базового абстрактного класса</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00019">prng.cpp:19</a></div></div>
+<div class="ttc" id="aclassPRNG_html_abe1ceb726c416fb95a5b03598c9a2a13"><div class="ttname"><a href="classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13">PRNG::generate</a></div><div class="ttdeci">virtual uint32_t generate()=0</div><div class="ttdoc">Чистая функция для генерации следующего числа</div></div>
+<div class="ttc" id="aclassPRNG_html_abf3a9dbf4c589168bed0b6a092754ef2"><div class="ttname"><a href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">PRNG::max_lim</a></div><div class="ttdeci">const uint32_t max_lim</div><div class="ttdoc">Верхняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="#l00024">prng.h:24</a></div></div>
+<div class="ttc" id="aclassPRNG_html_ac66dbb9a55c1c773463e683267f6b909"><div class="ttname"><a href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">PRNG::result</a></div><div class="ttdeci">uint32_t result(uint32_t) const</div><div class="ttdoc">Метод для перевода сгенерированного числа в требуемый диапазон</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00038">prng.cpp:38</a></div></div>
+<div class="ttc" id="aclassPRNG_html_acab864bc62527b1295be0c9faac0ffe4"><div class="ttname"><a href="classPRNG.html#acab864bc62527b1295be0c9faac0ffe4">PRNG::generate_sample</a></div><div class="ttdeci">void generate_sample(std::ostream &amp;, int)</div><div class="ttdoc">Метод для генерации и записи в поток целой выборки</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00026">prng.cpp:26</a></div></div>
+<div class="ttc" id="aclassmid__xor__PRNG_html_a8dffd2772a7cd71aacf78d3b8ed4c4a5"><div class="ttname"><a href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">mid_xor_PRNG::seed</a></div><div class="ttdeci">uint32_t seed</div><div class="ttdoc">Семя генерации</div><div class="ttdef"><b>Определения</b> <a href="#l00042">prng.h:42</a></div></div>
+<div class="ttc" id="aclassmid__xor__PRNG_html_aa95754756423ba0593cf96ee6b72632a"><div class="ttname"><a href="classmid__xor__PRNG.html#aa95754756423ba0593cf96ee6b72632a">mid_xor_PRNG::mid_xor_PRNG</a></div><div class="ttdeci">mid_xor_PRNG()=delete</div><div class="ttdoc">Запрет на конструктор по умолчанию</div></div>
+<div class="ttc" id="aclassmid__xor__PRNG_html_ac4632cd36fab0a451fc9105d331934aa"><div class="ttname"><a href="classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa">mid_xor_PRNG::generate</a></div><div class="ttdeci">uint32_t generate() override</div><div class="ttdoc">Генерация следующего числа</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00061">prng.cpp:61</a></div></div>
+<div class="ttc" id="aclassmul__xor__PRNG_html_a1427537feaf3aa3bf18bf383b6e12445"><div class="ttname"><a href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">mul_xor_PRNG::seed</a></div><div class="ttdeci">uint32_t seed</div><div class="ttdoc">Семя генерации</div><div class="ttdef"><b>Определения</b> <a href="#l00056">prng.h:56</a></div></div>
+<div class="ttc" id="aclassmul__xor__PRNG_html_a4b1a214d738b545d2f6bba84851ec480"><div class="ttname"><a href="classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480">mul_xor_PRNG::generate</a></div><div class="ttdeci">uint32_t generate() override</div><div class="ttdoc">Генерация следующего числа</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00091">prng.cpp:91</a></div></div>
+<div class="ttc" id="aclassmul__xor__PRNG_html_a8696933fee50b42611d30538969efc21"><div class="ttname"><a href="classmul__xor__PRNG.html#a8696933fee50b42611d30538969efc21">mul_xor_PRNG::mul_xor_PRNG</a></div><div class="ttdeci">mul_xor_PRNG()=delete</div><div class="ttdoc">Запрет на конструктор по умолчанию</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

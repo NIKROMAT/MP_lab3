@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная работа 3: Класс PRNG</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторная работа 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="classPRNG-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс PRNG<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Абстрактный базовый класс генераторов  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="prng_8h_source.html">prng.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:PRNG:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classPRNG.png" usemap="#PRNG_map" alt=""/>
+  <map id="PRNG_map" name="PRNG_map">
+<area href="classLCG.html" title="Генератор, основанный на линейном конгруэнтном методе" alt="LCG" shape="rect" coords="0,56,97,80"/>
+<area href="classmid__xor__PRNG.html" title="Генератор, основанный на среднем квадрата и Xor." alt="mid_xor_PRNG" shape="rect" coords="107,56,204,80"/>
+<area href="classmul__xor__PRNG.html" title="Генератор, основанный на произведении и Xor." alt="mul_xor_PRNG" shape="rect" coords="214,56,311,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:acab864bc62527b1295be0c9faac0ffe4" id="r_acab864bc62527b1295be0c9faac0ffe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acab864bc62527b1295be0c9faac0ffe4">generate_sample</a> (std::ostream &amp;, int)</td></tr>
+<tr class="memdesc:acab864bc62527b1295be0c9faac0ffe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для генерации и записи в поток целой выборки  <br /></td></tr>
+<tr class="separator:acab864bc62527b1295be0c9faac0ffe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:ab8e546080f61a72a5a272989deea8a7c" id="r_ab8e546080f61a72a5a272989deea8a7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8e546080f61a72a5a272989deea8a7c">PRNG</a> (uint32_t, uint32_t)</td></tr>
+<tr class="memdesc:ab8e546080f61a72a5a272989deea8a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор для базового абстрактного класса  <br /></td></tr>
+<tr class="separator:ab8e546080f61a72a5a272989deea8a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe1ceb726c416fb95a5b03598c9a2a13" id="r_abe1ceb726c416fb95a5b03598c9a2a13"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe1ceb726c416fb95a5b03598c9a2a13">generate</a> ()=0</td></tr>
+<tr class="memdesc:abe1ceb726c416fb95a5b03598c9a2a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чистая функция для генерации следующего числа  <br /></td></tr>
+<tr class="separator:abe1ceb726c416fb95a5b03598c9a2a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac66dbb9a55c1c773463e683267f6b909" id="r_ac66dbb9a55c1c773463e683267f6b909"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac66dbb9a55c1c773463e683267f6b909">result</a> (uint32_t) const</td></tr>
+<tr class="memdesc:ac66dbb9a55c1c773463e683267f6b909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для перевода сгенерированного числа в требуемый диапазон  <br /></td></tr>
+<tr class="separator:ac66dbb9a55c1c773463e683267f6b909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a797b44bddd9d78b37e40ba421b25f1a6" id="r_a797b44bddd9d78b37e40ba421b25f1a6"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a></td></tr>
+<tr class="memdesc:a797b44bddd9d78b37e40ba421b25f1a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нижняя граница генерации  <br /></td></tr>
+<tr class="separator:a797b44bddd9d78b37e40ba421b25f1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf3a9dbf4c589168bed0b6a092754ef2" id="r_abf3a9dbf4c589168bed0b6a092754ef2"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a></td></tr>
+<tr class="memdesc:abf3a9dbf4c589168bed0b6a092754ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Верхняя граница генерации  <br /></td></tr>
+<tr class="separator:abf3a9dbf4c589168bed0b6a092754ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Абстрактный базовый класс генераторов </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00019">19</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ab8e546080f61a72a5a272989deea8a7c" name="ab8e546080f61a72a5a272989deea8a7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8e546080f61a72a5a272989deea8a7c">&#9670;&#160;</a></span>PRNG()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRNG::PRNG </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>min_lim</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>max_lim</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор для базового абстрактного класса </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min_lim</td><td>Нижняя граница генерации </td></tr>
+    <tr><td class="paramname">max_lim</td><td>Верхняя граница генерации </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8cpp_source.html">prng.cpp</a> строка <a class="el" href="prng_8cpp_source.html#l00019">19</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>: <a class="code hl_variable" href="#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>(<a class="code hl_variable" href="#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>), <a class="code hl_variable" href="#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>(<a class="code hl_variable" href="#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>) {}</div>
+<div class="ttc" id="aclassPRNG_html_a797b44bddd9d78b37e40ba421b25f1a6"><div class="ttname"><a href="#a797b44bddd9d78b37e40ba421b25f1a6">PRNG::min_lim</a></div><div class="ttdeci">const uint32_t min_lim</div><div class="ttdoc">Нижняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00023">prng.h:23</a></div></div>
+<div class="ttc" id="aclassPRNG_html_abf3a9dbf4c589168bed0b6a092754ef2"><div class="ttname"><a href="#abf3a9dbf4c589168bed0b6a092754ef2">PRNG::max_lim</a></div><div class="ttdeci">const uint32_t max_lim</div><div class="ttdoc">Верхняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00024">prng.h:24</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="abe1ceb726c416fb95a5b03598c9a2a13" name="abe1ceb726c416fb95a5b03598c9a2a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe1ceb726c416fb95a5b03598c9a2a13">&#9670;&#160;</a></span>generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint32_t PRNG::generate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Чистая функция для генерации следующего числа </p>
+
+<p>Замещается в <a class="el" href="classLCG.html#ab12621664f5fd0b560a852aecbdb293d">LCG</a>, <a class="el" href="classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa">mid_xor_PRNG</a> и <a class="el" href="classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480">mul_xor_PRNG</a>.</p>
+
+</div>
+</div>
+<a id="acab864bc62527b1295be0c9faac0ffe4" name="acab864bc62527b1295be0c9faac0ffe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acab864bc62527b1295be0c9faac0ffe4">&#9670;&#160;</a></span>generate_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PRNG::generate_sample </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для генерации и записи в поток целой выборки </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>Поток для записи </td></tr>
+    <tr><td class="paramname">size</td><td>Размер генерируемой выборки </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8cpp_source.html">prng.cpp</a> строка <a class="el" href="prng_8cpp_source.html#l00026">26</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>{</div>
+<div class="line"><span class="lineno">   28</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; size; ++i)</div>
+<div class="line"><span class="lineno">   29</span>  {</div>
+<div class="line"><span class="lineno">   30</span>    out &lt;&lt; this-&gt;<a class="code hl_function" href="#abe1ceb726c416fb95a5b03598c9a2a13">generate</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   31</span>  }</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+<div class="ttc" id="aclassPRNG_html_abe1ceb726c416fb95a5b03598c9a2a13"><div class="ttname"><a href="#abe1ceb726c416fb95a5b03598c9a2a13">PRNG::generate</a></div><div class="ttdeci">virtual uint32_t generate()=0</div><div class="ttdoc">Чистая функция для генерации следующего числа</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac66dbb9a55c1c773463e683267f6b909" name="ac66dbb9a55c1c773463e683267f6b909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac66dbb9a55c1c773463e683267f6b909">&#9670;&#160;</a></span>result()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t PRNG::result </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>result</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод для перевода сгенерированного числа в требуемый диапазон </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Сгенерированное число </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Сгенерированное число в требуемом диапазоне </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8cpp_source.html">prng.cpp</a> строка <a class="el" href="prng_8cpp_source.html#l00038">38</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{</div>
+<div class="line"><span class="lineno">   40</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a> + <a class="code hl_function" href="#ac66dbb9a55c1c773463e683267f6b909">result</a> % (1ul + <a class="code hl_variable" href="#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a> - <a class="code hl_variable" href="#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>); <span class="comment">// поскольку max_lim - верхняя граница включительно, то нужно брать модуль +1</span></div>
+<div class="line"><span class="lineno">   41</span>                                                       <span class="comment">// (1 - unsigned long, чтобы не возникло переполнения и не было деления на 0)</span></div>
+<div class="line"><span class="lineno">   42</span>}</div>
+<div class="ttc" id="aclassPRNG_html_ac66dbb9a55c1c773463e683267f6b909"><div class="ttname"><a href="#ac66dbb9a55c1c773463e683267f6b909">PRNG::result</a></div><div class="ttdeci">uint32_t result(uint32_t) const</div><div class="ttdoc">Метод для перевода сгенерированного числа в требуемый диапазон</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00038">prng.cpp:38</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="abf3a9dbf4c589168bed0b6a092754ef2" name="abf3a9dbf4c589168bed0b6a092754ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf3a9dbf4c589168bed0b6a092754ef2">&#9670;&#160;</a></span>max_lim</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t PRNG::max_lim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Верхняя граница генерации </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00024">24</a></p>
+
+</div>
+</div>
+<a id="a797b44bddd9d78b37e40ba421b25f1a6" name="a797b44bddd9d78b37e40ba421b25f1a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797b44bddd9d78b37e40ba421b25f1a6">&#9670;&#160;</a></span>min_lim</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t PRNG::min_lim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Нижняя граница генерации </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00023">23</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="prng_8h_source.html">prng.h</a></li>
+<li>src/<a class="el" href="prng_8cpp_source.html">prng.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

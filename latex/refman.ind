@@ -1,0 +1,205 @@
+\begin{theindex}
+
+  \item {ALPHA}
+    \subitem {defs.h}, \hyperpage{30}
+  \item {AP\_ENTROPY\_M}
+    \subitem {defs.h}, \hyperpage{30}
+
+  \indexspace
+
+  \item {b}
+    \subitem {LCG}, \hyperpage{11}
+
+  \indexspace
+
+  \item {check\_time}
+    \subitem {time\_check.cpp}, \hyperpage{59}
+  \item {create\_samples}
+    \subitem {create\_samples.cpp}, \hyperpage{22}
+  \item {create\_samples.cpp}, \hyperpage{21}
+    \subitem {create\_samples}, \hyperpage{22}
+    \subitem {main}, \hyperpage{23}
+
+  \indexspace
+
+  \item {defs.h}
+    \subitem {ALPHA}, \hyperpage{30}
+    \subitem {AP\_ENTROPY\_M}, \hyperpage{30}
+    \subitem {MAX\_LIM}, \hyperpage{30}
+    \subitem {MIN\_LIM}, \hyperpage{30}
+    \subitem {SAMPLES\_DIR}, \hyperpage{31}
+    \subitem {SERIAL\_M}, \hyperpage{31}
+
+  \indexspace
+
+  \item {generate}
+    \subitem {LCG}, \hyperpage{11}
+    \subitem {mid\_xor\_PRNG}, \hyperpage{14}
+    \subitem {mul\_xor\_PRNG}, \hyperpage{16}
+    \subitem {PRNG}, \hyperpage{18}
+  \item {generate\_sample}
+    \subitem {PRNG}, \hyperpage{18}
+  \item {get\_apEn}
+    \subitem {nist\_funcs.cpp}, \hyperpage{45}
+    \subitem {tests.h}, \hyperpage{34}
+  \item {get\_chi2}
+    \subitem {tests.cpp}, \hyperpage{55}
+    \subitem {tests.h}, \hyperpage{34}
+  \item {get\_cv}
+    \subitem {tests.cpp}, \hyperpage{56}
+    \subitem {tests.h}, \hyperpage{35}
+  \item {get\_mean}
+    \subitem {tests.cpp}, \hyperpage{56}
+    \subitem {tests.h}, \hyperpage{35}
+  \item {get\_pattern\_counts}
+    \subitem {nist\_funcs.cpp}, \hyperpage{46}
+    \subitem {tests.h}, \hyperpage{36}
+  \item {get\_psi2}
+    \subitem {nist\_funcs.cpp}, \hyperpage{46}
+    \subitem {tests.h}, \hyperpage{36}
+  \item {get\_results.cpp}, \hyperpage{24}
+    \subitem {main}, \hyperpage{25}
+    \subitem {process\_sample}, \hyperpage{26}
+  \item {get\_stdDev}
+    \subitem {tests.cpp}, \hyperpage{57}
+    \subitem {tests.h}, \hyperpage{37}
+
+  \indexspace
+
+  \item {include/defs.h}, \hyperpage{30, 31}
+  \item {include/external/cephes.h}, \hyperpage{31}
+  \item {include/prng.h}, \hyperpage{32}
+  \item {include/tests.h}, \hyperpage{33}, \hyperpage{41}
+
+  \indexspace
+
+  \item {k}
+    \subitem {LCG}, \hyperpage{11}
+
+  \indexspace
+
+  \item {LCG}, \hyperpage{9}
+    \subitem {b}, \hyperpage{11}
+    \subitem {generate}, \hyperpage{11}
+    \subitem {k}, \hyperpage{11}
+    \subitem {LCG}, \hyperpage{10}
+    \subitem {M}, \hyperpage{11}
+    \subitem {seed}, \hyperpage{11}
+
+  \indexspace
+
+  \item {M}
+    \subitem {LCG}, \hyperpage{11}
+  \item {main}
+    \subitem {create\_samples.cpp}, \hyperpage{23}
+    \subitem {get\_results.cpp}, \hyperpage{25}
+    \subitem {time\_check.cpp}, \hyperpage{60}
+  \item {MAX\_LIM}
+    \subitem {defs.h}, \hyperpage{30}
+  \item {max\_lim}
+    \subitem {PRNG}, \hyperpage{19}
+  \item {mid\_xor\_PRNG}, \hyperpage{12}
+    \subitem {generate}, \hyperpage{14}
+    \subitem {mid\_xor\_PRNG}, \hyperpage{13}
+    \subitem {seed}, \hyperpage{14}
+  \item {MIN\_LIM}
+    \subitem {defs.h}, \hyperpage{30}
+  \item {min\_lim}
+    \subitem {PRNG}, \hyperpage{19}
+  \item {mul\_xor\_PRNG}, \hyperpage{14}
+    \subitem {generate}, \hyperpage{16}
+    \subitem {mul\_xor\_PRNG}, \hyperpage{15}
+    \subitem {seed}, \hyperpage{16}
+
+  \indexspace
+
+  \item {nist\_apEntropy}
+    \subitem {nist\_tests.cpp}, \hyperpage{49}
+    \subitem {tests.h}, \hyperpage{37}
+  \item {nist\_cusum}
+    \subitem {nist\_tests.cpp}, \hyperpage{50}
+    \subitem {tests.h}, \hyperpage{38}
+  \item {nist\_frequency}
+    \subitem {nist\_tests.cpp}, \hyperpage{50}
+    \subitem {tests.h}, \hyperpage{38}
+  \item {nist\_funcs.cpp}
+    \subitem {get\_apEn}, \hyperpage{45}
+    \subitem {get\_pattern\_counts}, \hyperpage{46}
+    \subitem {get\_psi2}, \hyperpage{46}
+    \subitem {sample\_to\_bit\_sequence}, \hyperpage{47}
+  \item {nist\_runs}
+    \subitem {nist\_tests.cpp}, \hyperpage{51}
+    \subitem {tests.h}, \hyperpage{39}
+  \item {nist\_serial}
+    \subitem {nist\_tests.cpp}, \hyperpage{51}
+    \subitem {tests.h}, \hyperpage{39}
+  \item {nist\_tests.cpp}
+    \subitem {nist\_apEntropy}, \hyperpage{49}
+    \subitem {nist\_cusum}, \hyperpage{50}
+    \subitem {nist\_frequency}, \hyperpage{50}
+    \subitem {nist\_runs}, \hyperpage{51}
+    \subitem {nist\_serial}, \hyperpage{51}
+
+  \indexspace
+
+  \item {PRNG}, \hyperpage{17}
+    \subitem {generate}, \hyperpage{18}
+    \subitem {generate\_sample}, \hyperpage{18}
+    \subitem {max\_lim}, \hyperpage{19}
+    \subitem {min\_lim}, \hyperpage{19}
+    \subitem {PRNG}, \hyperpage{17}
+    \subitem {result}, \hyperpage{18}
+  \item {process\_sample}
+    \subitem {get\_results.cpp}, \hyperpage{26}
+
+  \indexspace
+
+  \item {readme}, \hyperpage{1}
+  \item {result}
+    \subitem {PRNG}, \hyperpage{18}
+
+  \indexspace
+
+  \item {sample\_to\_bit\_sequence}
+    \subitem {nist\_funcs.cpp}, \hyperpage{47}
+    \subitem {tests.h}, \hyperpage{40}
+  \item {SAMPLES\_DIR}
+    \subitem {defs.h}, \hyperpage{31}
+  \item {seed}
+    \subitem {LCG}, \hyperpage{11}
+    \subitem {mid\_xor\_PRNG}, \hyperpage{14}
+    \subitem {mul\_xor\_PRNG}, \hyperpage{16}
+  \item {SERIAL\_M}
+    \subitem {defs.h}, \hyperpage{31}
+  \item {src/external/cephes.cpp}, \hyperpage{41}
+  \item {src/nist\_funcs.cpp}, \hyperpage{45}, \hyperpage{48}
+  \item {src/nist\_tests.cpp}, \hyperpage{49}, \hyperpage{52}
+  \item {src/prng.cpp}, \hyperpage{53, 54}
+  \item {src/tests.cpp}, \hyperpage{55}, \hyperpage{57}
+
+  \indexspace
+
+  \item {tests.cpp}
+    \subitem {get\_chi2}, \hyperpage{55}
+    \subitem {get\_cv}, \hyperpage{56}
+    \subitem {get\_mean}, \hyperpage{56}
+    \subitem {get\_stdDev}, \hyperpage{57}
+  \item {tests.h}
+    \subitem {get\_apEn}, \hyperpage{34}
+    \subitem {get\_chi2}, \hyperpage{34}
+    \subitem {get\_cv}, \hyperpage{35}
+    \subitem {get\_mean}, \hyperpage{35}
+    \subitem {get\_pattern\_counts}, \hyperpage{36}
+    \subitem {get\_psi2}, \hyperpage{36}
+    \subitem {get\_stdDev}, \hyperpage{37}
+    \subitem {nist\_apEntropy}, \hyperpage{37}
+    \subitem {nist\_cusum}, \hyperpage{38}
+    \subitem {nist\_frequency}, \hyperpage{38}
+    \subitem {nist\_runs}, \hyperpage{39}
+    \subitem {nist\_serial}, \hyperpage{39}
+    \subitem {sample\_to\_bit\_sequence}, \hyperpage{40}
+  \item {time\_check.cpp}, \hyperpage{58}
+    \subitem {check\_time}, \hyperpage{59}
+    \subitem {main}, \hyperpage{60}
+
+\end{theindex}

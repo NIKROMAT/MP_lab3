@@ -1,0 +1,144 @@
+\doxysection{Класс mul\+\_\+xor\+\_\+\+PRNG}
+\hypertarget{classmul__xor__PRNG}{}\label{classmul__xor__PRNG}\index{mul\_xor\_PRNG@{mul\_xor\_PRNG}}
+
+
+Генератор, основанный на произведении и Xor.  
+
+
+
+
+{\ttfamily \#include $<$prng.\+h$>$}
+
+Граф наследования\+:mul\+\_\+xor\+\_\+\+PRNG\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmul__xor__PRNG}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmul__xor__PRNG_a8696933fee50b42611d30538969efc21}\label{classmul__xor__PRNG_a8696933fee50b42611d30538969efc21} 
+{\bfseries mul\+\_\+xor\+\_\+\+PRNG} ()=delete
+\begin{DoxyCompactList}\small\item\em Запрет на конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmul__xor__PRNG_a88dcdf607cf274df38c4502ffcf42d5d}{mul\+\_\+xor\+\_\+\+PRNG}} (uint32\+\_\+t, uint32\+\_\+t=0, uint32\+\_\+t=-\/1)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classmul__xor__PRNG_a4b1a214d738b545d2f6bba84851ec480}{generate}} () override
+\begin{DoxyCompactList}\small\item\em Генерация следующего числа \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{classPRNG}{PRNG}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPRNG_acab864bc62527b1295be0c9faac0ffe4}{generate\+\_\+sample}} (std\+::ostream \&, int)
+\begin{DoxyCompactList}\small\item\em Метод для генерации и записи в поток целой выборки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}
+\begin{DoxyCompactList}\small\item\em Семя генерации \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{classPRNG}{PRNG}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}} (uint32\+\_\+t, uint32\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Конструктор для базового абстрактного класса \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classPRNG_ac66dbb9a55c1c773463e683267f6b909}{result}} (uint32\+\_\+t) const
+\begin{DoxyCompactList}\small\item\em Метод для перевода сгенерированного числа в требуемый диапазон \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{classPRNG}{PRNG}}}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\+\_\+lim}}
+\begin{DoxyCompactList}\small\item\em Нижняя граница генерации \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\+\_\+lim}}
+\begin{DoxyCompactList}\small\item\em Верхняя граница генерации \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Генератор, основанный на произведении и Xor. 
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00054}{54}}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmul__xor__PRNG_a88dcdf607cf274df38c4502ffcf42d5d}\index{mul\_xor\_PRNG@{mul\_xor\_PRNG}!mul\_xor\_PRNG@{mul\_xor\_PRNG}}
+\index{mul\_xor\_PRNG@{mul\_xor\_PRNG}!mul\_xor\_PRNG@{mul\_xor\_PRNG}}
+\doxysubsubsection{\texorpdfstring{mul\_xor\_PRNG()}{mul\_xor\_PRNG()}}
+{\footnotesize\ttfamily \label{classmul__xor__PRNG_a88dcdf607cf274df38c4502ffcf42d5d} 
+mul\+\_\+xor\+\_\+\+PRNG\+::mul\+\_\+xor\+\_\+\+PRNG (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{seed}{, }\item[{uint32\+\_\+t}]{min\+\_\+lim}{ = {\ttfamily 0}, }\item[{uint32\+\_\+t}]{max\+\_\+lim}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em seed} & Семя генерации \\
+\hline
+{\em min\+\_\+lim} & Нижняя граница генерации \\
+\hline
+{\em max\+\_\+lim} & Верхняя граница генерации \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \mbox{\hyperlink{prng_8cpp_source}{prng.\+cpp}} строка \mbox{\hyperlink{prng_8cpp_source_l00085}{85}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00086\ :\ \mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}}(\mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\_lim}},\ \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\_lim}}),\ \mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}(\mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}})\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmul__xor__PRNG_a4b1a214d738b545d2f6bba84851ec480}\index{mul\_xor\_PRNG@{mul\_xor\_PRNG}!generate@{generate}}
+\index{generate@{generate}!mul\_xor\_PRNG@{mul\_xor\_PRNG}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \label{classmul__xor__PRNG_a4b1a214d738b545d2f6bba84851ec480} 
+uint32\+\_\+t mul\+\_\+xor\+\_\+\+PRNG\+::generate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Генерация следующего числа 
+
+\begin{DoxyReturn}{Возвращает}
+Следующее случайное число 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13}{PRNG}}.
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8cpp_source}{prng.\+cpp}} строка \mbox{\hyperlink{prng_8cpp_source_l00091}{91}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}\ \string^=\ \mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}\ <<\ 13;}
+\DoxyCodeLine{00094\ \ \ \mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}\ \string^=\ (\mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}\ >>\ 7)\ *\ 0x9AE77B3D;}
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}\ \string^=\ (\mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}\ >>\ 5)\ |\ (\mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}}\ <<\ 17);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPRNG_ac66dbb9a55c1c773463e683267f6b909}{result}}(\mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}});}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}\index{mul\_xor\_PRNG@{mul\_xor\_PRNG}!seed@{seed}}
+\index{seed@{seed}!mul\_xor\_PRNG@{mul\_xor\_PRNG}}
+\doxysubsubsection{\texorpdfstring{seed}{seed}}
+{\footnotesize\ttfamily \label{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445} 
+uint32\+\_\+t mul\+\_\+xor\+\_\+\+PRNG\+::seed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Семя генерации 
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00056}{56}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{prng_8h}{prng.\+h}}\item 
+src/\mbox{\hyperlink{prng_8cpp}{prng.\+cpp}}\end{DoxyCompactItemize}

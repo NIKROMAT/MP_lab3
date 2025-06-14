@@ -1,0 +1,207 @@
+\doxysection{Файл src/nist\+\_\+funcs.cpp}
+\hypertarget{nist__funcs_8cpp}{}\label{nist__funcs_8cpp}\index{src/nist\_funcs.cpp@{src/nist\_funcs.cpp}}
+
+
+Файл, содержащий реализации вспомогательных функций для nist-\/тестов  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}../include/tests.\+h"{}}\newline
+{\ttfamily \#include "{}../include/defs.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{nist__funcs_8cpp_a9584616e3802661ff0a7612572a299b2}{sample\+\_\+to\+\_\+bit\+\_\+sequence}} (std\+::vector$<$ unsigned int $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Функция, преобразовывающая вектор выборки в последовательность битов этой выборки \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\+\_\+pattern\+\_\+counts}} (std\+::vector$<$ bool $>$ \&bit\+\_\+seq, int m)
+\begin{DoxyCompactList}\small\item\em Функция, которая выявляет паттерны битов заданной длины в последовательности и считает их количество \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{nist__funcs_8cpp_a9e853700b270227404a2e4242f5f365a}{get\+\_\+psi2}} (std\+::vector$<$ bool $>$ \&bit\+\_\+seq, int m)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция теста на периодичность \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{nist__funcs_8cpp_aa10b0d77510eb836851c63373dd9c4f1}{get\+\_\+ap\+En}} (std\+::vector$<$ bool $>$ \&bit\+\_\+seq, int m)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функциятеста приблизительной энтропии \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Файл, содержащий реализации вспомогательных функций для nist-\/тестов 
+
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{nist__funcs_8cpp_aa10b0d77510eb836851c63373dd9c4f1}\index{nist\_funcs.cpp@{nist\_funcs.cpp}!get\_apEn@{get\_apEn}}
+\index{get\_apEn@{get\_apEn}!nist\_funcs.cpp@{nist\_funcs.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_apEn()}{get\_apEn()}}
+{\footnotesize\ttfamily \label{nist__funcs_8cpp_aa10b0d77510eb836851c63373dd9c4f1} 
+double get\+\_\+ap\+En (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функциятеста приблизительной энтропии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов \\
+\hline
+{\em m} & Длина блока \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Искомое значение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00089}{89}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ std::vector<unsigned\ int>\ pattern\_counts\ =\ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\_pattern\_counts}}(bit\_seq,\ m);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{double}\ apEn\ =\ 0;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ count\ :\ pattern\_counts)}
+\DoxyCodeLine{00096\ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ (double)count\ /\ bit\_seq.size();}
+\DoxyCodeLine{00098\ \ \ \ \ apEn\ +=\ (p\ >\ std::pow(10,-\/6))\ ?\ (p\ *\ std::log(p))\ :\ 0;}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordflow}{return}\ apEn;}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+\Hypertarget{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}\index{nist\_funcs.cpp@{nist\_funcs.cpp}!get\_pattern\_counts@{get\_pattern\_counts}}
+\index{get\_pattern\_counts@{get\_pattern\_counts}!nist\_funcs.cpp@{nist\_funcs.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_pattern\_counts()}{get\_pattern\_counts()}}
+{\footnotesize\ttfamily \label{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471} 
+std\+::vector$<$ unsigned int $>$ get\+\_\+pattern\+\_\+counts (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Функция, которая выявляет паттерны битов заданной длины в последовательности и считает их количество 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов \\
+\hline
+{\em m} & Длина паттерна \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество встреченных паттернов одного вида. Паттерну, являющемуся двоичным представление числа num, соответствует индекс num 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00043}{43}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ std::vector<unsigned\ int>\ pattern\_counts(1<<m,\ 0);}
+\DoxyCodeLine{00046\ \ \ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ bit\_seq.size();\ ++i)}
+\DoxyCodeLine{00048\ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ k=0;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ m-\/1;\ j\ >=\ 0;\ -\/-\/j)\ \ \textcolor{comment}{//\ Проходимся\ в\ обратном\ порядке\ для\ эстетичности,\ чтобы\ паттерн\ равный\ числу\ I\ был\ записан\ под\ индексом\ I}}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_seq.at((i+j)\ \%\ bit\_seq.size()))\ \ \ k\ =\ 2*k\ +\ 1;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\ =\ 2*k;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ ++pattern\_counts[k];}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ pattern\_counts;}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{nist__funcs_8cpp_a9e853700b270227404a2e4242f5f365a}\index{nist\_funcs.cpp@{nist\_funcs.cpp}!get\_psi2@{get\_psi2}}
+\index{get\_psi2@{get\_psi2}!nist\_funcs.cpp@{nist\_funcs.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_psi2()}{get\_psi2()}}
+{\footnotesize\ttfamily \label{nist__funcs_8cpp_a9e853700b270227404a2e4242f5f365a} 
+double get\+\_\+psi2 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция теста на периодичность 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов \\
+\hline
+{\em m} & Длина блока \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Искомое значение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00066}{66}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ std::vector<unsigned\ int>\ pattern\_counts\ =\ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\_pattern\_counts}}(bit\_seq,\ m);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{int}\ expected\ =\ bit\_seq.size()\ /\ (1\ <<\ m);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ count\ :\ pattern\_counts)}
+\DoxyCodeLine{00075\ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ sum\ +=\ (count\ -\/\ expected)\ *\ (count\ -\/\ expected);}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ sum\ =\ (\ sum\ *\ (1\ <<\ m)\ )\ /\ bit\_seq.size()\ -\/\ bit\_seq.size();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{nist__funcs_8cpp_a9584616e3802661ff0a7612572a299b2}\index{nist\_funcs.cpp@{nist\_funcs.cpp}!sample\_to\_bit\_sequence@{sample\_to\_bit\_sequence}}
+\index{sample\_to\_bit\_sequence@{sample\_to\_bit\_sequence}!nist\_funcs.cpp@{nist\_funcs.cpp}}
+\doxysubsubsection{\texorpdfstring{sample\_to\_bit\_sequence()}{sample\_to\_bit\_sequence()}}
+{\footnotesize\ttfamily \label{nist__funcs_8cpp_a9584616e3802661ff0a7612572a299b2} 
+std\+::vector$<$ bool $>$ sample\+\_\+to\+\_\+bit\+\_\+sequence (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Функция, преобразовывающая вектор выборки в последовательность битов этой выборки 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Последовательность битов 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00018}{18}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ 1\ +\ std::log2(\mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});\ \textcolor{comment}{//\ Находим\ наибольший\ бит,\ который\ может\ принять\ значение\ 1}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Старшие\ биты\ всегда\ будут\ 0,\ что\ будет\ нарушать\ тесты,\ поэтому\ обрубаем\ их}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ std::vector<bool>\ bit\_seq;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ num\ :\ vec)}
+\DoxyCodeLine{00026\ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ max\_len;\ ++i)}
+\DoxyCodeLine{00028\ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ bit\_seq.push\_back(num\ >>\ i\ \&\ 1);\ \textcolor{comment}{//\ биты\ хранятся\ в\ обратном\ порядке,\ т.е.\ чем\ меньше\ индекс,\ тем\ младше\ бит}}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{return}\ bit\_seq;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,77 @@
+\doxysection{prng.\+h}
+\hypertarget{prng_8h_source}{}\label{prng_8h_source}\index{include/prng.h@{include/prng.h}}
+\mbox{\hyperlink{prng_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifndef\ PRNG\_H}}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ PRNG\_H}}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <cstdint>}\ \textcolor{comment}{//\ для\ типов\ int}}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00019}\mbox{\hyperlink{classPRNG}{00019}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}}}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00022}00022\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00023}\mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{00023}}\ \ \ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\_lim}};\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00024}\mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{00024}}\ \ \ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\_lim}};\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00026}00026\ \ \ \mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}}\ (uint32\_t,\ uint32\_t);\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00028}\mbox{\hyperlink{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13}{00028}}\ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ \mbox{\hyperlink{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13}{generate}}()\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00029}00029\ \ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00030}00030\ \ \ uint32\_t\ \mbox{\hyperlink{classPRNG_ac66dbb9a55c1c773463e683267f6b909}{result}}(uint32\_t)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00031}00031\ \ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00032}00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00033}00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPRNG_acab864bc62527b1295be0c9faac0ffe4}{generate\_sample}}(std::ostream\&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00035}00035\ \};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00040}\mbox{\hyperlink{classmid__xor__PRNG}{00040}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmid__xor__PRNG_aa95754756423ba0593cf96ee6b72632a}{mid\_xor\_PRNG}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}}}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00042}\mbox{\hyperlink{classmid__xor__PRNG_a8dffd2772a7cd71aacf78d3b8ed4c4a5}{00042}}\ \ \ uint32\_t\ \mbox{\hyperlink{classmid__xor__PRNG_a8dffd2772a7cd71aacf78d3b8ed4c4a5}{seed}};\ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00045}00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00046}\mbox{\hyperlink{classmid__xor__PRNG_aa95754756423ba0593cf96ee6b72632a}{00046}}\ \ \ \mbox{\hyperlink{classmid__xor__PRNG_aa95754756423ba0593cf96ee6b72632a}{mid\_xor\_PRNG}}\ ()\ =\ \textcolor{keyword}{delete};\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00047}00047\ \ \ \mbox{\hyperlink{classmid__xor__PRNG_aa95754756423ba0593cf96ee6b72632a}{mid\_xor\_PRNG}}\ (\ uint32\_t,\ uint32\_t\ =\ 0,\ uint32\_t\ =\ -\/1);\ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00049}00049\ \ \ uint32\_t\ \mbox{\hyperlink{classmid__xor__PRNG_ac4632cd36fab0a451fc9105d331934aa}{generate}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00050}00050\ \};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00054}\mbox{\hyperlink{classmul__xor__PRNG}{00054}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmul__xor__PRNG_a8696933fee50b42611d30538969efc21}{mul\_xor\_PRNG}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}}}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00056}\mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{00056}}\ \ \ uint32\_t\ \mbox{\hyperlink{classmul__xor__PRNG_a1427537feaf3aa3bf18bf383b6e12445}{seed}};\ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00059}00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00060}\mbox{\hyperlink{classmul__xor__PRNG_a8696933fee50b42611d30538969efc21}{00060}}\ \ \ \mbox{\hyperlink{classmul__xor__PRNG_a8696933fee50b42611d30538969efc21}{mul\_xor\_PRNG}}\ ()\ =\ \textcolor{keyword}{delete};\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00061}00061\ \ \ \mbox{\hyperlink{classmul__xor__PRNG_a8696933fee50b42611d30538969efc21}{mul\_xor\_PRNG}}\ (\ uint32\_t,\ uint32\_t\ =\ 0,\ uint32\_t\ =\ -\/1);}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00063}00063\ \ \ uint32\_t\ \mbox{\hyperlink{classmul__xor__PRNG_a4b1a214d738b545d2f6bba84851ec480}{generate}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00064}00064\ \};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00068}\mbox{\hyperlink{classLCG}{00068}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLCG_a25fbd80dbe6522264e34989119d4dddf}{LCG}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}}}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00070}\mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{00070}}\ \ \ uint32\_t\ \mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{seed}};\ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00071}\mbox{\hyperlink{classLCG_af5b37b1971001206597e236a2696ad0d}{00071}}\ \ \ uint32\_t\ \mbox{\hyperlink{classLCG_af5b37b1971001206597e236a2696ad0d}{k}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00072}\mbox{\hyperlink{classLCG_ad9a164fbb047ce2c326dca8b432ede52}{00072}}\ \ \ uint32\_t\ \mbox{\hyperlink{classLCG_ad9a164fbb047ce2c326dca8b432ede52}{b}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00073}\mbox{\hyperlink{classLCG_a2cf9dbb0d114728a0037dea231974917}{00073}}\ \ \ uint32\_t\ \mbox{\hyperlink{classLCG_a2cf9dbb0d114728a0037dea231974917}{M}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00076}00076\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00077}\mbox{\hyperlink{classLCG_a25fbd80dbe6522264e34989119d4dddf}{00077}}\ \ \ \mbox{\hyperlink{classLCG_a25fbd80dbe6522264e34989119d4dddf}{LCG}}\ ()\ =\ \textcolor{keyword}{delete};\ \ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00078}00078\ \ \ \mbox{\hyperlink{classLCG_a25fbd80dbe6522264e34989119d4dddf}{LCG}}\ (\ uint32\_t,\ uint32\_t\ =\ 0,\ uint32\_t\ =\ -\/1);}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00080}00080\ \ \ uint32\_t\ \mbox{\hyperlink{classLCG_ab12621664f5fd0b560a852aecbdb293d}{generate}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00081}00081\ \};}
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{prng_8h_source_l00084}00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRNG\_H}}
+
+\end{DoxyCode}

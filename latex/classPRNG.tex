@@ -1,0 +1,189 @@
+\doxysection{Класс PRNG}
+\hypertarget{classPRNG}{}\label{classPRNG}\index{PRNG@{PRNG}}
+
+
+Абстрактный базовый класс генераторов  
+
+
+
+
+{\ttfamily \#include $<$prng.\+h$>$}
+
+Граф наследования\+:PRNG\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPRNG}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPRNG_acab864bc62527b1295be0c9faac0ffe4}{generate\+\_\+sample}} (std\+::ostream \&, int)
+\begin{DoxyCompactList}\small\item\em Метод для генерации и записи в поток целой выборки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}} (uint32\+\_\+t, uint32\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Конструктор для базового абстрактного класса \end{DoxyCompactList}\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13}{generate}} ()=0
+\begin{DoxyCompactList}\small\item\em Чистая функция для генерации следующего числа \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classPRNG_ac66dbb9a55c1c773463e683267f6b909}{result}} (uint32\+\_\+t) const
+\begin{DoxyCompactList}\small\item\em Метод для перевода сгенерированного числа в требуемый диапазон \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\+\_\+lim}}
+\begin{DoxyCompactList}\small\item\em Нижняя граница генерации \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\+\_\+lim}}
+\begin{DoxyCompactList}\small\item\em Верхняя граница генерации \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Абстрактный базовый класс генераторов 
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00019}{19}}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classPRNG_ab8e546080f61a72a5a272989deea8a7c}\index{PRNG@{PRNG}!PRNG@{PRNG}}
+\index{PRNG@{PRNG}!PRNG@{PRNG}}
+\doxysubsubsection{\texorpdfstring{PRNG()}{PRNG()}}
+{\footnotesize\ttfamily \label{classPRNG_ab8e546080f61a72a5a272989deea8a7c} 
+PRNG\+::\+PRNG (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{min\+\_\+lim}{, }\item[{uint32\+\_\+t}]{max\+\_\+lim}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Конструктор для базового абстрактного класса 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em min\+\_\+lim} & Нижняя граница генерации \\
+\hline
+{\em max\+\_\+lim} & Верхняя граница генерации \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \mbox{\hyperlink{prng_8cpp_source}{prng.\+cpp}} строка \mbox{\hyperlink{prng_8cpp_source_l00019}{19}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ :\ \mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\_lim}}(\mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\_lim}}),\ \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\_lim}}(\mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\_lim}})\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13}\index{PRNG@{PRNG}!generate@{generate}}
+\index{generate@{generate}!PRNG@{PRNG}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \label{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13} 
+virtual uint32\+\_\+t PRNG\+::generate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Чистая функция для генерации следующего числа 
+
+
+
+Замещается в \mbox{\hyperlink{classLCG_ab12621664f5fd0b560a852aecbdb293d}{LCG}}, \mbox{\hyperlink{classmid__xor__PRNG_ac4632cd36fab0a451fc9105d331934aa}{mid\+\_\+xor\+\_\+\+PRNG}} и \mbox{\hyperlink{classmul__xor__PRNG_a4b1a214d738b545d2f6bba84851ec480}{mul\+\_\+xor\+\_\+\+PRNG}}.
+
+\Hypertarget{classPRNG_acab864bc62527b1295be0c9faac0ffe4}\index{PRNG@{PRNG}!generate\_sample@{generate\_sample}}
+\index{generate\_sample@{generate\_sample}!PRNG@{PRNG}}
+\doxysubsubsection{\texorpdfstring{generate\_sample()}{generate\_sample()}}
+{\footnotesize\ttfamily \label{classPRNG_acab864bc62527b1295be0c9faac0ffe4} 
+void PRNG\+::generate\+\_\+sample (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Метод для генерации и записи в поток целой выборки 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em out} & Поток для записи \\
+\hline
+{\em size} & Размер генерируемой выборки \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \mbox{\hyperlink{prng_8cpp_source}{prng.\+cpp}} строка \mbox{\hyperlink{prng_8cpp_source_l00026}{26}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ size;\ ++i)}
+\DoxyCodeLine{00029\ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ out\ <<\ this-\/>\mbox{\hyperlink{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13}{generate}}()\ <<\ std::endl;}
+\DoxyCodeLine{00031\ \ \ \}}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classPRNG_ac66dbb9a55c1c773463e683267f6b909}\index{PRNG@{PRNG}!result@{result}}
+\index{result@{result}!PRNG@{PRNG}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily \label{classPRNG_ac66dbb9a55c1c773463e683267f6b909} 
+uint32\+\_\+t PRNG\+::result (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{result}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Метод для перевода сгенерированного числа в требуемый диапазон 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em result} & Сгенерированное число \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Сгенерированное число в требуемом диапазоне 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{prng_8cpp_source}{prng.\+cpp}} строка \mbox{\hyperlink{prng_8cpp_source_l00038}{38}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\_lim}}\ +\ \mbox{\hyperlink{classPRNG_ac66dbb9a55c1c773463e683267f6b909}{result}}\ \%\ (1ul\ +\ \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\_lim}}\ -\/\ \mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\_lim}});\ \textcolor{comment}{//\ поскольку\ max\_lim\ -\/\ верхняя\ граница\ включительно,\ то\ нужно\ брать\ модуль\ +1}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (1\ -\/\ unsigned\ long,\ чтобы\ не\ возникло\ переполнения\ и\ не\ было\ деления\ на\ 0)}}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}\index{PRNG@{PRNG}!max\_lim@{max\_lim}}
+\index{max\_lim@{max\_lim}!PRNG@{PRNG}}
+\doxysubsubsection{\texorpdfstring{max\_lim}{max\_lim}}
+{\footnotesize\ttfamily \label{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2} 
+const uint32\+\_\+t PRNG\+::max\+\_\+lim\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Верхняя граница генерации 
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00024}{24}}
+
+\Hypertarget{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}\index{PRNG@{PRNG}!min\_lim@{min\_lim}}
+\index{min\_lim@{min\_lim}!PRNG@{PRNG}}
+\doxysubsubsection{\texorpdfstring{min\_lim}{min\_lim}}
+{\footnotesize\ttfamily \label{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6} 
+const uint32\+\_\+t PRNG\+::min\+\_\+lim\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Нижняя граница генерации 
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00023}{23}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{prng_8h}{prng.\+h}}\item 
+src/\mbox{\hyperlink{prng_8cpp}{prng.\+cpp}}\end{DoxyCompactItemize}

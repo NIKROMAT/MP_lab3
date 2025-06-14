@@ -1,0 +1,589 @@
+\doxysection{Файл include/tests.h}
+\hypertarget{tests_8h}{}\label{tests_8h}\index{include/tests.h@{include/tests.h}}
+
+
+Заголовочный файл, содержащий объявления всех функций для вычисления значений и проведения тестов  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{tests_8h_a9e3c3d5ab8a7fbee951e827cbe065903}{get\+\_\+mean}} (std\+::vector$<$ unsigned int $>$ \&)
+\begin{DoxyCompactList}\small\item\em Оценка выборки на среднее значение \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_ac21276803576f405fc00e3b9f0cef67b}{get\+\_\+std\+Dev}} (std\+::vector$<$ unsigned int $>$ \&)
+\begin{DoxyCompactList}\small\item\em Оценка выборки на стандартное отклонение \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_a22d058c63f27e3646006bd345e19fac3}{get\+\_\+cv}} (std\+::vector$<$ unsigned int $>$ \&)
+\begin{DoxyCompactList}\small\item\em Оценка выборки на коэффициент вариации \end{DoxyCompactList}\item 
+std\+::pair$<$ double, int $>$ \mbox{\hyperlink{tests_8h_ac51a16d54242d9724145612a1c643dd5}{get\+\_\+chi2}} (std\+::vector$<$ unsigned int $>$ \&)
+\begin{DoxyCompactList}\small\item\em Тест хи-\/квадрат \end{DoxyCompactList}\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{tests_8h_a6a37acbf5f3971e3dac91760b83f7430}{sample\+\_\+to\+\_\+bit\+\_\+sequence}} (std\+::vector$<$ unsigned int $>$ \&)
+\begin{DoxyCompactList}\small\item\em Функция, преобразовывающая вектор выборки в последовательность битов этой выборки \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{tests_8h_ac2841832b712b6d419ddd1ae948eef40}{get\+\_\+pattern\+\_\+counts}} (std\+::vector$<$ bool $>$ \&, int)
+\begin{DoxyCompactList}\small\item\em Функция, которая выявляет паттерны битов заданной длины в последовательности и считает их количество \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_a616ca79a13cf042bbd8102ac5792d538}{get\+\_\+psi2}} (std\+::vector$<$ bool $>$ \&, int)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция теста на периодичность \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c}{get\+\_\+ap\+En}} (std\+::vector$<$ bool $>$ \&, int)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функциятеста приблизительной энтропии \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_a26b74014a930396f434a23621b66cd95}{nist\+\_\+frequency}} (std\+::vector$<$ bool $>$ \&)
+\begin{DoxyCompactList}\small\item\em Частотный побитовый тест \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_ac948fdf0dcd6b2aa327293681c3b47ab}{nist\+\_\+runs}} (std\+::vector$<$ bool $>$ \&)
+\begin{DoxyCompactList}\small\item\em Тест на последовательность одинаковых битов \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_a0360dc680a7ee34f82920792acb7fc3b}{nist\+\_\+serial}} (std\+::vector$<$ bool $>$ \&, int)
+\begin{DoxyCompactList}\small\item\em Тест на периодичность \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_a8403eacea1bc8fa8687f2d5b17ac213d}{nist\+\_\+ap\+Entropy}} (std\+::vector$<$ bool $>$ \&, int)
+\begin{DoxyCompactList}\small\item\em Тест приблизительной энтропии \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{tests_8h_a513367e7daad2a9288230ef9a7f516f5}{nist\+\_\+cusum}} (std\+::vector$<$ bool $>$ \&)
+\begin{DoxyCompactList}\small\item\em Тест кумулятивных сумм \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл, содержащий объявления всех функций для вычисления значений и проведения тестов 
+
+
+
+См. определение в файле \mbox{\hyperlink{tests_8h_source}{tests.\+h}}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c}\index{tests.h@{tests.h}!get\_apEn@{get\_apEn}}
+\index{get\_apEn@{get\_apEn}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_apEn()}{get\_apEn()}}
+{\footnotesize\ttfamily \label{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c} 
+double get\+\_\+ap\+En (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функциятеста приблизительной энтропии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов \\
+\hline
+{\em m} & Длина блока \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Искомое значение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00089}{89}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ std::vector<unsigned\ int>\ pattern\_counts\ =\ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\_pattern\_counts}}(bit\_seq,\ m);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{double}\ apEn\ =\ 0;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ count\ :\ pattern\_counts)}
+\DoxyCodeLine{00096\ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ (double)count\ /\ bit\_seq.size();}
+\DoxyCodeLine{00098\ \ \ \ \ apEn\ +=\ (p\ >\ std::pow(10,-\/6))\ ?\ (p\ *\ std::log(p))\ :\ 0;}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordflow}{return}\ apEn;}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_ac51a16d54242d9724145612a1c643dd5}\index{tests.h@{tests.h}!get\_chi2@{get\_chi2}}
+\index{get\_chi2@{get\_chi2}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_chi2()}{get\_chi2()}}
+{\footnotesize\ttfamily \label{tests_8h_ac51a16d54242d9724145612a1c643dd5} 
+std\+::pair$<$ double, int $>$ get\+\_\+chi2 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Тест хи-\/квадрат 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Верктор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Пара значений (значение хи-\/квадрат, количество степеней свободы) 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00056}{56}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{if}\ (vec.empty())}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \{-\/1,-\/1\};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{auto}\ min\_val\ =\ *std::min\_element(vec.begin(),\ vec.end());\ \textcolor{comment}{//\ Наименьший\ элемент\ выборки}}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{auto}\ max\_val\ =\ *std::max\_element(vec.begin(),\ vec.end());\ \textcolor{comment}{//\ Наибольший\ элемент\ выборки}}
+\DoxyCodeLine{00063\ \ \ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{int}\ bin\_number\ =\ \ 1\ +\ std::log2(vec.size());\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Количество\ промежутков\ по\ правилу\ Стерджеса}}
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{float}\ bin\_width\ =\ (float)(max\_val-\/min\_val)/bin\_number;\ \ \textcolor{comment}{//\ Ширина\ промежутка}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{float}\ expected\ =\ (float)vec.size()\ /\ bin\_number;\ \ \textcolor{comment}{//\ Количество\ ожидаемых\ наблюдений\ в\ каждом\ промежутке}}
+\DoxyCodeLine{00068\ \ \ std::vector<int>\ observed(bin\_number,\ 0);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Количество\ фактических\ наблюдений\ в\ каждом\ промежутке}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ val\ :\ vec\ )}
+\DoxyCodeLine{00072\ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ bin\_ind\ =\ (int)\ ((val\ -\/\ min\_val)\ /\ bin\_width);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (bin\_ind\ >=\ bin\_number)\ -\/-\/bin\_ind;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ ++observed.at(bin\_ind);}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{double}\ chi2\ =\ 0;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ obs\ :\ observed)}
+\DoxyCodeLine{00083\ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ chi2\ +=\ (obs\ -\/\ expected)\ *\ (obs\ -\/\ expected)\ /\ expected;}
+\DoxyCodeLine{00085\ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \{chi2,\ bin\_number-\/1\};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a22d058c63f27e3646006bd345e19fac3}\index{tests.h@{tests.h}!get\_cv@{get\_cv}}
+\index{get\_cv@{get\_cv}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_cv()}{get\_cv()}}
+{\footnotesize\ttfamily \label{tests_8h_a22d058c63f27e3646006bd345e19fac3} 
+double get\+\_\+cv (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Оценка выборки на коэффициент вариации 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Коэффициент вариации 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00047}{47}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{tests_8cpp_a2349a26b6a571890f8d9d1b5faa31d88}{get\_stdDev}}(vec)\ /\ \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\_mean}}(vec);}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a9e3c3d5ab8a7fbee951e827cbe065903}\index{tests.h@{tests.h}!get\_mean@{get\_mean}}
+\index{get\_mean@{get\_mean}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_mean()}{get\_mean()}}
+{\footnotesize\ttfamily \label{tests_8h_a9e3c3d5ab8a7fbee951e827cbe065903} 
+double get\+\_\+mean (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Оценка выборки на среднее значение 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Среднее значение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00014}{14}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\ num\ :\ vec\ )}
+\DoxyCodeLine{00019\ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ sum\ +=\ num;}
+\DoxyCodeLine{00021\ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordflow}{return}\ sum\ /\ vec.size();}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_ac2841832b712b6d419ddd1ae948eef40}\index{tests.h@{tests.h}!get\_pattern\_counts@{get\_pattern\_counts}}
+\index{get\_pattern\_counts@{get\_pattern\_counts}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_pattern\_counts()}{get\_pattern\_counts()}}
+{\footnotesize\ttfamily \label{tests_8h_ac2841832b712b6d419ddd1ae948eef40} 
+std\+::vector$<$ unsigned int $>$ get\+\_\+pattern\+\_\+counts (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Функция, которая выявляет паттерны битов заданной длины в последовательности и считает их количество 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов \\
+\hline
+{\em m} & Длина паттерна \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество встреченных паттернов одного вида. Паттерну, являющемуся двоичным представление числа num, соответствует индекс num 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00043}{43}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ std::vector<unsigned\ int>\ pattern\_counts(1<<m,\ 0);}
+\DoxyCodeLine{00046\ \ \ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ bit\_seq.size();\ ++i)}
+\DoxyCodeLine{00048\ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ k=0;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ m-\/1;\ j\ >=\ 0;\ -\/-\/j)\ \ \textcolor{comment}{//\ Проходимся\ в\ обратном\ порядке\ для\ эстетичности,\ чтобы\ паттерн\ равный\ числу\ I\ был\ записан\ под\ индексом\ I}}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_seq.at((i+j)\ \%\ bit\_seq.size()))\ \ \ k\ =\ 2*k\ +\ 1;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\ =\ 2*k;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ ++pattern\_counts[k];}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ pattern\_counts;}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a616ca79a13cf042bbd8102ac5792d538}\index{tests.h@{tests.h}!get\_psi2@{get\_psi2}}
+\index{get\_psi2@{get\_psi2}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_psi2()}{get\_psi2()}}
+{\footnotesize\ttfamily \label{tests_8h_a616ca79a13cf042bbd8102ac5792d538} 
+double get\+\_\+psi2 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция теста на периодичность 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов \\
+\hline
+{\em m} & Длина блока \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Искомое значение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00066}{66}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ std::vector<unsigned\ int>\ pattern\_counts\ =\ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\_pattern\_counts}}(bit\_seq,\ m);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{int}\ expected\ =\ bit\_seq.size()\ /\ (1\ <<\ m);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ count\ :\ pattern\_counts)}
+\DoxyCodeLine{00075\ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ sum\ +=\ (count\ -\/\ expected)\ *\ (count\ -\/\ expected);}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ sum\ =\ (\ sum\ *\ (1\ <<\ m)\ )\ /\ bit\_seq.size()\ -\/\ bit\_seq.size();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_ac21276803576f405fc00e3b9f0cef67b}\index{tests.h@{tests.h}!get\_stdDev@{get\_stdDev}}
+\index{get\_stdDev@{get\_stdDev}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{get\_stdDev()}{get\_stdDev()}}
+{\footnotesize\ttfamily \label{tests_8h_ac21276803576f405fc00e3b9f0cef67b} 
+double get\+\_\+std\+Dev (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Оценка выборки на стандартное отклонение 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Стандартное отклонение 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{tests_8cpp_source}{tests.\+cpp}} строка \mbox{\hyperlink{tests_8cpp_source_l00030}{30}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ sum\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{auto}\ mean\ =\ \mbox{\hyperlink{tests_8cpp_a63496e8ecb92de43249898fe3ddfd067}{get\_mean}}(vec);}
+\DoxyCodeLine{00034\ \ \ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\ num\ :\ vec\ )}
+\DoxyCodeLine{00036\ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ sum\ +=\ (num\ -\/\ mean)\ *\ (num\ -\/\ mean);}
+\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(sum\ /\ vec.size());}
+\DoxyCodeLine{00041\ \}\ }
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a8403eacea1bc8fa8687f2d5b17ac213d}\index{tests.h@{tests.h}!nist\_apEntropy@{nist\_apEntropy}}
+\index{nist\_apEntropy@{nist\_apEntropy}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{nist\_apEntropy()}{nist\_apEntropy()}}
+{\footnotesize\ttfamily \label{tests_8h_a8403eacea1bc8fa8687f2d5b17ac213d} 
+double nist\+\_\+ap\+Entropy (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Тест приблизительной энтропии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов выборки \\
+\hline
+{\em m} & Длина рассматриваемого блока бит \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+p\+\_\+value 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__tests_8cpp_source}{nist\+\_\+tests.\+cpp}} строка \mbox{\hyperlink{nist__tests_8cpp_source_l00094}{94}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{double}\ apEn\_m\ \ =\ \mbox{\hyperlink{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c}{get\_apEn}}(bit\_seq,\ m);}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{double}\ apEn\_m1\ =\ \mbox{\hyperlink{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c}{get\_apEn}}(bit\_seq,\ m+1);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{double}\ apEn\ =\ apEn\_m\ -\/\ apEn\_m1;}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{double}\ chi2\ =\ 2\ *\ bit\_seq.size()\ *\ (std::log(2)\ -\/\ apEn);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ cephes\_igamc(1\ <<\ (m-\/1),\ chi2/2);}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordflow}{return}\ p\_value;\ }
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a513367e7daad2a9288230ef9a7f516f5}\index{tests.h@{tests.h}!nist\_cusum@{nist\_cusum}}
+\index{nist\_cusum@{nist\_cusum}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{nist\_cusum()}{nist\_cusum()}}
+{\footnotesize\ttfamily \label{tests_8h_a513367e7daad2a9288230ef9a7f516f5} 
+double nist\+\_\+cusum (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{}\end{DoxyParamCaption})}
+
+
+
+Тест кумулятивных сумм 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+p\+\_\+value 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__tests_8cpp_source}{nist\+\_\+tests.\+cpp}} строка \mbox{\hyperlink{nist__tests_8cpp_source_l00109}{109}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{int}\ S\ =\ 0;}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{int}\ max\_S\ =\ 0;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ bit\ :\ bit\_seq\ )}
+\DoxyCodeLine{00116\ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ bit\ ?\ ++S\ :\ -\/-\/S;}
+\DoxyCodeLine{00118\ \ \ \ \ max\_S\ =\ (std::abs(S)\ >\ max\_S)\ ?\ std::abs(S)\ :\ max\_S;\ }
+\DoxyCodeLine{00119\ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ std::erfc(max\_S\ /\ std::sqrt(2\ *\ bit\_seq.size()));}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordflow}{return}\ p\_value;}
+\DoxyCodeLine{00124\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a26b74014a930396f434a23621b66cd95}\index{tests.h@{tests.h}!nist\_frequency@{nist\_frequency}}
+\index{nist\_frequency@{nist\_frequency}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{nist\_frequency()}{nist\_frequency()}}
+{\footnotesize\ttfamily \label{tests_8h_a26b74014a930396f434a23621b66cd95} 
+double nist\+\_\+frequency (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{}\end{DoxyParamCaption})}
+
+
+
+Частотный побитовый тест 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+p\+\_\+value 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__tests_8cpp_source}{nist\+\_\+tests.\+cpp}} строка \mbox{\hyperlink{nist__tests_8cpp_source_l00029}{29}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{int}\ sum\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ bit\ :\ bit\_seq)}
+\DoxyCodeLine{00034\ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ bit\ ?\ ++sum\ :\ -\/-\/sum;\ \textcolor{comment}{//\ Итого:\ ++sum,\ если\ бит\ -\/\ 1,\ иначе\ -\/-\/sum}}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{double}\ s\_obs\ =\ std::abs(sum)\ /\ std::sqrt(bit\_seq.size());}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ std::erfc(s\_obs\ /\ std::sqrt(2));}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{return}\ p\_value;}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_ac948fdf0dcd6b2aa327293681c3b47ab}\index{tests.h@{tests.h}!nist\_runs@{nist\_runs}}
+\index{nist\_runs@{nist\_runs}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{nist\_runs()}{nist\_runs()}}
+{\footnotesize\ttfamily \label{tests_8h_ac948fdf0dcd6b2aa327293681c3b47ab} 
+double nist\+\_\+runs (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{}\end{DoxyParamCaption})}
+
+
+
+Тест на последовательность одинаковых битов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+p\+\_\+value 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__tests_8cpp_source}{nist\+\_\+tests.\+cpp}} строка \mbox{\hyperlink{nist__tests_8cpp_source_l00048}{48}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{int}\ sum\ =\ std::count(bit\_seq.begin(),\ bit\_seq.end(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{double}\ pi\ =\ (double)sum\ /\ bit\_seq.size();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{if}\ (fabs(pi\ -\/\ 0.5)\ >=\ 2\ /\ std::sqrt(bit\_seq.size()))}
+\DoxyCodeLine{00056\ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}>>>\ Не\ выполнен\ критерий\ для\ runs\ теста"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{int}\ runs\ =\ 1;}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=1;\ i\ <\ bit\_seq.size();\ ++i)}
+\DoxyCodeLine{00064\ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_seq.at(i)\ !=\ bit\_seq.at(i-\/1))}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ ++runs;}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{double}\ erfc\_arg\ =\ fabs(runs\ -\/\ 2.0\ *\ bit\_seq.size()\ *\ pi\ *\ (1-\/pi))\ /\ (2.0\ *\ pi\ *\ (1-\/pi)\ *\ sqrt(2*bit\_seq.size()));}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ erfc(erfc\_arg);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{return}\ p\_value;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a0360dc680a7ee34f82920792acb7fc3b}\index{tests.h@{tests.h}!nist\_serial@{nist\_serial}}
+\index{nist\_serial@{nist\_serial}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{nist\_serial()}{nist\_serial()}}
+{\footnotesize\ttfamily \label{tests_8h_a0360dc680a7ee34f82920792acb7fc3b} 
+double nist\+\_\+serial (\begin{DoxyParamCaption}\item[{std\+::vector$<$ bool $>$ \&}]{bit\+\_\+seq}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Тест на периодичность 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em bit\+\_\+seq} & Последовательность битов выборки \\
+\hline
+{\em m} & Длина рассматриваемого блока бит \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+p\+\_\+value 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__tests_8cpp_source}{nist\+\_\+tests.\+cpp}} строка \mbox{\hyperlink{nist__tests_8cpp_source_l00080}{80}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{double}\ psi\_m\ \ \ =\ \mbox{\hyperlink{tests_8h_a616ca79a13cf042bbd8102ac5792d538}{get\_psi2}}(bit\_seq,\ m);}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{double}\ psi\_m\_1\ =\ \mbox{\hyperlink{tests_8h_a616ca79a13cf042bbd8102ac5792d538}{get\_psi2}}(bit\_seq,\ m-\/1);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ cephes\_igamc(1\ <<\ (m-\/2),\ (psi\_m\ -\/\ psi\_m\_1)/2);}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ p\_value;\ }
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{tests_8h_a6a37acbf5f3971e3dac91760b83f7430}\index{tests.h@{tests.h}!sample\_to\_bit\_sequence@{sample\_to\_bit\_sequence}}
+\index{sample\_to\_bit\_sequence@{sample\_to\_bit\_sequence}!tests.h@{tests.h}}
+\doxysubsubsection{\texorpdfstring{sample\_to\_bit\_sequence()}{sample\_to\_bit\_sequence()}}
+{\footnotesize\ttfamily \label{tests_8h_a6a37acbf5f3971e3dac91760b83f7430} 
+std\+::vector$<$ bool $>$ sample\+\_\+to\+\_\+bit\+\_\+sequence (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned int $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
+
+
+Функция, преобразовывающая вектор выборки в последовательность битов этой выборки 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vec} & Вектор выборки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Последовательность битов 
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{nist__funcs_8cpp_source}{nist\+\_\+funcs.\+cpp}} строка \mbox{\hyperlink{nist__funcs_8cpp_source_l00018}{18}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ 1\ +\ std::log2(\mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});\ \textcolor{comment}{//\ Находим\ наибольший\ бит,\ который\ может\ принять\ значение\ 1}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Старшие\ биты\ всегда\ будут\ 0,\ что\ будет\ нарушать\ тесты,\ поэтому\ обрубаем\ их}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ std::vector<bool>\ bit\_seq;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ num\ :\ vec)}
+\DoxyCodeLine{00026\ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ max\_len;\ ++i)}
+\DoxyCodeLine{00028\ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ bit\_seq.push\_back(num\ >>\ i\ \&\ 1);\ \textcolor{comment}{//\ биты\ хранятся\ в\ обратном\ порядке,\ т.е.\ чем\ меньше\ индекс,\ тем\ младше\ бит}}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{return}\ bit\_seq;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \}}
+
+\end{DoxyCode}

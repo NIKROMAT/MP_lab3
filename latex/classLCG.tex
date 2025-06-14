@@ -1,0 +1,197 @@
+\doxysection{Класс LCG}
+\hypertarget{classLCG}{}\label{classLCG}\index{LCG@{LCG}}
+
+
+Генератор, основанный на линейном конгруэнтном методе  
+
+
+
+
+{\ttfamily \#include $<$prng.\+h$>$}
+
+Граф наследования\+:LCG\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLCG}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLCG_a25fbd80dbe6522264e34989119d4dddf}\label{classLCG_a25fbd80dbe6522264e34989119d4dddf} 
+{\bfseries LCG} ()=delete
+\begin{DoxyCompactList}\small\item\em Запрет на конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLCG_a8db7f0d458667e6f1290ee323e0c110a}{LCG}} (uint32\+\_\+t, uint32\+\_\+t=0, uint32\+\_\+t=-\/1)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classLCG_ab12621664f5fd0b560a852aecbdb293d}{generate}} () override
+\begin{DoxyCompactList}\small\item\em Генерация следующего числа \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{classPRNG}{PRNG}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPRNG_acab864bc62527b1295be0c9faac0ffe4}{generate\+\_\+sample}} (std\+::ostream \&, int)
+\begin{DoxyCompactList}\small\item\em Метод для генерации и записи в поток целой выборки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{seed}}
+\begin{DoxyCompactList}\small\item\em Семя генерации \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classLCG_af5b37b1971001206597e236a2696ad0d}{k}}
+\begin{DoxyCompactList}\small\item\em Коэффициент \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classLCG_ad9a164fbb047ce2c326dca8b432ede52}{b}}
+\begin{DoxyCompactList}\small\item\em Смещение \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classLCG_a2cf9dbb0d114728a0037dea231974917}{M}}
+\begin{DoxyCompactList}\small\item\em Модуль \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Дополнительные унаследованные члены}
+\doxysubsection*{Защищенные члены унаследованные от \mbox{\hyperlink{classPRNG}{PRNG}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}} (uint32\+\_\+t, uint32\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Конструктор для базового абстрактного класса \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classPRNG_ac66dbb9a55c1c773463e683267f6b909}{result}} (uint32\+\_\+t) const
+\begin{DoxyCompactList}\small\item\em Метод для перевода сгенерированного числа в требуемый диапазон \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные данные унаследованные от \mbox{\hyperlink{classPRNG}{PRNG}}}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\+\_\+lim}}
+\begin{DoxyCompactList}\small\item\em Нижняя граница генерации \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\+\_\+lim}}
+\begin{DoxyCompactList}\small\item\em Верхняя граница генерации \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Генератор, основанный на линейном конгруэнтном методе 
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00068}{68}}
+
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classLCG_a8db7f0d458667e6f1290ee323e0c110a}\index{LCG@{LCG}!LCG@{LCG}}
+\index{LCG@{LCG}!LCG@{LCG}}
+\doxysubsubsection{\texorpdfstring{LCG()}{LCG()}}
+{\footnotesize\ttfamily \label{classLCG_a8db7f0d458667e6f1290ee323e0c110a} 
+LCG\+::\+LCG (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{seed}{, }\item[{uint32\+\_\+t}]{min\+\_\+lim}{ = {\ttfamily 0}, }\item[{uint32\+\_\+t}]{max\+\_\+lim}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em seed} & Семя генерации \\
+\hline
+{\em min\+\_\+lim} & Нижняя граница генерации \\
+\hline
+{\em max\+\_\+lim} & Верхняя граница генерации \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \mbox{\hyperlink{prng_8cpp_source}{prng.\+cpp}} строка \mbox{\hyperlink{prng_8cpp_source_l00110}{110}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00112\ :\ \mbox{\hyperlink{classPRNG_ab8e546080f61a72a5a272989deea8a7c}{PRNG}}(\mbox{\hyperlink{classPRNG_a797b44bddd9d78b37e40ba421b25f1a6}{min\_lim}},\ \mbox{\hyperlink{classPRNG_abf3a9dbf4c589168bed0b6a092754ef2}{max\_lim}}),\ \mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{seed}}(\mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{seed}}),\ \mbox{\hyperlink{classLCG_af5b37b1971001206597e236a2696ad0d}{k}}(1'103'515'245),\ \mbox{\hyperlink{classLCG_ad9a164fbb047ce2c326dca8b432ede52}{b}}(12345),\ \mbox{\hyperlink{classLCG_a2cf9dbb0d114728a0037dea231974917}{M}}(1<<31)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classLCG_ab12621664f5fd0b560a852aecbdb293d}\index{LCG@{LCG}!generate@{generate}}
+\index{generate@{generate}!LCG@{LCG}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \label{classLCG_ab12621664f5fd0b560a852aecbdb293d} 
+uint32\+\_\+t LCG\+::generate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Генерация следующего числа 
+
+\begin{DoxyReturn}{Возвращает}
+Следующее случайное число 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classPRNG_abe1ceb726c416fb95a5b03598c9a2a13}{PRNG}}.
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8cpp_source}{prng.\+cpp}} строка \mbox{\hyperlink{prng_8cpp_source_l00117}{117}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \{}
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{seed}}\ =\ (\mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{seed}}\ *\ \mbox{\hyperlink{classLCG_af5b37b1971001206597e236a2696ad0d}{k}}\ +\ \mbox{\hyperlink{classLCG_ad9a164fbb047ce2c326dca8b432ede52}{b}})\ \&\ (\mbox{\hyperlink{classLCG_a2cf9dbb0d114728a0037dea231974917}{M}}-\/1);\ \textcolor{comment}{//\ Если\ M\ =\ 2\string^N}}
+\DoxyCodeLine{00120\ \ \ \textcolor{comment}{//\ seed\ =\ (seed\ *\ k\ +\ b)\ \%\ (M);\ //\ иначе}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{comment}{//\ (k-\/1)\ -\/\ делится\ на\ все\ простые\ делители\ M\ (2)}}
+\DoxyCodeLine{00123\ \ \ \textcolor{comment}{//\ b\ и\ M\ взаимно\ простые}}
+\DoxyCodeLine{00124\ \ \ \textcolor{comment}{//\ M\ делится\ на\ 4\ и\ (k-\/1)\ делится\ на\ 4}}
+\DoxyCodeLine{00125\ \ \ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00126\ \ \ \textcolor{comment}{//\ Поэтому\ у\ этого\ линейного\ конгруэнтного\ генератора\ макцимальная\ периодичность\ \ }}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classPRNG_ac66dbb9a55c1c773463e683267f6b909}{result}}(\mbox{\hyperlink{classLCG_a91cfbff4540065bc089d7607eec8b888}{seed}});}
+\DoxyCodeLine{00129\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{classLCG_ad9a164fbb047ce2c326dca8b432ede52}\index{LCG@{LCG}!b@{b}}
+\index{b@{b}!LCG@{LCG}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily \label{classLCG_ad9a164fbb047ce2c326dca8b432ede52} 
+uint32\+\_\+t LCG\+::b\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Смещение 
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00072}{72}}
+
+\Hypertarget{classLCG_af5b37b1971001206597e236a2696ad0d}\index{LCG@{LCG}!k@{k}}
+\index{k@{k}!LCG@{LCG}}
+\doxysubsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily \label{classLCG_af5b37b1971001206597e236a2696ad0d} 
+uint32\+\_\+t LCG\+::k\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Коэффициент 
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00071}{71}}
+
+\Hypertarget{classLCG_a2cf9dbb0d114728a0037dea231974917}\index{LCG@{LCG}!M@{M}}
+\index{M@{M}!LCG@{LCG}}
+\doxysubsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily \label{classLCG_a2cf9dbb0d114728a0037dea231974917} 
+uint32\+\_\+t LCG\+::M\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Модуль 
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00073}{73}}
+
+\Hypertarget{classLCG_a91cfbff4540065bc089d7607eec8b888}\index{LCG@{LCG}!seed@{seed}}
+\index{seed@{seed}!LCG@{LCG}}
+\doxysubsubsection{\texorpdfstring{seed}{seed}}
+{\footnotesize\ttfamily \label{classLCG_a91cfbff4540065bc089d7607eec8b888} 
+uint32\+\_\+t LCG\+::seed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Семя генерации 
+
+
+
+См. определение в файле \mbox{\hyperlink{prng_8h_source}{prng.\+h}} строка \mbox{\hyperlink{prng_8h_source_l00070}{70}}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{prng_8h}{prng.\+h}}\item 
+src/\mbox{\hyperlink{prng_8cpp}{prng.\+cpp}}\end{DoxyCompactItemize}

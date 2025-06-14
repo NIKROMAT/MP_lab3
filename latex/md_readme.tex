@@ -1,0 +1,17 @@
+\chapter{readme}
+\hypertarget{md_readme}{}\label{md_readme}\index{readme@{readme}}
+Подсказка к возможностям makefile\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily make samples} -\/ создаёт папку {\ttfamily samples} с наборами сгенерированных выборок разных размеров для каждого генератора
+\item {\ttfamily make results} -\/ в каждом вышеуказанном наборе создаёт файл {\ttfamily .csv} содежращиё все результаты всех измерений и тестов
+\item {\ttfamily make time} -\/ создаёт файл {\ttfamily generation\+\_\+time.\+csv} содержащий время генерации выборок разных объёмов для разных генераторов
+\item {\ttfamily make graph} -\/ создаёт файл {\ttfamily generation\+\_\+time.\+png} содежращий графики к вышеуказанному файлу
+\item {\ttfamily make doc} -\/ конструирует {\ttfamily html} и {\ttfamily latex} {\ttfamily doxygen} документацию
+\item {\ttfamily make pdf} -\/ запускает {\ttfamily make doc}, а затем собирает {\ttfamily pdf} версий {\ttfamily latex} документации ~\newline
+
+\item {\ttfamily make clean} -\/ удаляет созданные объектные и исполняемые файлы
+\item {\ttfamily make cleanall} -\/ запускает {\ttfamily make clean} удаляет папки {\ttfamily samples}, {\ttfamily html} и {\ttfamily latex} со всем содержимым, а также файлы {\ttfamily generation\+\_\+time.\+csv} и {\ttfamily generation\+\_\+time.\+png} (потребуется подтверждение для удаления)
+\item {\ttfamily make} или {\ttfamily make all} запустит подряд все вышеуказанные команды, кроме {\ttfamily clean}, {\ttfamily cleanall}, {\ttfamily doc} и {\ttfamily pdf} 
+\end{DoxyItemize}

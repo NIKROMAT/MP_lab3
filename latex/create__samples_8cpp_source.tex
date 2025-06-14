@@ -1,0 +1,106 @@
+\doxysection{create\+\_\+samples.\+cpp}
+\hypertarget{create__samples_8cpp_source}{}\label{create__samples_8cpp_source}\mbox{\hyperlink{create__samples_8cpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{prng_8h}{include/prng.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{include/defs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00023}00023\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00025}00025\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ PRNG>}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00026}00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples}}\ (std::string,\ std::string,\ std::vector<int>\&,\ std::vector<int>\&,\ uint32\_t\ =\ 0,\ uint32\_t\ =\ -\/1);}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00031}\mbox{\hyperlink{create__samples_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00031}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{create__samples_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00032}00032\ \{}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00033}00033\ \ \ std::ofstream\ sample\_file;\ \ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00035}00035\ \ \ \textcolor{comment}{//\ Создать\ папку\ для\ выборок,\ если\ её\ нет}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00036}00036\ \ \ fs::create\_directory(\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}});\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00039}00039\ \ \ \textcolor{comment}{//\ Размеры\ выборок}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00040}00040\ \ \ std::vector<int>\ sizes\ =\ \ \{\ 1000,\ \ 1000,\ \ 1000,\ \ 1000,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2000,\ \ 2000,\ \ 2000,\ \ 2000,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3000,\ \ 3000,\ \ 3000,\ \ 3000,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5000,\ \ 5000,\ \ 5000,\ \ 5000,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10000,\ 10000,\ 10000,\ 10000\};}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00046}00046\ \ \ \textcolor{comment}{//\ Семена\ генераторов}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00047}00047\ \ \ std::vector<int>\ seeds\ =\ \ \{\ \ \ \ \ \ \ 42,\ \ 13973739,\ 323159976,\ 518977272,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 667961784,\ 958390147,\ 567454690,\ 292832249,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 583553826,\ 722672343,\ 621406124,\ 771825685,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 398112944,\ 209114256,\ 242948276,\ 826041245,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 573926780,\ 324066546,\ 454325408,\ 147431459\};}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00054}00054\ \ \ \textcolor{comment}{//\ Функции,\ в\ которых\ происходит\ генерация\ выборок\ для\ каждого\ из\ генераторов}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00055}00055\ \ \ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples<mid\_xor\_PRNG>}}\ (\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}},\ \textcolor{stringliteral}{"{}mid\_xor"{}},\ sizes,\ seeds,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00056}00056\ \ \ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples<mul\_xor\_PRNG>}}\ (\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}},\ \textcolor{stringliteral}{"{}mul\_xor"{}},\ sizes,\ seeds,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00057}00057\ \ \ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples<LCG>}}\ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}},\ \textcolor{stringliteral}{"{}lcg"{}},\ \ \ \ \ sizes,\ seeds,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00060}00060\ \ \ std::endl(std::cout);}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00071}00071\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ PRNG>}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00072}\mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{00072}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples}}\ (std::string\ path,\ std::string\ prng\_name,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\&\ sizes,\ std::vector<int>\&\ seeds,}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ min\_lim,\ uint32\_t\ max\_lim)}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00077}00077\ \ \ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00078}00078\ \ \ \textcolor{keywordtype}{int}\ mod;}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00079}00079\ \ \ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00080}00080\ \ \ \textcolor{comment}{//\ Проверка\ корректности\ размеров\ списков\ seeds\ и\ sizes}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00081}00081\ \ \ \textcolor{keywordflow}{if}\ (sizes.size()\ ==\ seeds.size())\ \ \ \ \ mod\ =\ sizes.size();}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00082}00082\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (sizes.size()\ \%\ seeds.size()\ ==\ 0)\ mod\ =\ sizes.size()\ /\ seeds.size();}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00083}00083\ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00084}00084\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00085}00085\ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}!\ Неправильные\ размерности\ набора\ размеров\ и\ семян\ генераторов."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00087}00087\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00088}00088\ \ \ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00089}00089\ \ \ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00090}00090\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generating\ samples\ by\ "{}}\ +\ prng\_name\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00092}00092\ \ \ \textcolor{comment}{//\ Создание\ папки\ для\ выборок}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00093}00093\ \ \ fs::create\_directory(path\ +\ prng\_name);\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00095}00095\ \ \ \textcolor{comment}{//\ Цикл\ создания\ выборок}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00096}00096\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ sizes.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00097}00097\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ Создать\ файл\ выборки}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00100}00100\ \ \ \ \ std::ofstream\ sample\_file(path\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +\ std::to\_string(i+1)\ +\ \textcolor{stringliteral}{"{}.txt"{}});}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{comment}{//\ Создать\ генератор\ с\ заданным\ семенем\ и\ границами}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{classPRNG}{PRNG}}\ prng\ (seeds.at(i\ \%\ mod),\ min\_lim,\ max\_lim);}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00105}00105\ \ \ \ \ \textcolor{comment}{//\ Создать\ и\ записать\ выборку}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00106}00106\ \ \ \ \ prng.\mbox{\hyperlink{classPRNG_acab864bc62527b1295be0c9faac0ffe4}{generate\_sample}}(sample\_file,\ sizes.at(i));}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ Закрыть\ файл\ выборки}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00109}00109\ \ \ \ \ sample\_file.close();}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00110}00110\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00111}00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>\ Complete\ "{}}\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +\ std::to\_string(i+1)\ +\ \textcolor{stringliteral}{"{}.txt"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00112}00112\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00114}00114\ \ \ std::endl(std::cout);}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{create__samples_8cpp_source_l00116}00116\ }
+
+\end{DoxyCode}

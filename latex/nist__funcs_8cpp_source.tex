@@ -1,0 +1,92 @@
+\doxysection{nist\+\_\+funcs.\+cpp}
+\hypertarget{nist__funcs_8cpp_source}{}\label{nist__funcs_8cpp_source}\index{src/nist\_funcs.cpp@{src/nist\_funcs.cpp}}
+\mbox{\hyperlink{nist__funcs_8cpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tests_8h}{../include/tests.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{../include/defs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00018}\mbox{\hyperlink{tests_8h_a6a37acbf5f3971e3dac91760b83f7430}{00018}}\ std::vector<bool>\ \mbox{\hyperlink{nist__funcs_8cpp_a9584616e3802661ff0a7612572a299b2}{sample\_to\_bit\_sequence}}\ (\ std::vector<unsigned\ int>\&\ vec\ )}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00020}00020\ \ \ \textcolor{keywordtype}{int}\ max\_len\ =\ 1\ +\ std::log2(\mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});\ \textcolor{comment}{//\ Находим\ наибольший\ бит,\ который\ может\ принять\ значение\ 1}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Старшие\ биты\ всегда\ будут\ 0,\ что\ будет\ нарушать\ тесты,\ поэтому\ обрубаем\ их}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00023}00023\ \ \ std::vector<bool>\ bit\_seq;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00025}00025\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ num\ :\ vec)}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00026}00026\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ max\_len;\ ++i)}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00029}00029\ \ \ \ \ \ \ bit\_seq.push\_back(num\ >>\ i\ \&\ 1);\ \textcolor{comment}{//\ биты\ хранятся\ в\ обратном\ порядке,\ т.е.\ чем\ меньше\ индекс,\ тем\ младше\ бит}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00031}00031\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00033}00033\ \ \ \textcolor{keywordflow}{return}\ bit\_seq;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00043}\mbox{\hyperlink{tests_8h_ac2841832b712b6d419ddd1ae948eef40}{00043}}\ std::vector<unsigned\ int>\ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\_pattern\_counts}}\ (\ std::vector<bool>\&\ bit\_seq,\ \textcolor{keywordtype}{int}\ m\ )}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00044}00044\ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00045}00045\ \ \ std::vector<unsigned\ int>\ pattern\_counts(1<<m,\ 0);}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00046}00046\ \ \ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00047}00047\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ bit\_seq.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00048}00048\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{int}\ k=0;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ m-\/1;\ j\ >=\ 0;\ -\/-\/j)\ \ \textcolor{comment}{//\ Проходимся\ в\ обратном\ порядке\ для\ эстетичности,\ чтобы\ паттерн\ равный\ числу\ I\ был\ записан\ под\ индексом\ I}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00052}00052\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_seq.at((i+j)\ \%\ bit\_seq.size()))\ \ \ k\ =\ 2*k\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00053}00053\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\ =\ 2*k;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00055}00055\ \ \ \ \ ++pattern\_counts[k];}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00056}00056\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00058}00058\ \ \ \textcolor{keywordflow}{return}\ pattern\_counts;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00066}\mbox{\hyperlink{tests_8h_a616ca79a13cf042bbd8102ac5792d538}{00066}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{nist__funcs_8cpp_a9e853700b270227404a2e4242f5f365a}{get\_psi2}}\ (\ std::vector<bool>\&\ bit\_seq,\ \textcolor{keywordtype}{int}\ m\ )}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00068}00068\ \ \ std::vector<unsigned\ int>\ pattern\_counts\ =\ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\_pattern\_counts}}(bit\_seq,\ m);}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00071}00071\ \ \ \textcolor{keywordtype}{int}\ expected\ =\ bit\_seq.size()\ /\ (1\ <<\ m);}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00073}00073\ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00074}00074\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ count\ :\ pattern\_counts)}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00075}00075\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00076}00076\ \ \ \ \ sum\ +=\ (count\ -\/\ expected)\ *\ (count\ -\/\ expected);}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00077}00077\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00079}00079\ \ \ sum\ =\ (\ sum\ *\ (1\ <<\ m)\ )\ /\ bit\_seq.size()\ -\/\ bit\_seq.size();}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00081}00081\ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00082}00082\ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00089}\mbox{\hyperlink{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c}{00089}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{nist__funcs_8cpp_aa10b0d77510eb836851c63373dd9c4f1}{get\_apEn}}\ (\ std::vector<bool>\&\ bit\_seq,\ \textcolor{keywordtype}{int}\ m\ )}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00091}00091\ \ \ std::vector<unsigned\ int>\ pattern\_counts\ =\ \mbox{\hyperlink{nist__funcs_8cpp_ab7b4512368d96df75db12d24d859f471}{get\_pattern\_counts}}(bit\_seq,\ m);}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00093}00093\ \ \ \textcolor{keywordtype}{double}\ apEn\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00095}00095\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ count\ :\ pattern\_counts)}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00096}00096\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ (double)count\ /\ bit\_seq.size();}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00098}00098\ \ \ \ \ apEn\ +=\ (p\ >\ std::pow(10,-\/6))\ ?\ (p\ *\ std::log(p))\ :\ 0;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00099}00099\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00101}00101\ \ \ \textcolor{keywordflow}{return}\ apEn;}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{nist__funcs_8cpp_source_l00104}00104\ }
+
+\end{DoxyCode}

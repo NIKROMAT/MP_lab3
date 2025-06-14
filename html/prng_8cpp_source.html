@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная работа 3: Исходный файл src/prng.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторная работа 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">prng.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="prng_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="prng_8h.html">../include/prng.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//            PRNG            //</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">   19</a></span><a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG::PRNG</a> ( uint32_t <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, uint32_t <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a> )</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>: <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>(<a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>), <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>(<a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>) {}</div>
+</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classPRNG.html#acab864bc62527b1295be0c9faac0ffe4">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classPRNG.html#acab864bc62527b1295be0c9faac0ffe4">PRNG::generate_sample</a> (std::ostream&amp; out, <span class="keywordtype">int</span> size)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; size; ++i)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    out &lt;&lt; this-&gt;<a class="code hl_function" href="classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13">generate</a>() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">   38</a></span>uint32_t <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">PRNG::result</a> (uint32_t <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a> + <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a> % (1ul + <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a> - <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>); <span class="comment">// поскольку max_lim - верхняя граница включительно, то нужно брать модуль +1</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                                                       <span class="comment">// (1 - unsigned long, чтобы не возникло переполнения и не было деления на 0)</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//           mid_xor          //</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classmid__xor__PRNG.html#ace669bfac6b45b5e6d80fefaa038e3e2">   55</a></span><a class="code hl_function" href="classmid__xor__PRNG.html#aa95754756423ba0593cf96ee6b72632a">mid_xor_PRNG::mid_xor_PRNG</a> (uint32_t <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a>, uint32_t <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, uint32_t <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>: <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a>(<a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>), <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a>(<a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a>) {} </div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa">   61</a></span>uint32_t <a class="code hl_function" href="classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa">mid_xor_PRNG::generate</a> ()</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  uint64_t product = <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a> * <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a>  = (product &gt;&gt; 8) &amp; 0xFFFFFFFF;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="comment">// Динамический сдвиг для XorShift</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  uint8_t shift = (<a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a> &gt;&gt; 10) &amp; 0x1F; <span class="comment">// Сдвиг от 0 до 31</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a> ^= 0x9E3779B9 &lt;&lt; (shift % 13 + 1); <span class="comment">// Чтобы не было вырождения в 0</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a> ^= <a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a> &gt;&gt; (shift % 17 + 1);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a>(<a class="code hl_variable" href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">seed</a>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//           mul_xor          //</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classmul__xor__PRNG.html#a88dcdf607cf274df38c4502ffcf42d5d">   85</a></span><a class="code hl_function" href="classmul__xor__PRNG.html#a8696933fee50b42611d30538969efc21">mul_xor_PRNG::mul_xor_PRNG</a> (uint32_t <a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a>, uint32_t <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, uint32_t <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>: <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a>(<a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>), <a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a>(<a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a>) {}</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480">   91</a></span>uint32_t <a class="code hl_function" href="classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480">mul_xor_PRNG::generate</a> ()</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a> ^= <a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a> &lt;&lt; 13;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a> ^= (<a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a> &gt;&gt; 7) * 0x9AE77B3D;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a> ^= (<a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a> &gt;&gt; 5) | (<a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a> &lt;&lt; 17);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a>(<a class="code hl_variable" href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">seed</a>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">//             LCG            //</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span></div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classLCG.html#a8db7f0d458667e6f1290ee323e0c110a">  110</a></span><a class="code hl_function" href="classLCG.html#a25fbd80dbe6522264e34989119d4dddf">LCG::LCG</a> (uint32_t <a class="code hl_variable" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">seed</a>, uint32_t <a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, uint32_t <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">// : PRNG(min_lim, max_lim), seed(seed), k((1&lt;&lt;16)+1), b((1&lt;&lt;8)-1), M(1&lt;&lt;31) {}</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>: <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a>(<a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>), <a class="code hl_variable" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">seed</a>(<a class="code hl_variable" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">seed</a>), <a class="code hl_variable" href="classLCG.html#af5b37b1971001206597e236a2696ad0d">k</a>(1&#39;103&#39;515&#39;245), <a class="code hl_variable" href="classLCG.html#ad9a164fbb047ce2c326dca8b432ede52">b</a>(12345), <a class="code hl_variable" href="classLCG.html#a2cf9dbb0d114728a0037dea231974917">M</a>(1&lt;&lt;31) {}</div>
+</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classLCG.html#ab12621664f5fd0b560a852aecbdb293d">  117</a></span>uint32_t <a class="code hl_function" href="classLCG.html#ab12621664f5fd0b560a852aecbdb293d">LCG::generate</a> ()</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>{</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <a class="code hl_variable" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">seed</a> = (<a class="code hl_variable" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">seed</a> * <a class="code hl_variable" href="classLCG.html#af5b37b1971001206597e236a2696ad0d">k</a> + <a class="code hl_variable" href="classLCG.html#ad9a164fbb047ce2c326dca8b432ede52">b</a>) &amp; (<a class="code hl_variable" href="classLCG.html#a2cf9dbb0d114728a0037dea231974917">M</a>-1); <span class="comment">// Если M = 2^N</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="comment">// seed = (seed * k + b) % (M); // иначе</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <span class="comment">// (k-1) - делится на все простые делители M (2)</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  <span class="comment">// b и M взаимно простые</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <span class="comment">// M делится на 4 и (k-1) делится на 4</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  <span class="comment">// </span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <span class="comment">// Поэтому у этого линейного конгруэнтного генератора макцимальная периодичность  </span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a>(<a class="code hl_variable" href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">seed</a>);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}</div>
+</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="ttc" id="aclassLCG_html_a25fbd80dbe6522264e34989119d4dddf"><div class="ttname"><a href="classLCG.html#a25fbd80dbe6522264e34989119d4dddf">LCG::LCG</a></div><div class="ttdeci">LCG()=delete</div><div class="ttdoc">Запрет на конструктор по умолчанию</div></div>
+<div class="ttc" id="aclassLCG_html_a2cf9dbb0d114728a0037dea231974917"><div class="ttname"><a href="classLCG.html#a2cf9dbb0d114728a0037dea231974917">LCG::M</a></div><div class="ttdeci">uint32_t M</div><div class="ttdoc">Модуль</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00073">prng.h:73</a></div></div>
+<div class="ttc" id="aclassLCG_html_a91cfbff4540065bc089d7607eec8b888"><div class="ttname"><a href="classLCG.html#a91cfbff4540065bc089d7607eec8b888">LCG::seed</a></div><div class="ttdeci">uint32_t seed</div><div class="ttdoc">Семя генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00070">prng.h:70</a></div></div>
+<div class="ttc" id="aclassLCG_html_ab12621664f5fd0b560a852aecbdb293d"><div class="ttname"><a href="classLCG.html#ab12621664f5fd0b560a852aecbdb293d">LCG::generate</a></div><div class="ttdeci">uint32_t generate() override</div><div class="ttdoc">Генерация следующего числа</div><div class="ttdef"><b>Определения</b> <a href="#l00117">prng.cpp:117</a></div></div>
+<div class="ttc" id="aclassLCG_html_ad9a164fbb047ce2c326dca8b432ede52"><div class="ttname"><a href="classLCG.html#ad9a164fbb047ce2c326dca8b432ede52">LCG::b</a></div><div class="ttdeci">uint32_t b</div><div class="ttdoc">Смещение</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00072">prng.h:72</a></div></div>
+<div class="ttc" id="aclassLCG_html_af5b37b1971001206597e236a2696ad0d"><div class="ttname"><a href="classLCG.html#af5b37b1971001206597e236a2696ad0d">LCG::k</a></div><div class="ttdeci">uint32_t k</div><div class="ttdoc">Коэффициент</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00071">prng.h:71</a></div></div>
+<div class="ttc" id="aclassPRNG_html_a797b44bddd9d78b37e40ba421b25f1a6"><div class="ttname"><a href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">PRNG::min_lim</a></div><div class="ttdeci">const uint32_t min_lim</div><div class="ttdoc">Нижняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00023">prng.h:23</a></div></div>
+<div class="ttc" id="aclassPRNG_html_ab8e546080f61a72a5a272989deea8a7c"><div class="ttname"><a href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG::PRNG</a></div><div class="ttdeci">PRNG(uint32_t, uint32_t)</div><div class="ttdoc">Конструктор для базового абстрактного класса</div><div class="ttdef"><b>Определения</b> <a href="#l00019">prng.cpp:19</a></div></div>
+<div class="ttc" id="aclassPRNG_html_abe1ceb726c416fb95a5b03598c9a2a13"><div class="ttname"><a href="classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13">PRNG::generate</a></div><div class="ttdeci">virtual uint32_t generate()=0</div><div class="ttdoc">Чистая функция для генерации следующего числа</div></div>
+<div class="ttc" id="aclassPRNG_html_abf3a9dbf4c589168bed0b6a092754ef2"><div class="ttname"><a href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">PRNG::max_lim</a></div><div class="ttdeci">const uint32_t max_lim</div><div class="ttdoc">Верхняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00024">prng.h:24</a></div></div>
+<div class="ttc" id="aclassPRNG_html_ac66dbb9a55c1c773463e683267f6b909"><div class="ttname"><a href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">PRNG::result</a></div><div class="ttdeci">uint32_t result(uint32_t) const</div><div class="ttdoc">Метод для перевода сгенерированного числа в требуемый диапазон</div><div class="ttdef"><b>Определения</b> <a href="#l00038">prng.cpp:38</a></div></div>
+<div class="ttc" id="aclassPRNG_html_acab864bc62527b1295be0c9faac0ffe4"><div class="ttname"><a href="classPRNG.html#acab864bc62527b1295be0c9faac0ffe4">PRNG::generate_sample</a></div><div class="ttdeci">void generate_sample(std::ostream &amp;, int)</div><div class="ttdoc">Метод для генерации и записи в поток целой выборки</div><div class="ttdef"><b>Определения</b> <a href="#l00026">prng.cpp:26</a></div></div>
+<div class="ttc" id="aclassmid__xor__PRNG_html_a8dffd2772a7cd71aacf78d3b8ed4c4a5"><div class="ttname"><a href="classmid__xor__PRNG.html#a8dffd2772a7cd71aacf78d3b8ed4c4a5">mid_xor_PRNG::seed</a></div><div class="ttdeci">uint32_t seed</div><div class="ttdoc">Семя генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00042">prng.h:42</a></div></div>
+<div class="ttc" id="aclassmid__xor__PRNG_html_aa95754756423ba0593cf96ee6b72632a"><div class="ttname"><a href="classmid__xor__PRNG.html#aa95754756423ba0593cf96ee6b72632a">mid_xor_PRNG::mid_xor_PRNG</a></div><div class="ttdeci">mid_xor_PRNG()=delete</div><div class="ttdoc">Запрет на конструктор по умолчанию</div></div>
+<div class="ttc" id="aclassmid__xor__PRNG_html_ac4632cd36fab0a451fc9105d331934aa"><div class="ttname"><a href="classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa">mid_xor_PRNG::generate</a></div><div class="ttdeci">uint32_t generate() override</div><div class="ttdoc">Генерация следующего числа</div><div class="ttdef"><b>Определения</b> <a href="#l00061">prng.cpp:61</a></div></div>
+<div class="ttc" id="aclassmul__xor__PRNG_html_a1427537feaf3aa3bf18bf383b6e12445"><div class="ttname"><a href="classmul__xor__PRNG.html#a1427537feaf3aa3bf18bf383b6e12445">mul_xor_PRNG::seed</a></div><div class="ttdeci">uint32_t seed</div><div class="ttdoc">Семя генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00056">prng.h:56</a></div></div>
+<div class="ttc" id="aclassmul__xor__PRNG_html_a4b1a214d738b545d2f6bba84851ec480"><div class="ttname"><a href="classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480">mul_xor_PRNG::generate</a></div><div class="ttdeci">uint32_t generate() override</div><div class="ttdoc">Генерация следующего числа</div><div class="ttdef"><b>Определения</b> <a href="#l00091">prng.cpp:91</a></div></div>
+<div class="ttc" id="aclassmul__xor__PRNG_html_a8696933fee50b42611d30538969efc21"><div class="ttname"><a href="classmul__xor__PRNG.html#a8696933fee50b42611d30538969efc21">mul_xor_PRNG::mul_xor_PRNG</a></div><div class="ttdeci">mul_xor_PRNG()=delete</div><div class="ttdoc">Запрет на конструктор по умолчанию</div></div>
+<div class="ttc" id="aprng_8h_html"><div class="ttname"><a href="prng_8h.html">prng.h</a></div><div class="ttdoc">Заголовочный файл, в котором определяются классы генераторов.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

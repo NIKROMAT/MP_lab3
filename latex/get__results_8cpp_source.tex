@@ -1,0 +1,175 @@
+\doxysection{get\+\_\+results.\+cpp}
+\hypertarget{get__results_8cpp_source}{}\label{get__results_8cpp_source}\mbox{\hyperlink{get__results_8cpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tests_8h}{include/tests.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{include/defs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00030}00030\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00033}00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{get__results_8cpp_a66c165e5556542c04a4fb0cca4d46169}{process\_sample}}\ (std::istream\&,\ std::vector<std::string>\&);}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00036}\mbox{\hyperlink{get__results_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00036}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{get__results_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}\ ()}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00039}00039\ \ \ std::ifstream\ sample\_file;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00040}00040\ \ \ std::ofstream\ result\_file;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00043}00043\ \ \ \textcolor{comment}{//\ Цикл\ прохождения\ по\ содержимому\ главной\ папки\ с\ выборками}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00044}00044\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ dir\_entry\ :\ fs::directory\_iterator(\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}}))}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00045}00045\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ Обрабатываем\ только\ папки\ с\ выборками\ генераторов}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (!dir\_entry.is\_directory())\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ Получаем\ имя\ генератора}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00050}00050\ \ \ \ \ std::string\ subdir\_name\ =\ dir\_entry.path().filename().string();}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00051}00051\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00052}00052\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Processing\ "{}}\ <<\ subdir\_name\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ Подготавливаем\ файл\ для\ записи\ результатов}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00055}00055\ \ \ \ \ result\_file.open(\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}}\ +\ subdir\_name\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ subdir\_name\ +\ \textcolor{stringliteral}{"{}\_results.csv"{}});}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00056}00056\ \ \ \ \ result\_file\ <<\ \textcolor{stringliteral}{"{}No,Size,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Mean,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}StdDev,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}CV,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Chi2,Chi2\ df,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}NIST\ frequency,frequency\ status,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}NIST\ runs,runs\ status,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}NIST\ serial,serial\ block\ size,serial\ status,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}NIST\ approximate\ entropy,ApEn\ block\ size,ApEn\ status,"{}}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}NIST\ cusum,cusum\ status\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ Проход\ по\ файлам\ папки\ произвользый,\ поэтому\ чтобы\ сохранить\ очерёдность\ будем\ временно\ сохранять\ результаты\ в\ вектор}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00069}00069\ \ \ \ \ std::vector<\ std::pair<\ int,std::vector<std::string>\ >>\ result\_vector;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ Цикл\ для\ прохода\ по\ всем\ выборкам\ генератора}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ subdir\_entry\ :\ fs::directory\_iterator(\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}}\ +\ subdir\_name))}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00075}00075\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00076}00076\ \ \ \ \ \ \ \textcolor{comment}{//\ Файл\ для\ записи\ результата\ игнорируем}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00077}00077\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (subdir\_entry.path().extension().string()\ ==\ \textcolor{stringliteral}{"{}.csv"{}})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00079}00079\ \ \ \ \ \ \ \textcolor{comment}{//\ Открываем\ файл\ выборки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00080}00080\ \ \ \ \ \ \ sample\_file.open(subdir\_entry.path());}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00082}00082\ \ \ \ \ \ \ std::string\ subdir\_entry\_stem\ =\ subdir\_entry.path().stem().string();}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00084}00084\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>\ Processing\ "{}}\ <<\ subdir\_entry\_stem\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00087}00087\ \ \ \ \ \ \ \textcolor{comment}{//\ Вектор\ для\ временного\ хранения\ реультатов}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00088}00088\ \ \ \ \ \ \ std::pair<int,std::vector<std::string>>\ sample\_result;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00090}00090\ \ \ \ \ \ \ sample\_result.first\ =\ std::stoi(subdir\_entry\_stem.substr(subdir\_entry\_stem.rfind(\textcolor{stringliteral}{"{}\_"{}})\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00092}00092\ \ \ \ \ \ \ \textcolor{comment}{//\ Обрабатываем\ выборку}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00093}00093\ \ \ \ \ \ \ \mbox{\hyperlink{get__results_8cpp_a66c165e5556542c04a4fb0cca4d46169}{process\_sample}}(sample\_file,\ sample\_result.second);}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00094}00094\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00095}00095\ \ \ \ \ \ \ \textcolor{comment}{//\ Сохраняем\ результат}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00096}00096\ \ \ \ \ \ \ result\_vector.push\_back(sample\_result);}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00099}00099\ \ \ \ \ \ \ sample\_file.close();}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//\ Сортируем\ результаты\ по\ увеличению\ номера\ выборки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00104}00104\ \ \ \ \ std::sort(\ result\_vector.begin(),\ result\_vector.end(),\ [](\textcolor{keyword}{auto}\&\ el1,\ \textcolor{keyword}{auto}\&\ el2)\{\ return\ el1.first\ <\ el2.first;\ \}\ );}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ Записываем\ результаты\ в\ файл\ }}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ pair\ :\ result\_vector)}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00108}00108\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00109}00109\ \ \ \ \ \ \ result\_file\ <<\ pair.first;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ val\ :\ pair.second)}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00112}00112\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ result\_file\ <<\ \textcolor{charliteral}{','}\ <<\ val;\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00114}00114\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00115}00115\ \ \ \ \ \ \ result\_file\ <<\ std::endl;\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//\ Закрываем\ файл\ результатов\ генератора}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00119}00119\ \ \ \ \ result\_file.close();}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00121}00121\ \ \ \ \ std::endl(std::cout);}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00122}00122\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00123}00123\ \ \ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00124}00124\ \ \ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00125}00125\ \ \ std::endl(std::cout);}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00127}00127\ \}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00133}\mbox{\hyperlink{get__results_8cpp_a66c165e5556542c04a4fb0cca4d46169}{00133}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{get__results_8cpp_a66c165e5556542c04a4fb0cca4d46169}{process\_sample}}\ (std::istream\&\ sample\_file,\ std::vector<std::string>\&\ vector)}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00134}00134\ \{}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00135}00135\ \ \ \textcolor{comment}{//\ Записываем\ выборку\ в\ вектор\ для\ удобства}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00136}00136\ \ \ std::vector<unsigned\ int>\ sample;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00137}00137\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ num;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00139}00139\ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00140}00140\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00141}00141\ \ \ \ \ sample\_file\ >>\ num;}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{if}\ (sample\_file.eof())\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00144}00144\ \ \ \ \ sample.push\_back(num);}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00145}00145\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00147}00147\ \ \ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00148}00148\ \ \ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00149}00149\ \ \ vector.push\_back(\ std::to\_string(sample.size())\ );\ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ размер\ выборки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00150}00150\ \ \ vector.push\_back(\ std::to\_string(\mbox{\hyperlink{tests_8h_a9e3c3d5ab8a7fbee951e827cbe065903}{get\_mean}}(sample))\ );\ \ \ \textcolor{comment}{//\ Записываем\ среднее\ выборки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00151}00151\ \ \ vector.push\_back(\ std::to\_string(\mbox{\hyperlink{tests_8h_ac21276803576f405fc00e3b9f0cef67b}{get\_stdDev}}(sample))\ );\ \textcolor{comment}{//\ Записываем\ стандартное\ отклонение\ выборки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00152}00152\ \ \ vector.push\_back(\ std::to\_string(\mbox{\hyperlink{tests_8h_a22d058c63f27e3646006bd345e19fac3}{get\_cv}}(sample))\ );\ \ \ \ \ \textcolor{comment}{//\ Записываем\ коэффициент\ вариации\ выборки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00154}00154\ \ \ \textcolor{keyword}{auto}\ chi2\_pair\ =\ \mbox{\hyperlink{tests_8h_ac51a16d54242d9724145612a1c643dd5}{get\_chi2}}(sample);\ \ \textcolor{comment}{//\ Проводим\ хи-\/квадрат\ тест}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00155}00155\ \ \ vector.push\_back(\ chi2\_pair.first\ \ ==\ -\/1\ ?\ \textcolor{stringliteral}{"{}N/A"{}}\ :\ std::to\_string(chi2\_pair.first)\ \ );\ \ \textcolor{comment}{//\ Записываем\ результат\ или\ N/A\ в\ случае\ ошибки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00156}00156\ \ \ vector.push\_back(\ chi2\_pair.second\ ==\ -\/1\ ?\ \textcolor{stringliteral}{"{}N/A"{}}\ :\ std::to\_string(chi2\_pair.second)\ );\ \ \textcolor{comment}{//\ Записываем\ количество\ степеней\ свободы\ или\ N/A\ в\ случае\ ошибки}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00159}00159\ \ \ \textcolor{comment}{//\ Переводим\ вектор\ чисел\ в\ последовательность\ бит\ для\ проведения\ nist-\/тестов}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00160}00160\ \ \ std::vector<bool>\ bit\_sequence\ =\ \mbox{\hyperlink{tests_8h_a6a37acbf5f3971e3dac91760b83f7430}{sample\_to\_bit\_sequence}}(sample);\ \ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00162}00162\ \ \ \textcolor{keywordtype}{double}\ frequency\ =\ \mbox{\hyperlink{tests_8h_a26b74014a930396f434a23621b66cd95}{nist\_frequency}}(bit\_sequence);\ \ \textcolor{comment}{//\ Проводим\ частотный\ побитовый\ тест}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00163}00163\ \ \ vector.push\_back(\ std::to\_string(frequency)\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ полученное\ значение\ p\_value}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00164}00164\ \ \ vector.push\_back(\ (frequency\ >=\ \mbox{\hyperlink{defs_8h_af5abd28c44c29b7397c84f1fec4b1d84}{ALPHA}})\ ?\ \textcolor{stringliteral}{"{}PASS"{}}\ :\ \textcolor{stringliteral}{"{}FAIL"{}}\ );\ \textcolor{comment}{//\ Записываем\ результат\ теста}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00166}00166\ \ \ \textcolor{keywordtype}{double}\ runs\ =\ \mbox{\hyperlink{tests_8h_ac948fdf0dcd6b2aa327293681c3b47ab}{nist\_runs}}(bit\_sequence);\ \ \textcolor{comment}{//\ Проводим\ тест\ на\ последовательность\ одинаковых\ битов}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00167}00167\ \ \ vector.push\_back(\ std::to\_string(runs)\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ полученное\ значение\ p\_value}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00168}00168\ \ \ vector.push\_back(\ (runs\ >=\ \mbox{\hyperlink{defs_8h_af5abd28c44c29b7397c84f1fec4b1d84}{ALPHA}})\ ?\ \textcolor{stringliteral}{"{}PASS"{}}\ :\ \textcolor{stringliteral}{"{}FAIL"{}}\ );\ \ \textcolor{comment}{//\ Записываем\ результат\ теста}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00170}00170\ \ \ \textcolor{keywordtype}{double}\ serial\ =\ \mbox{\hyperlink{tests_8h_a0360dc680a7ee34f82920792acb7fc3b}{nist\_serial}}(bit\_sequence,\ \mbox{\hyperlink{defs_8h_aeab7f2413e42b57d6d750f1a146e37c5}{SERIAL\_M}});\ \textcolor{comment}{//\ Проводим\ тест\ на\ периодичность}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00171}00171\ \ \ vector.push\_back(\ std::to\_string(serial)\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ полученное\ значение\ p\_value}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00172}00172\ \ \ vector.push\_back(\ std::to\_string(\mbox{\hyperlink{defs_8h_aeab7f2413e42b57d6d750f1a146e37c5}{SERIAL\_M}})\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ длину\ рассматриваемого\ блока}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00173}00173\ \ \ vector.push\_back(\ (serial\ >=\ \mbox{\hyperlink{defs_8h_af5abd28c44c29b7397c84f1fec4b1d84}{ALPHA}})\ ?\ \textcolor{stringliteral}{"{}PASS"{}}\ :\ \textcolor{stringliteral}{"{}FAIL"{}}\ );\ \ \textcolor{comment}{//\ Записываем\ результат\ теста}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00175}00175\ \ \ \textcolor{keywordtype}{double}\ apEntropy\ =\ \mbox{\hyperlink{tests_8h_a8403eacea1bc8fa8687f2d5b17ac213d}{nist\_apEntropy}}(bit\_sequence,\ \mbox{\hyperlink{defs_8h_af4ae574f47b555db414987ea5054e3f0}{AP\_ENTROPY\_M}});\ \ \textcolor{comment}{//\ Проводим\ тест\ приблизительной\ энтропии}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00176}00176\ \ \ vector.push\_back(\ std::to\_string(apEntropy)\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ полученное\ значение\ p\_value}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00177}00177\ \ \ vector.push\_back(\ std::to\_string(\mbox{\hyperlink{defs_8h_af4ae574f47b555db414987ea5054e3f0}{AP\_ENTROPY\_M}})\ );\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ длину\ рассматриваемого\ блока}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00178}00178\ \ \ vector.push\_back(\ (apEntropy\ >=\ \mbox{\hyperlink{defs_8h_af5abd28c44c29b7397c84f1fec4b1d84}{ALPHA}})\ ?\ \textcolor{stringliteral}{"{}PASS"{}}\ :\ \textcolor{stringliteral}{"{}FAIL"{}}\ );\ \textcolor{comment}{//\ Записываем\ результат\ теста}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00180}00180\ \ \ \textcolor{keywordtype}{double}\ cusum\ =\ \mbox{\hyperlink{tests_8h_a513367e7daad2a9288230ef9a7f516f5}{nist\_cusum}}(bit\_sequence);\ \ \textcolor{comment}{//\ Проводим\ тест\ кумулятивных\ сумм}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00181}00181\ \ \ vector.push\_back(\ std::to\_string(cusum)\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Записываем\ полученное\ значение\ p\_value}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00182}00182\ \ \ vector.push\_back(\ (cusum\ >=\ \mbox{\hyperlink{defs_8h_af5abd28c44c29b7397c84f1fec4b1d84}{ALPHA}})\ ?\ \textcolor{stringliteral}{"{}PASS"{}}\ :\ \textcolor{stringliteral}{"{}FAIL"{}}\ );\ \textcolor{comment}{//\ Записываем\ результат\ теста}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00185}00185\ \}}
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{get__results_8cpp_source_l00187}00187\ }
+
+\end{DoxyCode}

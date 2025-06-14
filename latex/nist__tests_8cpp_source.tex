@@ -1,0 +1,105 @@
+\doxysection{nist\+\_\+tests.\+cpp}
+\hypertarget{nist__tests_8cpp_source}{}\label{nist__tests_8cpp_source}\index{src/nist\_tests.cpp@{src/nist\_tests.cpp}}
+\mbox{\hyperlink{nist__tests_8cpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tests_8h}{../include/tests.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{../include/defs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}../include/external/cephes.h"{}}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00029}\mbox{\hyperlink{tests_8h_a26b74014a930396f434a23621b66cd95}{00029}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{nist__tests_8cpp_a4094f85813b4fc196d2b608e5cee1536}{nist\_frequency}}\ (\ std::vector<bool>\&\ bit\_seq\ )}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00031}00031\ \ \ \textcolor{keywordtype}{int}\ sum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00033}00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ bit\ :\ bit\_seq)}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00034}00034\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00035}00035\ \ \ \ \ bit\ ?\ ++sum\ :\ -\/-\/sum;\ \textcolor{comment}{//\ Итого:\ ++sum,\ если\ бит\ -\/\ 1,\ иначе\ -\/-\/sum}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00036}00036\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00038}00038\ \ \ \textcolor{keywordtype}{double}\ s\_obs\ =\ std::abs(sum)\ /\ std::sqrt(bit\_seq.size());}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00039}00039\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ std::erfc(s\_obs\ /\ std::sqrt(2));}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00041}00041\ \ \ \textcolor{keywordflow}{return}\ p\_value;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00048}\mbox{\hyperlink{tests_8h_ac948fdf0dcd6b2aa327293681c3b47ab}{00048}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{nist__tests_8cpp_aeea8d623d68ad9550a8f691f609c0610}{nist\_runs}}\ (\ std::vector<bool>\&\ bit\_seq\ )}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00051}00051\ \ \ \textcolor{keywordtype}{int}\ sum\ =\ std::count(bit\_seq.begin(),\ bit\_seq.end(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00053}00053\ \ \ \textcolor{keywordtype}{double}\ pi\ =\ (double)sum\ /\ bit\_seq.size();}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00055}00055\ \ \ \textcolor{keywordflow}{if}\ (fabs(pi\ -\/\ 0.5)\ >=\ 2\ /\ std::sqrt(bit\_seq.size()))}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00056}00056\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00057}00057\ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}>>>\ Не\ выполнен\ критерий\ для\ runs\ теста"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00059}00059\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00062}00062\ \ \ \textcolor{keywordtype}{int}\ runs\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00063}00063\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=1;\ i\ <\ bit\_seq.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00064}00064\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_seq.at(i)\ !=\ bit\_seq.at(i-\/1))}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00066}00066\ \ \ \ \ \ \ ++runs;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00067}00067\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00069}00069\ \ \ \textcolor{keywordtype}{double}\ erfc\_arg\ =\ fabs(runs\ -\/\ 2.0\ *\ bit\_seq.size()\ *\ pi\ *\ (1-\/pi))\ /\ (2.0\ *\ pi\ *\ (1-\/pi)\ *\ sqrt(2*bit\_seq.size()));}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ erfc(erfc\_arg);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00072}00072\ \ \ \textcolor{keywordflow}{return}\ p\_value;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00080}\mbox{\hyperlink{tests_8h_a0360dc680a7ee34f82920792acb7fc3b}{00080}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{nist__tests_8cpp_aa5721e51b2c4a78dd61028d8ebf8c143}{nist\_serial}}\ (\ std::vector<bool>\&\ bit\_seq,\ \textcolor{keywordtype}{int}\ m\ )}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00082}00082\ \ \ \textcolor{keywordtype}{double}\ psi\_m\ \ \ =\ \mbox{\hyperlink{tests_8h_a616ca79a13cf042bbd8102ac5792d538}{get\_psi2}}(bit\_seq,\ m);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00083}00083\ \ \ \textcolor{keywordtype}{double}\ psi\_m\_1\ =\ \mbox{\hyperlink{tests_8h_a616ca79a13cf042bbd8102ac5792d538}{get\_psi2}}(bit\_seq,\ m-\/1);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00086}00086\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ cephes\_igamc(1\ <<\ (m-\/2),\ (psi\_m\ -\/\ psi\_m\_1)/2);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00087}00087\ \ \ \textcolor{keywordflow}{return}\ p\_value;\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00094}\mbox{\hyperlink{tests_8h_a8403eacea1bc8fa8687f2d5b17ac213d}{00094}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{nist__tests_8cpp_aacc71c5cea6a14c073748e587981966b}{nist\_apEntropy}}\ (\ std::vector<bool>\&\ bit\_seq,\ \textcolor{keywordtype}{int}\ m\ )}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00096}00096\ \ \ \textcolor{keywordtype}{double}\ apEn\_m\ \ =\ \mbox{\hyperlink{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c}{get\_apEn}}(bit\_seq,\ m);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00097}00097\ \ \ \textcolor{keywordtype}{double}\ apEn\_m1\ =\ \mbox{\hyperlink{tests_8h_a1bcd7d985ebc1df324c7f77c6d10ce5c}{get\_apEn}}(bit\_seq,\ m+1);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00099}00099\ \ \ \textcolor{keywordtype}{double}\ apEn\ =\ apEn\_m\ -\/\ apEn\_m1;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00100}00100\ \ \ \textcolor{keywordtype}{double}\ chi2\ =\ 2\ *\ bit\_seq.size()\ *\ (std::log(2)\ -\/\ apEn);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00102}00102\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ cephes\_igamc(1\ <<\ (m-\/1),\ chi2/2);}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00103}00103\ \ \ \textcolor{keywordflow}{return}\ p\_value;\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00109}\mbox{\hyperlink{tests_8h_a513367e7daad2a9288230ef9a7f516f5}{00109}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{nist__tests_8cpp_a6b1786ca5be166efb38f500e0035ff3b}{nist\_cusum}}\ (\ std::vector<bool>\&\ bit\_seq\ )}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00110}00110\ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00111}00111\ \ \ \textcolor{keywordtype}{int}\ S\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00112}00112\ \ \ \textcolor{keywordtype}{int}\ max\_S\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00115}00115\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ bit\ :\ bit\_seq\ )}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00116}00116\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00117}00117\ \ \ \ \ bit\ ?\ ++S\ :\ -\/-\/S;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00118}00118\ \ \ \ \ max\_S\ =\ (std::abs(S)\ >\ max\_S)\ ?\ std::abs(S)\ :\ max\_S;\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00119}00119\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00121}00121\ \ \ \textcolor{keywordtype}{double}\ p\_value\ =\ std::erfc(max\_S\ /\ std::sqrt(2\ *\ bit\_seq.size()));}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00123}00123\ \ \ \textcolor{keywordflow}{return}\ p\_value;}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00124}00124\ \}}
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{nist__tests_8cpp_source_l00126}00126\ }
+
+\end{DoxyCode}

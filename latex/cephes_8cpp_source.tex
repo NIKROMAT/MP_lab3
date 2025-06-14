@@ -1,0 +1,336 @@
+\doxysection{cephes.\+cpp}
+\hypertarget{cephes_8cpp_source}{}\label{cephes_8cpp_source}\index{src/external/cephes.cpp@{src/external/cephes.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}../../include/external/cephes.h"{}}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00005}00005\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ rel\_error\ =\ 1E-\/12;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00007}00007\ \textcolor{keywordtype}{double}\ MACHEP\ =\ 1.11022302462515654042E-\/16;\ \ \ \ \ \textcolor{comment}{//\ 2**-\/53}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00008}00008\ \textcolor{keywordtype}{double}\ MAXLOG\ =\ 7.09782712893383996732224E2;\ \ \ \ \textcolor{comment}{//\ log(MAXNUM)}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00009}00009\ \textcolor{keywordtype}{double}\ MAXNUM\ =\ 1.7976931348623158E308;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2**1024*(1-\/MACHEP)}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00010}00010\ \textcolor{keywordtype}{double}\ PI\ \ \ \ \ =\ 3.14159265358979323846;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pi,\ duh!}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00012}00012\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ big\ =\ 4.503599627370496e15;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00013}00013\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ biginv\ =\ \ 2.22044604925031308085e-\/16;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00015}00015\ \textcolor{keywordtype}{int}\ sgngam\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00017}00017\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00018}00018\ cephes\_igamc(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{double}\ ans,\ ax,\ c,\ yc,\ r,\ t,\ y,\ z;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{double}\ pk,\ pkm1,\ pkm2,\ qk,\ qkm1,\ qkm2;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00022}00022\ \ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ (x\ <=\ 0)\ ||\ (\ a\ <=\ 0)\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\ 1.0\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ (x\ <\ 1.0)\ ||\ (x\ <\ a)\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\ 1.e0\ -\/\ cephes\_igam(a,x)\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00029}00029\ \ \ \ \ ax\ =\ a\ *\ log(x)\ -\/\ x\ -\/\ cephes\_lgam(a);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ ax\ <\ -\/MAXLOG\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}igamc:\ UNDERFLOW\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00035}00035\ \ \ \ \ ax\ =\ exp(ax);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{/*\ continued\ fraction\ */}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00038}00038\ \ \ \ \ y\ =\ 1.0\ -\/\ a;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00039}00039\ \ \ \ \ z\ =\ x\ +\ y\ +\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00040}00040\ \ \ \ \ c\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00041}00041\ \ \ \ \ pkm2\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00042}00042\ \ \ \ \ qkm2\ =\ x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00043}00043\ \ \ \ \ pkm1\ =\ x\ +\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00044}00044\ \ \ \ \ qkm1\ =\ z\ *\ x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00045}00045\ \ \ \ \ ans\ =\ pkm1/qkm1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ c\ +=\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ y\ +=\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ z\ +=\ 2.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ yc\ =\ y\ *\ c;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ pk\ =\ pkm1\ *\ z\ \ -\/\ \ pkm2\ *\ yc;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ qk\ =\ qkm1\ *\ z\ \ -\/\ \ qkm2\ *\ yc;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ qk\ !=\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ pk/qk;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ fabs(\ (ans\ -\/\ r)/r\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ ans\ =\ r;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ t\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ pkm2\ =\ pkm1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ pkm1\ =\ pk;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ qkm2\ =\ qkm1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ qkm1\ =\ qk;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ fabs(pk)\ >\ big\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ pkm2\ *=\ biginv;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ pkm1\ *=\ biginv;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ qkm2\ *=\ biginv;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ qkm1\ *=\ biginv;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00071}00071\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ t\ >\ MACHEP\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{return}\ ans*ax;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00076}00076\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00077}00077\ cephes\_igam(\textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{double}\ ans,\ ax,\ c,\ r;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ (x\ <=\ 0)\ ||\ (\ a\ <=\ 0)\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ (x\ >\ 1.0)\ \&\&\ (x\ >\ a\ )\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1.e0\ -\/\ cephes\_igamc(a,x);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{comment}{/*\ Compute\ \ x**a\ *\ exp(-\/x)\ /\ gamma(a)\ \ */}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00088}00088\ \ \ \ \ ax\ =\ a\ *\ log(x)\ -\/\ x\ -\/\ cephes\_lgam(a);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ ax\ <\ -\/MAXLOG\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}igam:\ UNDERFLOW\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00093}00093\ \ \ \ \ ax\ =\ exp(ax);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{comment}{/*\ power\ series\ */}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00096}00096\ \ \ \ \ r\ =\ a;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00097}00097\ \ \ \ \ c\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00098}00098\ \ \ \ \ ans\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ r\ +=\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ c\ *=\ x/r;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ ans\ +=\ c;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00104}00104\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ c/ans\ >\ MACHEP\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{return}\ ans\ *\ ax/a;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00110}00110\ \textcolor{comment}{/*\ A[]:\ Stirling's\ formula\ expansion\ of\ log\ gamma}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00111}00111\ \textcolor{comment}{\ *\ B[],\ C[]:\ log\ gamma\ function\ between\ 2\ and\ 3}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00112}00112\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00113}00113\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ A[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00114}00114\ \ \ \ \ 0x6661,0x2733,0x9850,0x3f4a,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00115}00115\ \ \ \ \ 0xe943,0xb580,0x7fbd,0xbf43,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00116}00116\ \ \ \ \ 0x5ebb,0x20dc,0x019f,0x3f4a,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00117}00117\ \ \ \ \ 0xa5a1,0x16b0,0xc16c,0xbf66,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00118}00118\ \ \ \ \ 0x554b,0x5555,0x5555,0x3fb5}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00119}00119\ \};}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00120}00120\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ B[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00121}00121\ \ \ \ \ 0x6761,0x8ff3,0x8901,0xc095,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00122}00122\ \ \ \ \ 0xb93e,0x355b,0xf234,0xc0e2,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00123}00123\ \ \ \ \ 0x89e5,0xf890,0x3d73,0xc114,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00124}00124\ \ \ \ \ 0xdb51,0xf994,0xbc82,0xc131,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00125}00125\ \ \ \ \ 0xf20b,0x0219,0x4589,0xc13a,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00126}00126\ \ \ \ \ 0x055e,0x5418,0x0c67,0xc12a}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00127}00127\ \};}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00128}00128\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ C[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{comment}{/*0x0000,0x0000,0x0000,0x3ff0,*/}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00130}00130\ \ \ \ \ 0x12b2,0x1cf3,0xfd0d,0xc075,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00131}00131\ \ \ \ \ 0xd757,0x7b89,0xaa0d,0xc0d0,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00132}00132\ \ \ \ \ 0x4c9b,0xb974,0xeb84,0xc10a,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00133}00133\ \ \ \ \ 0x0043,0x7195,0x6286,0xc131,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00134}00134\ \ \ \ \ 0xf34c,0x892f,0x5255,0xc143,}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00135}00135\ \ \ \ \ 0xe14a,0x6a11,0xce4b,0xc13e}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00136}00136\ \};}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00138}00138\ \textcolor{preprocessor}{\#define\ MAXLGM\ 2.556348e305}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00141}00141\ \textcolor{comment}{/*\ Logarithm\ of\ gamma\ function\ */}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00142}00142\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00143}00143\ cephes\_lgam(\textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00144}00144\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00145}00145\ \ \ \ \ \textcolor{keywordtype}{double}\ \ p,\ q,\ u,\ w,\ z;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00146}00146\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ i;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00148}00148\ \ \ \ \ sgngam\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00150}00150\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ x\ <\ -\/34.0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ q\ =\ -\/x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ w\ =\ cephes\_lgam(q);\ \textcolor{comment}{/*\ note\ this\ modifies\ sgngam!\ */}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ p\ =\ floor(q);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ p\ ==\ q\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00155}00155\ lgsing:}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ loverf;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ i\ =\ (int)p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ (i\ \&\ 1)\ ==\ 0\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ sgngam\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ sgngam\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ z\ =\ q\ -\/\ p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ z\ >\ 0.5\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ p\ +=\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ p\ -\/\ q;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ z\ =\ q\ *\ sin(\ PI\ *\ z\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ z\ ==\ 0.0\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ lgsing;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ z\ =\ log(PI)\ -\/\ log(\ z\ )\ -\/\ w;*/}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ z\ =\ log(PI)\ -\/\ log(\ z\ )\ -\/\ w;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ z;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00176}00176\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ x\ <\ 13.0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ z\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ p\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ u\ =\ x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ u\ >=\ 3.0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ p\ -\/=\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ x\ +\ p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ z\ *=\ u;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ u\ <\ 2.0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ u\ ==\ 0.0\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ lgsing;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ z\ /=\ u;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ p\ +=\ 1.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ x\ +\ p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ z\ <\ 0.0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ sgngam\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ -\/z;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ sgngam\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ u\ ==\ 2.0\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\ log(z)\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ p\ -\/=\ 2.0;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ x\ =\ x\ +\ p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ p\ =\ x\ *\ cephes\_polevl(\ x,\ (\textcolor{keywordtype}{double}\ *)B,\ 5\ )\ /\ cephes\_p1evl(\ x,\ (\textcolor{keywordtype}{double}\ *)C,\ 6);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ log(z)\ +\ p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00207}00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ x\ >\ MAXLGM\ )\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00208}00208\ loverf:}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}lgam:\ OVERFLOW\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sgngam\ *\ MAXNUM;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00212}00212\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00214}00214\ \ \ \ \ q\ =\ (\ x\ -\/\ 0.5\ )\ *\ log(x)\ -\/\ x\ +\ log(\ sqrt(\ 2*PI\ )\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00215}00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ x\ >\ 1.0e8\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ q;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00218}00218\ \ \ \ \ p\ =\ 1.0/(x*x);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00219}00219\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ x\ >=\ 1000.0\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ q\ +=\ ((\ \ \ 7.9365079365079365079365e-\/4\ *\ p}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ 2.7777777777777777777778e-\/3)\ *p}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ 0.0833333333333333333333)\ /\ x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00223}00223\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ q\ +=\ cephes\_polevl(\ p,\ (\textcolor{keywordtype}{double}\ *)A,\ 4\ )\ /\ x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00226}00226\ \ \ \ \ \textcolor{keywordflow}{return}\ q;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00227}00227\ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00229}00229\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00230}00230\ cephes\_polevl(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ *coef,\ \textcolor{keywordtype}{int}\ N)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00231}00231\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00232}00232\ \ \ \ \ \textcolor{keywordtype}{double}\ \ ans;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00233}00233\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ i;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00234}00234\ \ \ \ \ \textcolor{keywordtype}{double}\ \ *p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00236}00236\ \ \ \ \ p\ =\ coef;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00237}00237\ \ \ \ \ ans\ =\ *p++;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00238}00238\ \ \ \ \ i\ =\ N;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ ans\ =\ ans\ *\ x\ \ +\ \ *p++;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00242}00242\ \ \ \ \ \textcolor{keywordflow}{while}\ (\ -\/-\/i\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00244}00244\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00245}00245\ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00247}00247\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00248}00248\ cephes\_p1evl(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ *coef,\ \textcolor{keywordtype}{int}\ N)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00249}00249\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00250}00250\ \ \ \ \ \textcolor{keywordtype}{double}\ \ ans;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00251}00251\ \ \ \ \ \textcolor{keywordtype}{double}\ \ *p;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00252}00252\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ i;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00254}00254\ \ \ \ \ p\ =\ coef;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00255}00255\ \ \ \ \ ans\ =\ x\ +\ *p++;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00256}00256\ \ \ \ \ i\ =\ N-\/1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ ans\ =\ ans\ *\ x\ \ +\ *p++;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00260}00260\ \ \ \ \ \textcolor{keywordflow}{while}\ (\ -\/-\/i\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{keywordflow}{return}\ ans;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00263}00263\ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00265}00265\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00266}00266\ cephes\_erf(\textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00267}00267\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00268}00268\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ two\_sqrtpi\ =\ 1.128379167095512574;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{keywordtype}{double}\ \ sum\ =\ x,\ term\ =\ x,\ xsqr\ =\ x\ *\ x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00270}00270\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ j\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ fabs(x)\ >\ 2.2\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ -\/\ cephes\_erfc(x);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00275}00275\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ term\ *=\ xsqr/j;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ sum\ -\/=\ term/(2*j+1);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ term\ *=\ xsqr/j;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ sum\ +=\ term/(2*j+1);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00282}00282\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ fabs(term)/sum\ >\ rel\_error\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00284}00284\ \ \ \ \ \textcolor{keywordflow}{return}\ two\_sqrtpi*sum;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00285}00285\ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00287}00287\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00288}00288\ cephes\_erfc(\textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00289}00289\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00290}00290\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ one\_sqrtpi\ =\ 0.564189583547756287;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00291}00291\ \ \ \ \ \textcolor{keywordtype}{double}\ \ a\ =\ 1,\ b\ =\ x,\ c\ =\ x,\ d\ =\ x*x\ +\ 0.5;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00292}00292\ \ \ \ \ \textcolor{keywordtype}{double}\ \ q1,\ q2\ =\ b/d,\ n\ =\ 1.0,\ t;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00294}00294\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ fabs(x)\ <\ 2.2\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1.0\ -\/\ cephes\_erf(x);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00296}00296\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ x\ <\ 0\ )}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 2.0\ -\/\ cephes\_erfc(-\/x);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00299}00299\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ t\ =\ a*n\ +\ b*x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ a\ =\ b;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ b\ =\ t;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ t\ =\ c*n\ +\ d*x;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ c\ =\ d;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ d\ =\ t;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ n\ +=\ 0.5;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ q1\ =\ q2;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ q2\ =\ b/d;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00309}00309\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ fabs(q1-\/q2)/q2\ >\ rel\_error\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00311}00311\ \ \ \ \ \textcolor{keywordflow}{return}\ one\_sqrtpi*exp(-\/x*x)*q2;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00312}00312\ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00315}00315\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00316}00316\ cephes\_normal(\textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00317}00317\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00318}00318\ \ \ \ \ \textcolor{keywordtype}{double}\ arg,\ result,\ sqrt2=1.414213562373095048801688724209698078569672;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00320}00320\ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ arg\ =\ x/sqrt2;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ result\ =\ 0.5\ *\ (\ 1\ +\ erf(arg)\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00323}00323\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00324}00324\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ arg\ =\ -\/x/sqrt2;}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ result\ =\ 0.5\ *\ (\ 1\ -\/\ erf(arg)\ );}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00327}00327\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00329}00329\ \ \ \ \ \textcolor{keywordflow}{return}(\ result);}
+\DoxyCodeLine{\Hypertarget{cephes_8cpp_source_l00330}00330\ \}}
+
+\end{DoxyCode}

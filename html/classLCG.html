@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная работа 3: Класс LCG</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторная работа 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classLCG-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс LCG</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Генератор, основанный на линейном конгруэнтном методе  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="prng_8h_source.html">prng.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:LCG:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classLCG.png" usemap="#LCG_map" alt=""/>
+  <map id="LCG_map" name="LCG_map">
+<area href="classPRNG.html" title="Абстрактный базовый класс генераторов" alt="PRNG" shape="rect" coords="0,0,46,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a25fbd80dbe6522264e34989119d4dddf" id="r_a25fbd80dbe6522264e34989119d4dddf"><td class="memItemLeft" align="right" valign="top"><a id="a25fbd80dbe6522264e34989119d4dddf" name="a25fbd80dbe6522264e34989119d4dddf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LCG</b> ()=delete</td></tr>
+<tr class="memdesc:a25fbd80dbe6522264e34989119d4dddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запрет на конструктор по умолчанию <br /></td></tr>
+<tr class="separator:a25fbd80dbe6522264e34989119d4dddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db7f0d458667e6f1290ee323e0c110a" id="r_a8db7f0d458667e6f1290ee323e0c110a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8db7f0d458667e6f1290ee323e0c110a">LCG</a> (uint32_t, uint32_t=0, uint32_t=-1)</td></tr>
+<tr class="separator:a8db7f0d458667e6f1290ee323e0c110a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12621664f5fd0b560a852aecbdb293d" id="r_ab12621664f5fd0b560a852aecbdb293d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab12621664f5fd0b560a852aecbdb293d">generate</a> () override</td></tr>
+<tr class="memdesc:ab12621664f5fd0b560a852aecbdb293d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Генерация следующего числа  <br /></td></tr>
+<tr class="separator:ab12621664f5fd0b560a852aecbdb293d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classPRNG"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classPRNG')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classPRNG.html">PRNG</a></td></tr>
+<tr class="memitem:acab864bc62527b1295be0c9faac0ffe4 inherit pub_methods_classPRNG" id="r_acab864bc62527b1295be0c9faac0ffe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPRNG.html#acab864bc62527b1295be0c9faac0ffe4">generate_sample</a> (std::ostream &amp;, int)</td></tr>
+<tr class="memdesc:acab864bc62527b1295be0c9faac0ffe4 inherit pub_methods_classPRNG"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для генерации и записи в поток целой выборки  <br /></td></tr>
+<tr class="separator:acab864bc62527b1295be0c9faac0ffe4 inherit pub_methods_classPRNG"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a91cfbff4540065bc089d7607eec8b888" id="r_a91cfbff4540065bc089d7607eec8b888"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91cfbff4540065bc089d7607eec8b888">seed</a></td></tr>
+<tr class="memdesc:a91cfbff4540065bc089d7607eec8b888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Семя генерации  <br /></td></tr>
+<tr class="separator:a91cfbff4540065bc089d7607eec8b888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b37b1971001206597e236a2696ad0d" id="r_af5b37b1971001206597e236a2696ad0d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5b37b1971001206597e236a2696ad0d">k</a></td></tr>
+<tr class="memdesc:af5b37b1971001206597e236a2696ad0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Коэффициент  <br /></td></tr>
+<tr class="separator:af5b37b1971001206597e236a2696ad0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a164fbb047ce2c326dca8b432ede52" id="r_ad9a164fbb047ce2c326dca8b432ede52"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9a164fbb047ce2c326dca8b432ede52">b</a></td></tr>
+<tr class="memdesc:ad9a164fbb047ce2c326dca8b432ede52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Смещение  <br /></td></tr>
+<tr class="separator:ad9a164fbb047ce2c326dca8b432ede52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cf9dbb0d114728a0037dea231974917" id="r_a2cf9dbb0d114728a0037dea231974917"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cf9dbb0d114728a0037dea231974917">M</a></td></tr>
+<tr class="memdesc:a2cf9dbb0d114728a0037dea231974917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Модуль  <br /></td></tr>
+<tr class="separator:a2cf9dbb0d114728a0037dea231974917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Дополнительные унаследованные члены</h2></td></tr>
+<tr class="inherit_header pro_methods_classPRNG"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classPRNG')"><img src="closed.png" alt="-"/>&#160;Защищенные члены унаследованные от <a class="el" href="classPRNG.html">PRNG</a></td></tr>
+<tr class="memitem:ab8e546080f61a72a5a272989deea8a7c inherit pro_methods_classPRNG" id="r_ab8e546080f61a72a5a272989deea8a7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a> (uint32_t, uint32_t)</td></tr>
+<tr class="memdesc:ab8e546080f61a72a5a272989deea8a7c inherit pro_methods_classPRNG"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор для базового абстрактного класса  <br /></td></tr>
+<tr class="separator:ab8e546080f61a72a5a272989deea8a7c inherit pro_methods_classPRNG"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac66dbb9a55c1c773463e683267f6b909 inherit pro_methods_classPRNG" id="r_ac66dbb9a55c1c773463e683267f6b909"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a> (uint32_t) const</td></tr>
+<tr class="memdesc:ac66dbb9a55c1c773463e683267f6b909 inherit pro_methods_classPRNG"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для перевода сгенерированного числа в требуемый диапазон  <br /></td></tr>
+<tr class="separator:ac66dbb9a55c1c773463e683267f6b909 inherit pro_methods_classPRNG"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classPRNG"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classPRNG')"><img src="closed.png" alt="-"/>&#160;Защищенные данные унаследованные от <a class="el" href="classPRNG.html">PRNG</a></td></tr>
+<tr class="memitem:a797b44bddd9d78b37e40ba421b25f1a6 inherit pro_attribs_classPRNG" id="r_a797b44bddd9d78b37e40ba421b25f1a6"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a></td></tr>
+<tr class="memdesc:a797b44bddd9d78b37e40ba421b25f1a6 inherit pro_attribs_classPRNG"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нижняя граница генерации  <br /></td></tr>
+<tr class="separator:a797b44bddd9d78b37e40ba421b25f1a6 inherit pro_attribs_classPRNG"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf3a9dbf4c589168bed0b6a092754ef2 inherit pro_attribs_classPRNG" id="r_abf3a9dbf4c589168bed0b6a092754ef2"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a></td></tr>
+<tr class="memdesc:abf3a9dbf4c589168bed0b6a092754ef2 inherit pro_attribs_classPRNG"><td class="mdescLeft">&#160;</td><td class="mdescRight">Верхняя граница генерации  <br /></td></tr>
+<tr class="separator:abf3a9dbf4c589168bed0b6a092754ef2 inherit pro_attribs_classPRNG"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Генератор, основанный на линейном конгруэнтном методе </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00068">68</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a8db7f0d458667e6f1290ee323e0c110a" name="a8db7f0d458667e6f1290ee323e0c110a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8db7f0d458667e6f1290ee323e0c110a">&#9670;&#160;</a></span>LCG()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LCG::LCG </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>seed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>min_lim</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>max_lim</em></span><span class="paramdefsep"> = </span><span class="paramdefval">-1</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed</td><td>Семя генерации </td></tr>
+    <tr><td class="paramname">min_lim</td><td>Нижняя граница генерации </td></tr>
+    <tr><td class="paramname">max_lim</td><td>Верхняя граница генерации </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8cpp_source.html">prng.cpp</a> строка <a class="el" href="prng_8cpp_source.html#l00110">110</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>: <a class="code hl_function" href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG</a>(<a class="code hl_variable" href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">min_lim</a>, <a class="code hl_variable" href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">max_lim</a>), <a class="code hl_variable" href="#a91cfbff4540065bc089d7607eec8b888">seed</a>(<a class="code hl_variable" href="#a91cfbff4540065bc089d7607eec8b888">seed</a>), <a class="code hl_variable" href="#af5b37b1971001206597e236a2696ad0d">k</a>(1&#39;103&#39;515&#39;245), <a class="code hl_variable" href="#ad9a164fbb047ce2c326dca8b432ede52">b</a>(12345), <a class="code hl_variable" href="#a2cf9dbb0d114728a0037dea231974917">M</a>(1&lt;&lt;31) {}</div>
+<div class="ttc" id="aclassLCG_html_a2cf9dbb0d114728a0037dea231974917"><div class="ttname"><a href="#a2cf9dbb0d114728a0037dea231974917">LCG::M</a></div><div class="ttdeci">uint32_t M</div><div class="ttdoc">Модуль</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00073">prng.h:73</a></div></div>
+<div class="ttc" id="aclassLCG_html_a91cfbff4540065bc089d7607eec8b888"><div class="ttname"><a href="#a91cfbff4540065bc089d7607eec8b888">LCG::seed</a></div><div class="ttdeci">uint32_t seed</div><div class="ttdoc">Семя генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00070">prng.h:70</a></div></div>
+<div class="ttc" id="aclassLCG_html_ad9a164fbb047ce2c326dca8b432ede52"><div class="ttname"><a href="#ad9a164fbb047ce2c326dca8b432ede52">LCG::b</a></div><div class="ttdeci">uint32_t b</div><div class="ttdoc">Смещение</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00072">prng.h:72</a></div></div>
+<div class="ttc" id="aclassLCG_html_af5b37b1971001206597e236a2696ad0d"><div class="ttname"><a href="#af5b37b1971001206597e236a2696ad0d">LCG::k</a></div><div class="ttdeci">uint32_t k</div><div class="ttdoc">Коэффициент</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00071">prng.h:71</a></div></div>
+<div class="ttc" id="aclassPRNG_html_a797b44bddd9d78b37e40ba421b25f1a6"><div class="ttname"><a href="classPRNG.html#a797b44bddd9d78b37e40ba421b25f1a6">PRNG::min_lim</a></div><div class="ttdeci">const uint32_t min_lim</div><div class="ttdoc">Нижняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00023">prng.h:23</a></div></div>
+<div class="ttc" id="aclassPRNG_html_ab8e546080f61a72a5a272989deea8a7c"><div class="ttname"><a href="classPRNG.html#ab8e546080f61a72a5a272989deea8a7c">PRNG::PRNG</a></div><div class="ttdeci">PRNG(uint32_t, uint32_t)</div><div class="ttdoc">Конструктор для базового абстрактного класса</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00019">prng.cpp:19</a></div></div>
+<div class="ttc" id="aclassPRNG_html_abf3a9dbf4c589168bed0b6a092754ef2"><div class="ttname"><a href="classPRNG.html#abf3a9dbf4c589168bed0b6a092754ef2">PRNG::max_lim</a></div><div class="ttdeci">const uint32_t max_lim</div><div class="ttdoc">Верхняя граница генерации</div><div class="ttdef"><b>Определения</b> <a href="prng_8h_source.html#l00024">prng.h:24</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="ab12621664f5fd0b560a852aecbdb293d" name="ab12621664f5fd0b560a852aecbdb293d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12621664f5fd0b560a852aecbdb293d">&#9670;&#160;</a></span>generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t LCG::generate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Генерация следующего числа </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Следующее случайное число </dd></dl>
+
+<p>Замещает <a class="el" href="classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13">PRNG</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8cpp_source.html">prng.cpp</a> строка <a class="el" href="prng_8cpp_source.html#l00117">117</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>{</div>
+<div class="line"><span class="lineno">  119</span>  <a class="code hl_variable" href="#a91cfbff4540065bc089d7607eec8b888">seed</a> = (<a class="code hl_variable" href="#a91cfbff4540065bc089d7607eec8b888">seed</a> * <a class="code hl_variable" href="#af5b37b1971001206597e236a2696ad0d">k</a> + <a class="code hl_variable" href="#ad9a164fbb047ce2c326dca8b432ede52">b</a>) &amp; (<a class="code hl_variable" href="#a2cf9dbb0d114728a0037dea231974917">M</a>-1); <span class="comment">// Если M = 2^N</span></div>
+<div class="line"><span class="lineno">  120</span>  <span class="comment">// seed = (seed * k + b) % (M); // иначе</span></div>
+<div class="line"><span class="lineno">  121</span> </div>
+<div class="line"><span class="lineno">  122</span>  <span class="comment">// (k-1) - делится на все простые делители M (2)</span></div>
+<div class="line"><span class="lineno">  123</span>  <span class="comment">// b и M взаимно простые</span></div>
+<div class="line"><span class="lineno">  124</span>  <span class="comment">// M делится на 4 и (k-1) делится на 4</span></div>
+<div class="line"><span class="lineno">  125</span>  <span class="comment">// </span></div>
+<div class="line"><span class="lineno">  126</span>  <span class="comment">// Поэтому у этого линейного конгруэнтного генератора макцимальная периодичность  </span></div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">result</a>(<a class="code hl_variable" href="#a91cfbff4540065bc089d7607eec8b888">seed</a>);</div>
+<div class="line"><span class="lineno">  129</span>}</div>
+<div class="ttc" id="aclassPRNG_html_ac66dbb9a55c1c773463e683267f6b909"><div class="ttname"><a href="classPRNG.html#ac66dbb9a55c1c773463e683267f6b909">PRNG::result</a></div><div class="ttdeci">uint32_t result(uint32_t) const</div><div class="ttdoc">Метод для перевода сгенерированного числа в требуемый диапазон</div><div class="ttdef"><b>Определения</b> <a href="prng_8cpp_source.html#l00038">prng.cpp:38</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ad9a164fbb047ce2c326dca8b432ede52" name="ad9a164fbb047ce2c326dca8b432ede52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9a164fbb047ce2c326dca8b432ede52">&#9670;&#160;</a></span>b</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t LCG::b</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Смещение </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00072">72</a></p>
+
+</div>
+</div>
+<a id="af5b37b1971001206597e236a2696ad0d" name="af5b37b1971001206597e236a2696ad0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b37b1971001206597e236a2696ad0d">&#9670;&#160;</a></span>k</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t LCG::k</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Коэффициент </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00071">71</a></p>
+
+</div>
+</div>
+<a id="a2cf9dbb0d114728a0037dea231974917" name="a2cf9dbb0d114728a0037dea231974917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cf9dbb0d114728a0037dea231974917">&#9670;&#160;</a></span>M</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t LCG::M</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Модуль </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00073">73</a></p>
+
+</div>
+</div>
+<a id="a91cfbff4540065bc089d7607eec8b888" name="a91cfbff4540065bc089d7607eec8b888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91cfbff4540065bc089d7607eec8b888">&#9670;&#160;</a></span>seed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t LCG::seed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Семя генерации </p>
+
+<p class="definition">См. определение в файле <a class="el" href="prng_8h_source.html">prng.h</a> строка <a class="el" href="prng_8h_source.html#l00070">70</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="prng_8h_source.html">prng.h</a></li>
+<li>src/<a class="el" href="prng_8cpp_source.html">prng.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

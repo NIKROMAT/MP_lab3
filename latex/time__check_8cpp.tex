@@ -1,0 +1,150 @@
+\doxysection{Файл time\+\_\+check.\+cpp}
+\hypertarget{time__check_8cpp}{}\label{time__check_8cpp}\index{time\_check.cpp@{time\_check.cpp}}
+
+
+Файл, в котором производится измерение времени генерации выборок разных размеров разными генераторами и одним из стандартных генераторов  
+
+
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$experimental/random$>$}\newline
+{\ttfamily \#include "{}include/prng.\+h"{}}\newline
+{\ttfamily \#include "{}include/defs.\+h"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{time__check_8cpp_ad75fab0042b685db8e5f2cb28e3d045d}{check\+\_\+time}} (std\+::ostream \&out, int size)
+\begin{DoxyCompactList}\small\item\em Функция, в которой производится измерение и запись времени генерации выборки для каждого из генераторов \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{time__check_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Основная функция, в которой происходит измерение времени генерации выборок разных размеров всеми генераторами и одним из стандартных генераторов \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Файл, в котором производится измерение времени генерации выборок разных размеров разными генераторами и одним из стандартных генераторов 
+
+
+
+См. определение в файле \mbox{\hyperlink{time__check_8cpp_source}{time\+\_\+check.\+cpp}}
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{time__check_8cpp_ad75fab0042b685db8e5f2cb28e3d045d}\index{time\_check.cpp@{time\_check.cpp}!check\_time@{check\_time}}
+\index{check\_time@{check\_time}!time\_check.cpp@{time\_check.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_time()}{check\_time()}}
+{\footnotesize\ttfamily \label{time__check_8cpp_ad75fab0042b685db8e5f2cb28e3d045d} 
+void check\+\_\+time (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out}{, }\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Функция, в которой производится измерение и запись времени генерации выборки для каждого из генераторов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em out} & Поток, куда будет записан результат \\
+\hline
+{\em size} & Размер генерируемой выборки \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле \mbox{\hyperlink{time__check_8cpp_source}{time\+\_\+check.\+cpp}} строка \mbox{\hyperlink{time__check_8cpp_source_l00044}{44}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{namespace\ }ch\ =\ std::chrono;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Для\ удобства}}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{using\ }clock\ \ =\ ch::high\_resolution\_clock;\ \textcolor{comment}{//\ Для\ удобства}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//\ Записываем\ размер\ выборки}}
+\DoxyCodeLine{00050\ \ \ out\ <<\ size\ <<\ \textcolor{charliteral}{','};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ ch::time\_point<clock>\ start,\ end;\ \textcolor{comment}{//\ Метки\ начала\ и\ конца\ измерения}}
+\DoxyCodeLine{00053\ \ \ std::ofstream\ trash(\textcolor{stringliteral}{"{}/dev/null"{}});\ \textcolor{comment}{//\ Мусорка,\ чтобы\ не\ хранить\ сгенерированные\ выборки}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ }
+\DoxyCodeLine{00056\ \ \ \textcolor{comment}{//\ Замер\ для\ генератора\ mid\_xor}}
+\DoxyCodeLine{00057\ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classmid__xor__PRNG}{mid\_xor\_PRNG}}\ prng(42,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});\ \ \textcolor{comment}{//\ Создание\ генератора}}
+\DoxyCodeLine{00059\ \ \ \ \ start\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Начало\ измерения}}
+\DoxyCodeLine{00060\ \ \ \ \ prng.generate\_sample(trash,\ size);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Генерация\ выборки}}
+\DoxyCodeLine{00061\ \ \ \ \ end\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Конец\ измерения}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ out\ <<\ ch::duration\_cast<ch::microseconds>(end-\/start).count()\ <<\ \textcolor{charliteral}{','};\ \textcolor{comment}{//\ Запись\ результата}}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ }
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ Замер\ для\ генератора\ mul\_xor}}
+\DoxyCodeLine{00068\ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{classmul__xor__PRNG}{mul\_xor\_PRNG}}\ prng(42,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});\ \ \textcolor{comment}{//\ Создание\ генератора}}
+\DoxyCodeLine{00070\ \ \ \ \ start\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Начало\ измерения}}
+\DoxyCodeLine{00071\ \ \ \ \ prng.generate\_sample(trash,\ size);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Генерация\ выборки}}
+\DoxyCodeLine{00072\ \ \ \ \ end\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Конец\ измерения}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ out\ <<\ ch::duration\_cast<ch::microseconds>(end-\/start).count()\ <<\ \textcolor{charliteral}{','};\ \textcolor{comment}{//\ Запись\ результата}}
+\DoxyCodeLine{00075\ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ }
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ Замер\ для\ генератора\ LCG}}
+\DoxyCodeLine{00079\ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classLCG}{LCG}}\ prng(42,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Создание\ генератора}}
+\DoxyCodeLine{00081\ \ \ \ \ start\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Начало\ измерения}}
+\DoxyCodeLine{00082\ \ \ \ \ prng.generate\_sample(trash,\ size);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Генерация\ выборки}}
+\DoxyCodeLine{00083\ \ \ \ \ end\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Конец\ измерения}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ out\ <<\ ch::duration\_cast<ch::microseconds>(end-\/start).count()\ <<\ \textcolor{charliteral}{','};\ \textcolor{comment}{//\ Запись\ результата}}
+\DoxyCodeLine{00086\ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ }
+\DoxyCodeLine{00089\ \ \ \textcolor{comment}{//\ Замер\ для\ генератора\ randint}}
+\DoxyCodeLine{00090\ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ std::srand(42);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Задание\ семени}}
+\DoxyCodeLine{00092\ \ \ \ \ start\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Начало\ измерения}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<size;\ ++i)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Генерация\ выборки}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ std::experimental::randint(\mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
+\DoxyCodeLine{00095\ \ \ \ \ end\ =\ clock::now();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Конец\ измерения}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ out\ <<\ ch::duration\_cast<ch::microseconds>(end-\/start).count()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};\ \textcolor{comment}{//\ Запись\ результата}}
+\DoxyCodeLine{00098\ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+\Hypertarget{time__check_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{time\_check.cpp@{time\_check.cpp}!main@{main}}
+\index{main@{main}!time\_check.cpp@{time\_check.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{time__check_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Основная функция, в которой происходит измерение времени генерации выборок разных размеров всеми генераторами и одним из стандартных генераторов 
+
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле \mbox{\hyperlink{time__check_8cpp_source}{time\+\_\+check.\+cpp}} строка \mbox{\hyperlink{time__check_8cpp_source_l00021}{21}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ Файл\ для\ записи\ результатов}}
+\DoxyCodeLine{00024\ \ \ std::ofstream\ time\_results(\textcolor{stringliteral}{"{}generation\_time.csv"{}});}
+\DoxyCodeLine{00025\ \ \ }
+\DoxyCodeLine{00026\ \ \ time\_results\ <<\ \textcolor{stringliteral}{"{}Size,Mid\_xor,Mul\_xor,LCG,randint\(\backslash\)n"{}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ Список\ размеров\ выборок}}
+\DoxyCodeLine{00029\ \ \ std::vector<int>\ sizes\ =\ \{\ \ 1'000,\ \ \ 2'000,\ \ \ 3'000,\ \ \ 5'000,\ \ \ \ 10'000,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 20'000,\ \ 30'000,\ \ 50'000,\ \ 75'000,\ \ \ 100'000,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 200'000,\ 300'000,\ 500'000,\ 750'000,\ 1'000'000\};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//\ Цикл\ измерения\ и\ записи\ времени\ генерации\ выборок\ для\ разных\ размеров}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ size\ :\ sizes\ )}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{time__check_8cpp_ad75fab0042b685db8e5f2cb28e3d045d}{check\_time}}\ (time\_results,\ size);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная работа 3: Файл get_results.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторная работа 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл get_results.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Файл для вычисления измерений и проведения тестов над выборками  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="tests_8h_source.html">include/tests.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="defs_8h_source.html">include/defs.h</a>&quot;</code><br />
+</div>
+<p><a href="get__results_8cpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a66c165e5556542c04a4fb0cca4d46169" id="r_a66c165e5556542c04a4fb0cca4d46169"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66c165e5556542c04a4fb0cca4d46169">process_sample</a> (std::istream &amp;sample_file, std::vector&lt; std::string &gt; &amp;vector)</td></tr>
+<tr class="memdesc:a66c165e5556542c04a4fb0cca4d46169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для полной обработки выбороки генератора  <br /></td></tr>
+<tr class="separator:a66c165e5556542c04a4fb0cca4d46169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основная функция, в которой произвоится вычисление всех значений и проведение тестов для всех выборок всех генераторов  <br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Файл для вычисления измерений и проведения тестов над выборками </p>
+<p>В этом файле происходит вычисление Среднего, стандартного отклонения, коэффициента вариации, тест хи-квадрат, а также 5 nist-тестов.</p>
+<p>Среди nist-тестов:</p><ul>
+<li>Частотный побитовый тест</li>
+<li>Тест на последовательность одинаковых битов</li>
+<li>Тест на периодичность</li>
+<li>Тест приблизительной энтропии</li>
+<li>Тест кумулятивных сумм </li>
+</ul>
+
+<p class="definition">См. определение в файле <a class="el" href="get__results_8cpp_source.html">get_results.cpp</a></p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основная функция, в которой произвоится вычисление всех значений и проведение тестов для всех выборок всех генераторов </p>
+
+<p class="definition">См. определение в файле <a class="el" href="get__results_8cpp_source.html">get_results.cpp</a> строка <a class="el" href="get__results_8cpp_source.html#l00036">36</a></p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>  std::ifstream sample_file;</div>
+<div class="line"><span class="lineno">   40</span>  std::ofstream result_file;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>  <span class="comment">// Цикл прохождения по содержимому главной папки с выборками</span></div>
+<div class="line"><span class="lineno">   44</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; dir_entry : fs::directory_iterator(<a class="code hl_define" href="defs_8h.html#a3607bbdb0ed0cad9a32aaa1ac161c011">SAMPLES_DIR</a>))</div>
+<div class="line"><span class="lineno">   45</span>  {</div>
+<div class="line"><span class="lineno">   46</span>    <span class="comment">// Обрабатываем только папки с выборками генераторов</span></div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">if</span> (!dir_entry.is_directory()) <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <span class="comment">// Получаем имя генератора</span></div>
+<div class="line"><span class="lineno">   50</span>    std::string subdir_name = dir_entry.path().filename().string();</div>
+<div class="line"><span class="lineno">   51</span>    </div>
+<div class="line"><span class="lineno">   52</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Processing &quot;</span> &lt;&lt; subdir_name &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>    <span class="comment">// Подготавливаем файл для записи результатов</span></div>
+<div class="line"><span class="lineno">   55</span>    result_file.open(<a class="code hl_define" href="defs_8h.html#a3607bbdb0ed0cad9a32aaa1ac161c011">SAMPLES_DIR</a> + subdir_name + <span class="stringliteral">&quot;/&quot;</span> + subdir_name + <span class="stringliteral">&quot;_results.csv&quot;</span>);</div>
+<div class="line"><span class="lineno">   56</span>    result_file &lt;&lt; <span class="stringliteral">&quot;No,Size,&quot;</span></div>
+<div class="line"><span class="lineno">   57</span>                   <span class="stringliteral">&quot;Mean,&quot;</span></div>
+<div class="line"><span class="lineno">   58</span>                   <span class="stringliteral">&quot;StdDev,&quot;</span></div>
+<div class="line"><span class="lineno">   59</span>                   <span class="stringliteral">&quot;CV,&quot;</span></div>
+<div class="line"><span class="lineno">   60</span>                   <span class="stringliteral">&quot;Chi2,Chi2 df,&quot;</span></div>
+<div class="line"><span class="lineno">   61</span>                   <span class="stringliteral">&quot;NIST frequency,frequency status,&quot;</span></div>
+<div class="line"><span class="lineno">   62</span>                   <span class="stringliteral">&quot;NIST runs,runs status,&quot;</span></div>
+<div class="line"><span class="lineno">   63</span>                   <span class="stringliteral">&quot;NIST serial,serial block size,serial status,&quot;</span></div>
+<div class="line"><span class="lineno">   64</span>                   <span class="stringliteral">&quot;NIST approximate entropy,ApEn block size,ApEn status,&quot;</span></div>
+<div class="line"><span class="lineno">   65</span>                   <span class="stringliteral">&quot;NIST cusum,cusum status\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>    <span class="comment">// Проход по файлам папки произвользый, поэтому чтобы сохранить очерёдность будем временно сохранять результаты в вектор</span></div>
+<div class="line"><span class="lineno">   69</span>    std::vector&lt; std::pair&lt; int,std::vector&lt;std::string&gt; &gt;&gt; result_vector;</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>    <span class="comment">// Цикл для прохода по всем выборкам генератора</span></div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; subdir_entry : fs::directory_iterator(<a class="code hl_define" href="defs_8h.html#a3607bbdb0ed0cad9a32aaa1ac161c011">SAMPLES_DIR</a> + subdir_name))</div>
+<div class="line"><span class="lineno">   75</span>    {</div>
+<div class="line"><span class="lineno">   76</span>      <span class="comment">// Файл для записи результата игнорируем</span></div>
+<div class="line"><span class="lineno">   77</span>      <span class="keywordflow">if</span> (subdir_entry.path().extension().string() == <span class="stringliteral">&quot;.csv&quot;</span>) <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>      <span class="comment">// Открываем файл выборки</span></div>
+<div class="line"><span class="lineno">   80</span>      sample_file.open(subdir_entry.path());</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>      std::string subdir_entry_stem = subdir_entry.path().stem().string();</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;&gt; Processing &quot;</span> &lt;&lt; subdir_entry_stem &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>      <span class="comment">// Вектор для временного хранения реультатов</span></div>
+<div class="line"><span class="lineno">   88</span>      std::pair&lt;int,std::vector&lt;std::string&gt;&gt; sample_result;</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>      sample_result.first = std::stoi(subdir_entry_stem.substr(subdir_entry_stem.rfind(<span class="stringliteral">&quot;_&quot;</span>) + 1));</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>      <span class="comment">// Обрабатываем выборку</span></div>
+<div class="line"><span class="lineno">   93</span>      <a class="code hl_function" href="#a66c165e5556542c04a4fb0cca4d46169">process_sample</a>(sample_file, sample_result.second);</div>
+<div class="line"><span class="lineno">   94</span>      </div>
+<div class="line"><span class="lineno">   95</span>      <span class="comment">// Сохраняем результат</span></div>
+<div class="line"><span class="lineno">   96</span>      result_vector.push_back(sample_result);</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>      sample_file.close();</div>
+<div class="line"><span class="lineno">  100</span>    }</div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>    <span class="comment">// Сортируем результаты по увеличению номера выборки</span></div>
+<div class="line"><span class="lineno">  104</span>    std::sort( result_vector.begin(), result_vector.end(), [](<span class="keyword">auto</span>&amp; el1, <span class="keyword">auto</span>&amp; el2){ return el1.first &lt; el2.first; } );</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>    <span class="comment">// Записываем результаты в файл </span></div>
+<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; pair : result_vector)</div>
+<div class="line"><span class="lineno">  108</span>    {</div>
+<div class="line"><span class="lineno">  109</span>      result_file &lt;&lt; pair.first;</div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  111</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; val : pair.second)</div>
+<div class="line"><span class="lineno">  112</span>      {</div>
+<div class="line"><span class="lineno">  113</span>        result_file &lt;&lt; <span class="charliteral">&#39;,&#39;</span> &lt;&lt; val; </div>
+<div class="line"><span class="lineno">  114</span>      }</div>
+<div class="line"><span class="lineno">  115</span>      result_file &lt;&lt; std::endl; </div>
+<div class="line"><span class="lineno">  116</span>    }</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="comment">// Закрываем файл результатов генератора</span></div>
+<div class="line"><span class="lineno">  119</span>    result_file.close();</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>    std::endl(std::cout);</div>
+<div class="line"><span class="lineno">  122</span>  }</div>
+<div class="line"><span class="lineno">  123</span>  </div>
+<div class="line"><span class="lineno">  124</span>  </div>
+<div class="line"><span class="lineno">  125</span>  std::endl(std::cout);</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>}</div>
+<div class="ttc" id="adefs_8h_html_a3607bbdb0ed0cad9a32aaa1ac161c011"><div class="ttname"><a href="defs_8h.html#a3607bbdb0ed0cad9a32aaa1ac161c011">SAMPLES_DIR</a></div><div class="ttdeci">#define SAMPLES_DIR</div><div class="ttdoc">Папка, в которой создаются выборки</div><div class="ttdef"><b>Определения</b> <a href="defs_8h_source.html#l00010">defs.h:10</a></div></div>
+<div class="ttc" id="aget__results_8cpp_html_a66c165e5556542c04a4fb0cca4d46169"><div class="ttname"><a href="#a66c165e5556542c04a4fb0cca4d46169">process_sample</a></div><div class="ttdeci">void process_sample(std::istream &amp;, std::vector&lt; std::string &gt; &amp;)</div><div class="ttdoc">Функция для полной обработки выбороки генератора</div><div class="ttdef"><b>Определения</b> <a href="get__results_8cpp_source.html#l00133">get_results.cpp:133</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a66c165e5556542c04a4fb0cca4d46169" name="a66c165e5556542c04a4fb0cca4d46169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66c165e5556542c04a4fb0cca4d46169">&#9670;&#160;</a></span>process_sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void process_sample </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;</td>          <td class="paramname"><span class="paramname"><em>sample_file</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vector</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция для полной обработки выбороки генератора </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sample_file</td><td>Файл выборки </td></tr>
+    <tr><td class="paramname">vector</td><td>Вектор для хранения найденных результатов </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="get__results_8cpp_source.html">get_results.cpp</a> строка <a class="el" href="get__results_8cpp_source.html#l00133">133</a></p>
+<div class="fragment"><div class="line"><span class="lineno">  134</span>{</div>
+<div class="line"><span class="lineno">  135</span>  <span class="comment">// Записываем выборку в вектор для удобства</span></div>
+<div class="line"><span class="lineno">  136</span>  std::vector&lt;unsigned int&gt; sample;</div>
+<div class="line"><span class="lineno">  137</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> num;</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>  <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
+<div class="line"><span class="lineno">  140</span>  {</div>
+<div class="line"><span class="lineno">  141</span>    sample_file &gt;&gt; num;</div>
+<div class="line"><span class="lineno">  142</span>    <span class="keywordflow">if</span> (sample_file.eof()) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>    sample.push_back(num);</div>
+<div class="line"><span class="lineno">  145</span>  }</div>
+<div class="line"><span class="lineno">  146</span> </div>
+<div class="line"><span class="lineno">  147</span>  </div>
+<div class="line"><span class="lineno">  148</span>  </div>
+<div class="line"><span class="lineno">  149</span>  vector.push_back( std::to_string(sample.size()) );      <span class="comment">// Записываем размер выборки</span></div>
+<div class="line"><span class="lineno">  150</span>  vector.push_back( std::to_string(<a class="code hl_function" href="tests_8h.html#a9e3c3d5ab8a7fbee951e827cbe065903">get_mean</a>(sample)) );   <span class="comment">// Записываем среднее выборки</span></div>
+<div class="line"><span class="lineno">  151</span>  vector.push_back( std::to_string(<a class="code hl_function" href="tests_8h.html#ac21276803576f405fc00e3b9f0cef67b">get_stdDev</a>(sample)) ); <span class="comment">// Записываем стандартное отклонение выборки</span></div>
+<div class="line"><span class="lineno">  152</span>  vector.push_back( std::to_string(<a class="code hl_function" href="tests_8h.html#a22d058c63f27e3646006bd345e19fac3">get_cv</a>(sample)) );     <span class="comment">// Записываем коэффициент вариации выборки</span></div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>  <span class="keyword">auto</span> chi2_pair = <a class="code hl_function" href="tests_8h.html#ac51a16d54242d9724145612a1c643dd5">get_chi2</a>(sample);  <span class="comment">// Проводим хи-квадрат тест</span></div>
+<div class="line"><span class="lineno">  155</span>  vector.push_back( chi2_pair.first  == -1 ? <span class="stringliteral">&quot;N/A&quot;</span> : std::to_string(chi2_pair.first)  );  <span class="comment">// Записываем результат или N/A в случае ошибки</span></div>
+<div class="line"><span class="lineno">  156</span>  vector.push_back( chi2_pair.second == -1 ? <span class="stringliteral">&quot;N/A&quot;</span> : std::to_string(chi2_pair.second) );  <span class="comment">// Записываем количество степеней свободы или N/A в случае ошибки</span></div>
+<div class="line"><span class="lineno">  157</span> </div>
+<div class="line"><span class="lineno">  158</span> </div>
+<div class="line"><span class="lineno">  159</span>  <span class="comment">// Переводим вектор чисел в последовательность бит для проведения nist-тестов</span></div>
+<div class="line"><span class="lineno">  160</span>  std::vector&lt;bool&gt; bit_sequence = <a class="code hl_function" href="tests_8h.html#a6a37acbf5f3971e3dac91760b83f7430">sample_to_bit_sequence</a>(sample);  </div>
+<div class="line"><span class="lineno">  161</span> </div>
+<div class="line"><span class="lineno">  162</span>  <span class="keywordtype">double</span> frequency = <a class="code hl_function" href="tests_8h.html#a26b74014a930396f434a23621b66cd95">nist_frequency</a>(bit_sequence);  <span class="comment">// Проводим частотный побитовый тест</span></div>
+<div class="line"><span class="lineno">  163</span>  vector.push_back( std::to_string(frequency) );              <span class="comment">// Записываем полученное значение p_value</span></div>
+<div class="line"><span class="lineno">  164</span>  vector.push_back( (frequency &gt;= <a class="code hl_define" href="defs_8h.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>) ? <span class="stringliteral">&quot;PASS&quot;</span> : <span class="stringliteral">&quot;FAIL&quot;</span> ); <span class="comment">// Записываем результат теста</span></div>
+<div class="line"><span class="lineno">  165</span> </div>
+<div class="line"><span class="lineno">  166</span>  <span class="keywordtype">double</span> runs = <a class="code hl_function" href="tests_8h.html#ac948fdf0dcd6b2aa327293681c3b47ab">nist_runs</a>(bit_sequence);  <span class="comment">// Проводим тест на последовательность одинаковых битов</span></div>
+<div class="line"><span class="lineno">  167</span>  vector.push_back( std::to_string(runs) );               <span class="comment">// Записываем полученное значение p_value</span></div>
+<div class="line"><span class="lineno">  168</span>  vector.push_back( (runs &gt;= <a class="code hl_define" href="defs_8h.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>) ? <span class="stringliteral">&quot;PASS&quot;</span> : <span class="stringliteral">&quot;FAIL&quot;</span> );  <span class="comment">// Записываем результат теста</span></div>
+<div class="line"><span class="lineno">  169</span> </div>
+<div class="line"><span class="lineno">  170</span>  <span class="keywordtype">double</span> serial = <a class="code hl_function" href="tests_8h.html#a0360dc680a7ee34f82920792acb7fc3b">nist_serial</a>(bit_sequence, <a class="code hl_define" href="defs_8h.html#aeab7f2413e42b57d6d750f1a146e37c5">SERIAL_M</a>); <span class="comment">// Проводим тест на периодичность</span></div>
+<div class="line"><span class="lineno">  171</span>  vector.push_back( std::to_string(serial) );               <span class="comment">// Записываем полученное значение p_value</span></div>
+<div class="line"><span class="lineno">  172</span>  vector.push_back( std::to_string(<a class="code hl_define" href="defs_8h.html#aeab7f2413e42b57d6d750f1a146e37c5">SERIAL_M</a>) );             <span class="comment">// Записываем длину рассматриваемого блока</span></div>
+<div class="line"><span class="lineno">  173</span>  vector.push_back( (serial &gt;= <a class="code hl_define" href="defs_8h.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>) ? <span class="stringliteral">&quot;PASS&quot;</span> : <span class="stringliteral">&quot;FAIL&quot;</span> );  <span class="comment">// Записываем результат теста</span></div>
+<div class="line"><span class="lineno">  174</span> </div>
+<div class="line"><span class="lineno">  175</span>  <span class="keywordtype">double</span> apEntropy = <a class="code hl_function" href="tests_8h.html#a8403eacea1bc8fa8687f2d5b17ac213d">nist_apEntropy</a>(bit_sequence, <a class="code hl_define" href="defs_8h.html#af4ae574f47b555db414987ea5054e3f0">AP_ENTROPY_M</a>);  <span class="comment">// Проводим тест приблизительной энтропии</span></div>
+<div class="line"><span class="lineno">  176</span>  vector.push_back( std::to_string(apEntropy) );              <span class="comment">// Записываем полученное значение p_value</span></div>
+<div class="line"><span class="lineno">  177</span>  vector.push_back( std::to_string(<a class="code hl_define" href="defs_8h.html#af4ae574f47b555db414987ea5054e3f0">AP_ENTROPY_M</a>) );           <span class="comment">// Записываем длину рассматриваемого блока</span></div>
+<div class="line"><span class="lineno">  178</span>  vector.push_back( (apEntropy &gt;= <a class="code hl_define" href="defs_8h.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>) ? <span class="stringliteral">&quot;PASS&quot;</span> : <span class="stringliteral">&quot;FAIL&quot;</span> ); <span class="comment">// Записываем результат теста</span></div>
+<div class="line"><span class="lineno">  179</span> </div>
+<div class="line"><span class="lineno">  180</span>  <span class="keywordtype">double</span> cusum = <a class="code hl_function" href="tests_8h.html#a513367e7daad2a9288230ef9a7f516f5">nist_cusum</a>(bit_sequence);  <span class="comment">// Проводим тест кумулятивных сумм</span></div>
+<div class="line"><span class="lineno">  181</span>  vector.push_back( std::to_string(cusum) );              <span class="comment">// Записываем полученное значение p_value</span></div>
+<div class="line"><span class="lineno">  182</span>  vector.push_back( (cusum &gt;= <a class="code hl_define" href="defs_8h.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>) ? <span class="stringliteral">&quot;PASS&quot;</span> : <span class="stringliteral">&quot;FAIL&quot;</span> ); <span class="comment">// Записываем результат теста</span></div>
+<div class="line"><span class="lineno">  183</span> </div>
+<div class="line"><span class="lineno">  184</span> </div>
+<div class="line"><span class="lineno">  185</span>}</div>
+<div class="ttc" id="adefs_8h_html_aeab7f2413e42b57d6d750f1a146e37c5"><div class="ttname"><a href="defs_8h.html#aeab7f2413e42b57d6d750f1a146e37c5">SERIAL_M</a></div><div class="ttdeci">#define SERIAL_M</div><div class="ttdoc">Длина блока в тесте на периодичность</div><div class="ttdef"><b>Определения</b> <a href="defs_8h_source.html#l00016">defs.h:16</a></div></div>
+<div class="ttc" id="adefs_8h_html_af4ae574f47b555db414987ea5054e3f0"><div class="ttname"><a href="defs_8h.html#af4ae574f47b555db414987ea5054e3f0">AP_ENTROPY_M</a></div><div class="ttdeci">#define AP_ENTROPY_M</div><div class="ttdoc">Длина блока в тесте приблизительной энтропии</div><div class="ttdef"><b>Определения</b> <a href="defs_8h_source.html#l00017">defs.h:17</a></div></div>
+<div class="ttc" id="adefs_8h_html_af5abd28c44c29b7397c84f1fec4b1d84"><div class="ttname"><a href="defs_8h.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a></div><div class="ttdeci">#define ALPHA</div><div class="ttdoc">Уровень значимости для nist-тестов</div><div class="ttdef"><b>Определения</b> <a href="defs_8h_source.html#l00015">defs.h:15</a></div></div>
+<div class="ttc" id="atests_8h_html_a0360dc680a7ee34f82920792acb7fc3b"><div class="ttname"><a href="tests_8h.html#a0360dc680a7ee34f82920792acb7fc3b">nist_serial</a></div><div class="ttdeci">double nist_serial(std::vector&lt; bool &gt; &amp;, int)</div><div class="ttdoc">Тест на периодичность</div><div class="ttdef"><b>Определения</b> <a href="nist__tests_8cpp_source.html#l00080">nist_tests.cpp:80</a></div></div>
+<div class="ttc" id="atests_8h_html_a22d058c63f27e3646006bd345e19fac3"><div class="ttname"><a href="tests_8h.html#a22d058c63f27e3646006bd345e19fac3">get_cv</a></div><div class="ttdeci">double get_cv(std::vector&lt; unsigned int &gt; &amp;)</div><div class="ttdoc">Оценка выборки на коэффициент вариации</div><div class="ttdef"><b>Определения</b> <a href="tests_8cpp_source.html#l00047">tests.cpp:47</a></div></div>
+<div class="ttc" id="atests_8h_html_a26b74014a930396f434a23621b66cd95"><div class="ttname"><a href="tests_8h.html#a26b74014a930396f434a23621b66cd95">nist_frequency</a></div><div class="ttdeci">double nist_frequency(std::vector&lt; bool &gt; &amp;)</div><div class="ttdoc">Частотный побитовый тест</div><div class="ttdef"><b>Определения</b> <a href="nist__tests_8cpp_source.html#l00029">nist_tests.cpp:29</a></div></div>
+<div class="ttc" id="atests_8h_html_a513367e7daad2a9288230ef9a7f516f5"><div class="ttname"><a href="tests_8h.html#a513367e7daad2a9288230ef9a7f516f5">nist_cusum</a></div><div class="ttdeci">double nist_cusum(std::vector&lt; bool &gt; &amp;)</div><div class="ttdoc">Тест кумулятивных сумм</div><div class="ttdef"><b>Определения</b> <a href="nist__tests_8cpp_source.html#l00109">nist_tests.cpp:109</a></div></div>
+<div class="ttc" id="atests_8h_html_a6a37acbf5f3971e3dac91760b83f7430"><div class="ttname"><a href="tests_8h.html#a6a37acbf5f3971e3dac91760b83f7430">sample_to_bit_sequence</a></div><div class="ttdeci">std::vector&lt; bool &gt; sample_to_bit_sequence(std::vector&lt; unsigned int &gt; &amp;)</div><div class="ttdoc">Функция, преобразовывающая вектор выборки в последовательность битов этой выборки</div><div class="ttdef"><b>Определения</b> <a href="nist__funcs_8cpp_source.html#l00018">nist_funcs.cpp:18</a></div></div>
+<div class="ttc" id="atests_8h_html_a8403eacea1bc8fa8687f2d5b17ac213d"><div class="ttname"><a href="tests_8h.html#a8403eacea1bc8fa8687f2d5b17ac213d">nist_apEntropy</a></div><div class="ttdeci">double nist_apEntropy(std::vector&lt; bool &gt; &amp;, int)</div><div class="ttdoc">Тест приблизительной энтропии</div><div class="ttdef"><b>Определения</b> <a href="nist__tests_8cpp_source.html#l00094">nist_tests.cpp:94</a></div></div>
+<div class="ttc" id="atests_8h_html_a9e3c3d5ab8a7fbee951e827cbe065903"><div class="ttname"><a href="tests_8h.html#a9e3c3d5ab8a7fbee951e827cbe065903">get_mean</a></div><div class="ttdeci">double get_mean(std::vector&lt; unsigned int &gt; &amp;)</div><div class="ttdoc">Оценка выборки на среднее значение</div><div class="ttdef"><b>Определения</b> <a href="tests_8cpp_source.html#l00014">tests.cpp:14</a></div></div>
+<div class="ttc" id="atests_8h_html_ac21276803576f405fc00e3b9f0cef67b"><div class="ttname"><a href="tests_8h.html#ac21276803576f405fc00e3b9f0cef67b">get_stdDev</a></div><div class="ttdeci">double get_stdDev(std::vector&lt; unsigned int &gt; &amp;)</div><div class="ttdoc">Оценка выборки на стандартное отклонение</div><div class="ttdef"><b>Определения</b> <a href="tests_8cpp_source.html#l00030">tests.cpp:30</a></div></div>
+<div class="ttc" id="atests_8h_html_ac51a16d54242d9724145612a1c643dd5"><div class="ttname"><a href="tests_8h.html#ac51a16d54242d9724145612a1c643dd5">get_chi2</a></div><div class="ttdeci">std::pair&lt; double, int &gt; get_chi2(std::vector&lt; unsigned int &gt; &amp;)</div><div class="ttdoc">Тест хи-квадрат</div><div class="ttdef"><b>Определения</b> <a href="tests_8cpp_source.html#l00056">tests.cpp:56</a></div></div>
+<div class="ttc" id="atests_8h_html_ac948fdf0dcd6b2aa327293681c3b47ab"><div class="ttname"><a href="tests_8h.html#ac948fdf0dcd6b2aa327293681c3b47ab">nist_runs</a></div><div class="ttdeci">double nist_runs(std::vector&lt; bool &gt; &amp;)</div><div class="ttdoc">Тест на последовательность одинаковых битов</div><div class="ttdef"><b>Определения</b> <a href="nist__tests_8cpp_source.html#l00048">nist_tests.cpp:48</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
