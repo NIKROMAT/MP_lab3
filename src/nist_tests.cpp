@@ -54,6 +54,7 @@ double nist_runs ( std::vector<bool>& bit_seq )
 
   if (fabs(pi - 0.5) >= 2 / std::sqrt(bit_seq.size()))
   {
+    std::cerr << ">>> Не выполнен критерий для runs теста" << std::endl;
     return 0;
   }
 

@@ -62,8 +62,12 @@ uint32_t mid_xor_PRNG::generate ()
 {
   uint64_t product = seed * seed;
 
-  seed  = (product >> 16) & 0xFFFFFFFF;
-  seed ^= 0xAAAAAAAA; // инвертируем каждый 2 бит начиная со старшего, чтобы всё не вырождалось в 0
+  seed  = (product >> 8) & 0xFFFFFFFF;
+
+  // Динамический сдвиг для XorShift
+  uint8_t shift = (seed >> 10) & 0x1F; // Сдвиг от 0 до 31
+  seed ^= 0x9E3779B9 << (shift % 13 + 1); // Чтобы не было вырождения в 0
+  seed ^= seed >> (shift % 17 + 1);
 
   return result(seed);
 }
@@ -104,7 +108,8 @@ uint32_t mul_xor_PRNG::generate ()
 /// @param min_lim Нижняя  граница генерации
 /// @param max_lim Верхняя граница генерации
 LCG::LCG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
-: PRNG(min_lim, max_lim), seed(seed), k((1<<16)+1), b((1<<8)-1), M(1<<31) {}
+// : PRNG(min_lim, max_lim), seed(seed), k((1<<16)+1), b((1<<8)-1), M(1<<31) {}
+: PRNG(min_lim, max_lim), seed(seed), k(1'103'515'245), b(12345), M(1<<31) {}
 
 
 /// @brief Генерация следующего числа
