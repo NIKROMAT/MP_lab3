@@ -23,7 +23,7 @@ int main()
   // Файл для записи результатов
   std::ofstream time_results("generation_time.csv");
   
-  time_results << "Size,Mid_xor,Mul_xor,LCG,randint\n";
+  time_results << "Size,Mid_xor,Mul_xor,LCG,Div,randint\n";
 
   // Список размеров выборок
   std::vector<int> sizes = {  1'000,   2'000,   3'000,   5'000,    10'000,
@@ -78,6 +78,17 @@ void check_time (std::ostream& out, int size)
   // Замер для генератора LCG
   {
     LCG prng(42, MIN_LIM, MAX_LIM);           // Создание генератора
+    start = clock::now();                     // Начало измерения
+    prng.generate_sample(trash, size);        // Генерация выборки
+    end = clock::now();                       // Конец измерения
+
+    out << ch::duration_cast<ch::microseconds>(end-start).count() << ','; // Запись результата
+  }
+
+  
+  // Замер для генератора div
+  {
+    div_PRNG prng(42, MIN_LIM, MAX_LIM);      // Создание генератора
     start = clock::now();                     // Начало измерения
     prng.generate_sample(trash, size);        // Генерация выборки
     end = clock::now();                       // Конец измерения
