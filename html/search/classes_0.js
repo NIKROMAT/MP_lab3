@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lcg_0',['LCG',['../classLCG.html',1,'']]]
+  ['div_5fprng_0',['div_PRNG',['../classdiv__PRNG.html',1,'']]]
 ];

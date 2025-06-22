@@ -64,51 +64,51 @@ void create\+\_\+samples (\begin{DoxyParamCaption}\item[{std\+::string}]{path}{,
 \end{DoxyParams}
 
 
-См. определение в файле \mbox{\hyperlink{create__samples_8cpp_source}{create\+\_\+samples.\+cpp}} строка \mbox{\hyperlink{create__samples_8cpp_source_l00072}{72}}
+См. определение в файле \mbox{\hyperlink{create__samples_8cpp_source}{create\+\_\+samples.\+cpp}} строка \mbox{\hyperlink{create__samples_8cpp_source_l00073}{73}}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00075\ \{}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ }
-\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{int}\ mod;}
-\DoxyCodeLine{00079\ \ \ }
-\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//\ Проверка\ корректности\ размеров\ списков\ seeds\ и\ sizes}}
-\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{if}\ (sizes.size()\ ==\ seeds.size())\ \ \ \ \ mod\ =\ sizes.size();}
-\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (sizes.size()\ \%\ seeds.size()\ ==\ 0)\ mod\ =\ sizes.size()\ /\ seeds.size();}
-\DoxyCodeLine{00083\ \ \ \textcolor{keywordflow}{else}\ }
-\DoxyCodeLine{00084\ \ \ \{}
-\DoxyCodeLine{00085\ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}!\ Неправильные\ размерности\ набора\ размеров\ и\ семян\ генераторов."{}}\ <<\ std::endl;}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00087\ \ \ \}}
-\DoxyCodeLine{00088\ \ \ }
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{int}\ mod;}
+\DoxyCodeLine{00080\ \ \ }
+\DoxyCodeLine{00081\ \ \ \textcolor{comment}{//\ Проверка\ корректности\ размеров\ списков\ seeds\ и\ sizes}}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{if}\ (sizes.size()\ ==\ seeds.size())\ \ \ \ \ mod\ =\ sizes.size();}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (sizes.size()\ \%\ seeds.size()\ ==\ 0)\ mod\ =\ sizes.size()\ /\ seeds.size();}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00085\ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}!\ Неправильные\ размерности\ набора\ размеров\ и\ семян\ генераторов."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00088\ \ \ \}}
 \DoxyCodeLine{00089\ \ \ }
-\DoxyCodeLine{00090\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generating\ samples\ by\ "{}}\ +\ prng\_name\ <<\ std::endl;}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{comment}{//\ Создание\ папки\ для\ выборок}}
-\DoxyCodeLine{00093\ \ \ fs::create\_directory(path\ +\ prng\_name);\ }
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \textcolor{comment}{//\ Цикл\ создания\ выборок}}
-\DoxyCodeLine{00096\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ sizes.size();\ ++i)}
-\DoxyCodeLine{00097\ \ \ \{}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ Создать\ файл\ выборки}}
-\DoxyCodeLine{00100\ \ \ \ \ std::ofstream\ sample\_file(path\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +\ std::to\_string(i+1)\ +\ \textcolor{stringliteral}{"{}.txt"{}});}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ Создать\ генератор\ с\ заданным\ семенем\ и\ границами}}
-\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{classPRNG}{PRNG}}\ prng\ (seeds.at(i\ \%\ mod),\ min\_lim,\ max\_lim);}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ Создать\ и\ записать\ выборку}}
-\DoxyCodeLine{00106\ \ \ \ \ prng.generate\_sample(sample\_file,\ sizes.at(i));}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ Закрыть\ файл\ выборки}}
-\DoxyCodeLine{00109\ \ \ \ \ sample\_file.close();}
-\DoxyCodeLine{00110\ \ \ \ \ }
-\DoxyCodeLine{00111\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>\ Complete\ "{}}\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +\ std::to\_string(i+1)\ +\ \textcolor{stringliteral}{"{}.txt"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00112\ \ \ \}}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ std::endl(std::cout);}
-\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00090\ \ \ }
+\DoxyCodeLine{00091\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generating\ samples\ by\ "{}}\ +\ prng\_name\ <<\ std::endl;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{comment}{//\ Создание\ папки\ для\ выборок}}
+\DoxyCodeLine{00094\ \ \ fs::create\_directory(path\ +\ prng\_name);\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{comment}{//\ Цикл\ создания\ выборок}}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ sizes.size();\ ++i)}
+\DoxyCodeLine{00098\ \ \ \{}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ Создать\ файл\ выборки}}
+\DoxyCodeLine{00101\ \ \ \ \ std::ofstream\ sample\_file(path\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}/"{}}\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +\ std::to\_string(i+1)\ +\ \textcolor{stringliteral}{"{}.txt"{}});}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ Создать\ генератор\ с\ заданным\ семенем\ и\ границами}}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classPRNG}{PRNG}}\ prng\ (seeds.at(i\ \%\ mod),\ min\_lim,\ max\_lim);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Создать\ и\ записать\ выборку}}
+\DoxyCodeLine{00107\ \ \ \ \ prng.generate\_sample(sample\_file,\ sizes.at(i));}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ Закрыть\ файл\ выборки}}
+\DoxyCodeLine{00110\ \ \ \ \ sample\_file.close();}
+\DoxyCodeLine{00111\ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}>\ Complete\ "{}}\ +\ prng\_name\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +\ std::to\_string(i+1)\ +\ \textcolor{stringliteral}{"{}.txt"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00113\ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ std::endl(std::cout);}
+\DoxyCodeLine{00116\ \}}
 
 \end{DoxyCode}
 \Hypertarget{create__samples_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{create\_samples.cpp@{create\_samples.cpp}!main@{main}}
@@ -153,9 +153,10 @@ int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 \DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples<mid\_xor\_PRNG>}}\ (\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}},\ \textcolor{stringliteral}{"{}mid\_xor"{}},\ sizes,\ seeds,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
 \DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples<mul\_xor\_PRNG>}}\ (\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}},\ \textcolor{stringliteral}{"{}mul\_xor"{}},\ sizes,\ seeds,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
 \DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples<LCG>}}\ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}},\ \textcolor{stringliteral}{"{}lcg"{}},\ \ \ \ \ sizes,\ seeds,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
-\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{create__samples_8cpp_aa8dff754e2ca38f94aec6e418feea9ee}{create\_samples<div\_PRNG>}}\ \ \ \ \ (\mbox{\hyperlink{defs_8h_a3607bbdb0ed0cad9a32aaa1ac161c011}{SAMPLES\_DIR}},\ \textcolor{stringliteral}{"{}div"{}},\ \ \ \ \ sizes,\ seeds,\ \mbox{\hyperlink{defs_8h_a02b80698716dcc8d773d1168b63b903a}{MIN\_LIM}},\ \mbox{\hyperlink{defs_8h_a35430215013e24474f3682ace9660230}{MAX\_LIM}});}
 \DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ std::endl(std::cout);}
-\DoxyCodeLine{00061\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ std::endl(std::cout);}
+\DoxyCodeLine{00062\ \}}
 
 \end{DoxyCode}

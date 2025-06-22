@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.7)  14 JUN 2025 17:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.7)  22 JUN 2025 13:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1180,12 +1180,12 @@ Package babel Info: 'russian' activates 'russian' shorthands.
 
 ]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 5.
-(./classLCG.tex <./classLCG.pdf>
-<classLCG.pdf, id=760, 501.875pt x 743.51776pt>
-File: classLCG.pdf Graphic file (type pdf)
-<use classLCG.pdf>
-Package pdftex.def Info: classLCG.pdf  used on input line 15.
-(pdftex.def)             Requested size: 38.40479pt x 56.9055pt.
+(./classdiv__PRNG.tex <./classdiv__PRNG.pdf>
+<classdiv__PRNG.pdf, id=818, 501.875pt x 514.74309pt>
+File: classdiv__PRNG.pdf Graphic file (type pdf)
+<use classdiv__PRNG.pdf>
+Package pdftex.def Info: classdiv__PRNG.pdf  used on input line 15.
+(pdftex.def)             Requested size: 55.4821pt x 56.9055pt.
 
 
 LaTeX Font Warning: Font shape `T2A/phv/m/it' undefined
@@ -1196,69 +1196,84 @@ LaTeX Font Warning: Font shape `T2A/phv/m/it' undefined
 [9]
 
 LaTeX Font Warning: Font shape `T2A/pcr/m/it' undefined
-(Font)              using `T2A/pcr/m/n' instead on input line 73.
+(Font)              using `T2A/pcr/m/n' instead on input line 69.
 
 
+Underfull \hbox (badness 10000) detected at line 102
+[][][]
+ []
+
+
+
+[10]) (./classLCG.tex <./classLCG.pdf>
+<classLCG.pdf, id=901, 501.875pt x 743.51776pt>
+File: classLCG.pdf Graphic file (type pdf)
+<use classLCG.pdf>
+Package pdftex.def Info: classLCG.pdf  used on input line 15.
+(pdftex.def)             Requested size: 38.40479pt x 56.9055pt.
+
+
+[11]
+
+[12]
 Underfull \hbox (badness 10000) detected at line 106
 [][][]
  []
 
 
 
-[10]) (./classmid__xor__PRNG.tex
-
-[11] <./classmid__xor__PRNG.pdf>
-<classmid__xor__PRNG.pdf, id=856, 501.875pt x 382.37857pt>
+[13]) (./classmid__xor__PRNG.tex <./classmid__xor__PRNG.pdf>
+<classmid__xor__PRNG.pdf, id=988, 501.875pt x 382.37857pt>
 File: classmid__xor__PRNG.pdf Graphic file (type pdf)
 <use classmid__xor__PRNG.pdf>
 Package pdftex.def Info: classmid__xor__PRNG.pdf  used on input line 15.
 (pdftex.def)             Requested size: 74.68832pt x 56.9055pt.
 
 
-[12]
+[14]
+
+[15]
 Underfull \hbox (badness 10000) detected at line 104
 [][][]
  []
 
-
-
-[13]) (./classmul__xor__PRNG.tex <./classmul__xor__PRNG.pdf>
-<classmul__xor__PRNG.pdf, id=923, 501.875pt x 382.37857pt>
+) (./classmul__xor__PRNG.tex <./classmul__xor__PRNG.pdf>
+<classmul__xor__PRNG.pdf, id=1057, 501.875pt x 382.37857pt>
 File: classmul__xor__PRNG.pdf Graphic file (type pdf)
 <use classmul__xor__PRNG.pdf>
 Package pdftex.def Info: classmul__xor__PRNG.pdf  used on input line 15.
 (pdftex.def)             Requested size: 74.68832pt x 56.9055pt.
 
 
-[14]
+[16]
 
-[15]
+[17]
 Underfull \hbox (badness 10000) detected at line 100
 [][][]
  []
 
-) (./classPRNG.tex <./classPRNG.pdf>
-<classPRNG.pdf, id=988, 501.875pt x 127.45618pt>
+) (./classPRNG.tex
+
+[18] <./classPRNG.pdf>
+<classPRNG.pdf, id=1128, 501.875pt x 95.59715pt>
 File: classPRNG.pdf Graphic file (type pdf)
 <use classPRNG.pdf>
 Package pdftex.def Info: classPRNG.pdf  used on input line 15.
-(pdftex.def)             Requested size: 224.07266pt x 56.9055pt.
+(pdftex.def)             Requested size: 298.75334pt x 56.9055pt.
 
 
-[16]
+[19]
 
-[17]
+[20]
 Underfull \hbox (badness 10000) detected at line 138
 [][][]
  []
 
+)
 
+[21]
 
-[18])
-
-[19]
-
-[20
+[22
 
 ]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 6.
@@ -1269,65 +1284,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--15
 
 
 
-[21]
+[23]
 
-[22]) (./create__samples_8cpp_source.tex
+[24]) (./create__samples_8cpp_source.tex
 
-[23]) (./get__results_8cpp.tex
+[25]) (./get__results_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--16
 
  []
 
 
 
-[24]
-
-[25]
-
-[26]) (./get__results_8cpp_source.tex
+[26]
 
 [27]
 
-[28]) (./defs_8h.tex
+[28]) (./get__results_8cpp_source.tex
 
 [29]
 
-[30]) (./defs_8h_source.tex) (./cephes_8h_source.tex) (./prng_8h.tex
+[30]) (./defs_8h.tex
+
+[31]
+
+[32]) (./defs_8h_source.tex) (./cephes_8h_source.tex) (./prng_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 
 
-[31]) (./prng_8h_source.tex
+[33]) (./prng_8h_source.tex
 
-[32]) (./tests_8h.tex
+[34]) (./tests_8h.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 
 
-[33]
+[35]
 Underfull \hbox (badness 10000) detected at line 67
 [][][]
  []
 
 
 
-[34]
+[36]
 Underfull \hbox (badness 10000) detected at line 106
 [][][]
  []
 
 
+
+[37]
+
+[38]
 Underfull \hbox (badness 10000) detected at line 165
 [][][]
  []
 
 
-
-[35]
 Underfull \hbox (badness 10000) detected at line 194
 [][][]
  []
@@ -1339,143 +1356,147 @@ Underfull \hbox (badness 10000) detected at line 232
 
 
 
-[36]
+[39]
 Underfull \hbox (badness 10000) detected at line 276
 [][][]
  []
 
 
+
+[40]
 Underfull \hbox (badness 10000) detected at line 318
 [][][]
  []
 
 
-
-[37]
 Underfull \hbox (badness 10000) detected at line 357
 [][][]
  []
 
 
+
+[41]
 Underfull \hbox (badness 10000) detected at line 393
 [][][]
  []
 
 
-
-[38]
 Underfull \hbox (badness 10000) detected at line 434
 [][][]
  []
 
 
+
+[42]
 Underfull \hbox (badness 10000) detected at line 473
 [][][]
  []
 
 
-
-[39]
 Underfull \hbox (badness 10000) detected at line 527
 [][][]
  []
 
 
+
+[43]
 Underfull \hbox (badness 10000) detected at line 561
 [][][]
  []
 
-) (./tests_8h_source.tex
+) (./tests_8h_source.tex) (./cephes_8cpp_source.tex
 
-[40]) (./cephes_8cpp_source.tex
+[44]
 
-[41]
+[45]
 
-[42]
+[46]
 
-[43]
-
-[44]) (./nist__funcs_8cpp.tex
+[47]) (./nist__funcs_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--12
 
  []
 
 
 
-[45]
+[48]
 Underfull \hbox (badness 10000) detected at line 52
 [][][]
  []
 
 
+
+[49]
 Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
 
 
-
-[46]
 Underfull \hbox (badness 10000) detected at line 137
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 179
-[][][]
- []
-
-) (./nist__funcs_8cpp_source.tex
-
-[47]
-
-[48]) (./nist__tests_8cpp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--14
-
- []
-
-
-
-[49]
-Underfull \hbox (badness 10000) detected at line 63
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 99
 [][][]
  []
 
 
 
 [50]
+Underfull \hbox (badness 10000) detected at line 179
+[][][]
+ []
+
+) (./nist__funcs_8cpp_source.tex
+
+[51]) (./nist__tests_8cpp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--14
+
+ []
+
+
+
+[52]
+Underfull \hbox (badness 10000) detected at line 63
+[][][]
+ []
+
+
+
+[53]
+
+[54]
+Underfull \hbox (badness 10000) detected at line 99
+[][][]
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 140
 [][][]
  []
 
 
+
+[55]
 Underfull \hbox (badness 10000) detected at line 179
 [][][]
  []
 
 
-
-[51]
 Underfull \hbox (badness 10000) detected at line 233
 [][][]
  []
 
 ) (./nist__tests_8cpp_source.tex
 
-[52]) (./prng_8cpp.tex
+[56]
+
+[57]) (./prng_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
 ) (./prng_8cpp_source.tex
 
-[53]
+[58]
 
-[54]) (./tests_8cpp.tex
+[59]) (./tests_8cpp.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--11
 
  []
@@ -1487,14 +1508,14 @@ Underfull \hbox (badness 10000) detected at line 49
 
 
 
-[55]
+[60]
 Underfull \hbox (badness 10000) detected at line 108
 [][][]
  []
 
 
 
-[56]
+[61]
 Underfull \hbox (badness 10000) detected at line 137
 [][][]
  []
@@ -1506,25 +1527,25 @@ Underfull \hbox (badness 10000) detected at line 173
 
 ) (./tests_8cpp_source.tex
 
-[57]) (./time__check_8cpp.tex
+[62]) (./test_8cpp_source.tex) (./time__check_8cpp.tex
+
+[63]
 Underfull \hbox (badness 10000) in paragraph at lines 8--14
 
  []
 
 
 
-[58]
-
-[59]
+[64]
 Underfull \hbox (badness 10000) detected at line 123
 [][][]
  []
 
-) (./time__check_8cpp_source.tex
 
-[60]
 
-[61]) (./time__graph_8py_source.tex
+[65]) (./time__check_8cpp_source.tex
+
+[66]) (./time__graph_8py_source.tex
 LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 3
 2.
 
@@ -1532,12 +1553,15 @@ LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 3
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 ))
 
-[62] (./refman.ind
+[67]
+
+[68
+
+] (./refman.ind
 
 
 
-[63
-
+[69
 
 
 ]
@@ -1551,7 +1575,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.51453pt}.
 
-[64]) (./refman.aux)
+[70]) (./refman.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1561,16 +1585,16 @@ L3 programming layer <2025-01-18>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: AD22C89072558ED9E0127BB573F98970;22962.
+(rerunfilecheck)             Checksum: C731FCFF9F9A78772E50AE2F00CC5132;24668.
  ) 
 Here is how much of TeX's memory you used:
- 22180 strings out of 473190
- 374365 string characters out of 5715807
- 782408 words of memory out of 5000000
- 43456 multiletter control sequences out of 15000+600000
+ 22308 strings out of 473190
+ 377293 string characters out of 5715807
+ 784886 words of memory out of 5000000
+ 43491 multiletter control sequences out of 15000+600000
  577461 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,16n,117p,707b,769s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,16n,117p,707b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
 /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
@@ -1585,10 +1609,10 @@ ve/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive
 /2025/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2
 025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texm
 f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (70 pages, 456138 bytes).
+Output written on refman.pdf (76 pages, 471027 bytes).
 PDF statistics:
- 3561 PDF objects out of 3580 (max. 8388607)
- 3414 compressed objects within 35 object streams
- 1576 named destinations out of 1728 (max. 500000)
- 1037 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3841 PDF objects out of 4296 (max. 8388607)
+ 3684 compressed objects within 37 object streams
+ 1665 named destinations out of 1728 (max. 500000)
+ 1122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

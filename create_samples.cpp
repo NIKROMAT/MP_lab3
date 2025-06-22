@@ -55,6 +55,7 @@ int main()
   create_samples<mid_xor_PRNG> (SAMPLES_DIR, "mid_xor", sizes, seeds, MIN_LIM, MAX_LIM);
   create_samples<mul_xor_PRNG> (SAMPLES_DIR, "mul_xor", sizes, seeds, MIN_LIM, MAX_LIM);
   create_samples<LCG>          (SAMPLES_DIR, "lcg",     sizes, seeds, MIN_LIM, MAX_LIM);
+  create_samples<div_PRNG>     (SAMPLES_DIR, "div",     sizes, seeds, MIN_LIM, MAX_LIM);
 
 
   std::endl(std::cout);

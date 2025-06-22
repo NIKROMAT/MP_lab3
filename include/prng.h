@@ -81,4 +81,19 @@ public:
 };
 
 
+
+/// @brief Генератор, основанный на делении чисел друг на друга
+class div_PRNG: public PRNG
+{
+  uint32_t seed;  ///< Семя генерации
+  uint32_t prev;  ///< Предыдущий результат
+
+public:
+  div_PRNG () = delete;  ///< Запрет на конструктор по умолчанию 
+  div_PRNG ( uint32_t, uint32_t = 0, uint32_t = -1);
+
+  uint32_t generate() override;
+};
+
+
 #endif // PRNG_H

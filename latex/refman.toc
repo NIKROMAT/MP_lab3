@@ -8,122 +8,132 @@
 \contentsline {chapter}{\numberline {4}Список файлов}{7}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Файлы}{7}{section.4.1}%
 \contentsline {chapter}{\numberline {5}Классы}{9}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Класс LCG}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.1}Класс div\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PRNG}{9}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Подробное описание}{10}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2}Конструктор(ы)}{10}{subsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.2.1}LCG()}{10}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}div\_PRNG()}{10}{subsubsection.5.1.2.1}%
 \contentsline {subsection}{\numberline {5.1.3}Методы}{11}{subsection.5.1.3}%
 \contentsline {subsubsection}{\numberline {5.1.3.1}generate()}{11}{subsubsection.5.1.3.1}%
 \contentsline {subsection}{\numberline {5.1.4}Данные класса}{11}{subsection.5.1.4}%
-\contentsline {subsubsection}{\numberline {5.1.4.1}b}{11}{subsubsection.5.1.4.1}%
-\contentsline {subsubsection}{\numberline {5.1.4.2}k}{11}{subsubsection.5.1.4.2}%
-\contentsline {subsubsection}{\numberline {5.1.4.3}M}{11}{subsubsection.5.1.4.3}%
-\contentsline {subsubsection}{\numberline {5.1.4.4}seed}{12}{subsubsection.5.1.4.4}%
-\contentsline {section}{\numberline {5.2}Класс mid\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PRNG}{12}{section.5.2}%
+\contentsline {subsubsection}{\numberline {5.1.4.1}prev}{11}{subsubsection.5.1.4.1}%
+\contentsline {subsubsection}{\numberline {5.1.4.2}seed}{11}{subsubsection.5.1.4.2}%
+\contentsline {section}{\numberline {5.2}Класс LCG}{12}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Подробное описание}{13}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Конструктор(ы)}{13}{subsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.2.1}mid\_xor\_PRNG()}{13}{subsubsection.5.2.2.1}%
-\contentsline {subsection}{\numberline {5.2.3}Методы}{14}{subsection.5.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.3.1}generate()}{14}{subsubsection.5.2.3.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}LCG()}{13}{subsubsection.5.2.2.1}%
+\contentsline {subsection}{\numberline {5.2.3}Методы}{13}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}generate()}{13}{subsubsection.5.2.3.1}%
 \contentsline {subsection}{\numberline {5.2.4}Данные класса}{14}{subsection.5.2.4}%
-\contentsline {subsubsection}{\numberline {5.2.4.1}seed}{14}{subsubsection.5.2.4.1}%
-\contentsline {section}{\numberline {5.3}Класс mul\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PRNG}{14}{section.5.3}%
+\contentsline {subsubsection}{\numberline {5.2.4.1}b}{14}{subsubsection.5.2.4.1}%
+\contentsline {subsubsection}{\numberline {5.2.4.2}k}{14}{subsubsection.5.2.4.2}%
+\contentsline {subsubsection}{\numberline {5.2.4.3}M}{14}{subsubsection.5.2.4.3}%
+\contentsline {subsubsection}{\numberline {5.2.4.4}seed}{14}{subsubsection.5.2.4.4}%
+\contentsline {section}{\numberline {5.3}Класс mid\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PRNG}{14}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Подробное описание}{15}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Конструктор(ы)}{15}{subsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.2.1}mul\_xor\_PRNG()}{15}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}mid\_xor\_PRNG()}{15}{subsubsection.5.3.2.1}%
 \contentsline {subsection}{\numberline {5.3.3}Методы}{16}{subsection.5.3.3}%
 \contentsline {subsubsection}{\numberline {5.3.3.1}generate()}{16}{subsubsection.5.3.3.1}%
 \contentsline {subsection}{\numberline {5.3.4}Данные класса}{16}{subsection.5.3.4}%
 \contentsline {subsubsection}{\numberline {5.3.4.1}seed}{16}{subsubsection.5.3.4.1}%
-\contentsline {section}{\numberline {5.4}Класс PRNG}{17}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Подробное описание}{17}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Конструктор(ы)}{17}{subsection.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.4.2.1}PRNG()}{17}{subsubsection.5.4.2.1}%
+\contentsline {section}{\numberline {5.4}Класс mul\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xor\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}PRNG}{17}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Подробное описание}{18}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Конструктор(ы)}{18}{subsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.1}mul\_xor\_PRNG()}{18}{subsubsection.5.4.2.1}%
 \contentsline {subsection}{\numberline {5.4.3}Методы}{18}{subsection.5.4.3}%
 \contentsline {subsubsection}{\numberline {5.4.3.1}generate()}{18}{subsubsection.5.4.3.1}%
-\contentsline {subsubsection}{\numberline {5.4.3.2}generate\_sample()}{18}{subsubsection.5.4.3.2}%
-\contentsline {subsubsection}{\numberline {5.4.3.3}result()}{18}{subsubsection.5.4.3.3}%
 \contentsline {subsection}{\numberline {5.4.4}Данные класса}{19}{subsection.5.4.4}%
-\contentsline {subsubsection}{\numberline {5.4.4.1}max\_lim}{19}{subsubsection.5.4.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.4.2}min\_lim}{19}{subsubsection.5.4.4.2}%
-\contentsline {chapter}{\numberline {6}Файлы}{21}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Файл create\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}samples.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{21}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Подробное описание}{21}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Функции}{22}{subsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.2.1}create\_samples()}{22}{subsubsection.6.1.2.1}%
-\contentsline {subsubsection}{\numberline {6.1.2.2}main()}{23}{subsubsection.6.1.2.2}%
-\contentsline {section}{\numberline {6.2}create\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}samples.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{23}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Файл get\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}results.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{24}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Подробное описание}{25}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Функции}{25}{subsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.2.1}main()}{25}{subsubsection.6.3.2.1}%
-\contentsline {subsubsection}{\numberline {6.3.2.2}process\_sample()}{27}{subsubsection.6.3.2.2}%
-\contentsline {section}{\numberline {6.4}get\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}results.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{27}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Файл include/defs.h}{30}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Подробное описание}{30}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Макросы}{30}{subsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}ALPHA}{30}{subsubsection.6.5.2.1}%
-\contentsline {subsubsection}{\numberline {6.5.2.2}AP\_ENTROPY\_M}{30}{subsubsection.6.5.2.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.3}MAX\_LIM}{30}{subsubsection.6.5.2.3}%
-\contentsline {subsubsection}{\numberline {6.5.2.4}MIN\_LIM}{31}{subsubsection.6.5.2.4}%
-\contentsline {subsubsection}{\numberline {6.5.2.5}SAMPLES\_DIR}{31}{subsubsection.6.5.2.5}%
-\contentsline {subsubsection}{\numberline {6.5.2.6}SERIAL\_M}{31}{subsubsection.6.5.2.6}%
-\contentsline {section}{\numberline {6.6}defs.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{31}{section.6.6}%
-\contentsline {section}{\numberline {6.7}cephes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{31}{section.6.7}%
-\contentsline {section}{\numberline {6.8}Файл include/prng.h}{32}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Подробное описание}{32}{subsection.6.8.1}%
-\contentsline {section}{\numberline {6.9}prng.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{32}{section.6.9}%
-\contentsline {section}{\numberline {6.10}Файл include/tests.h}{33}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}Подробное описание}{34}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}Функции}{34}{subsection.6.10.2}%
-\contentsline {subsubsection}{\numberline {6.10.2.1}get\_apEn()}{34}{subsubsection.6.10.2.1}%
-\contentsline {subsubsection}{\numberline {6.10.2.2}get\_chi2()}{35}{subsubsection.6.10.2.2}%
-\contentsline {subsubsection}{\numberline {6.10.2.3}get\_cv()}{35}{subsubsection.6.10.2.3}%
-\contentsline {subsubsection}{\numberline {6.10.2.4}get\_mean()}{36}{subsubsection.6.10.2.4}%
-\contentsline {subsubsection}{\numberline {6.10.2.5}get\_pattern\_counts()}{36}{subsubsection.6.10.2.5}%
-\contentsline {subsubsection}{\numberline {6.10.2.6}get\_psi2()}{37}{subsubsection.6.10.2.6}%
-\contentsline {subsubsection}{\numberline {6.10.2.7}get\_stdDev()}{37}{subsubsection.6.10.2.7}%
-\contentsline {subsubsection}{\numberline {6.10.2.8}nist\_apEntropy()}{38}{subsubsection.6.10.2.8}%
-\contentsline {subsubsection}{\numberline {6.10.2.9}nist\_cusum()}{38}{subsubsection.6.10.2.9}%
-\contentsline {subsubsection}{\numberline {6.10.2.10}nist\_frequency()}{38}{subsubsection.6.10.2.10}%
-\contentsline {subsubsection}{\numberline {6.10.2.11}nist\_runs()}{39}{subsubsection.6.10.2.11}%
-\contentsline {subsubsection}{\numberline {6.10.2.12}nist\_serial()}{40}{subsubsection.6.10.2.12}%
-\contentsline {subsubsection}{\numberline {6.10.2.13}sample\_to\_bit\_sequence()}{40}{subsubsection.6.10.2.13}%
-\contentsline {section}{\numberline {6.11}tests.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.6.11}%
-\contentsline {section}{\numberline {6.12}cephes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{41}{section.6.12}%
-\contentsline {section}{\numberline {6.13}Файл src/nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}funcs.cpp}{45}{section.6.13}%
-\contentsline {subsection}{\numberline {6.13.1}Подробное описание}{45}{subsection.6.13.1}%
-\contentsline {subsection}{\numberline {6.13.2}Функции}{45}{subsection.6.13.2}%
-\contentsline {subsubsection}{\numberline {6.13.2.1}get\_apEn()}{45}{subsubsection.6.13.2.1}%
-\contentsline {subsubsection}{\numberline {6.13.2.2}get\_pattern\_counts()}{46}{subsubsection.6.13.2.2}%
-\contentsline {subsubsection}{\numberline {6.13.2.3}get\_psi2()}{47}{subsubsection.6.13.2.3}%
-\contentsline {subsubsection}{\numberline {6.13.2.4}sample\_to\_bit\_sequence()}{47}{subsubsection.6.13.2.4}%
-\contentsline {section}{\numberline {6.14}nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}funcs.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{48}{section.6.14}%
-\contentsline {section}{\numberline {6.15}Файл src/nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tests.cpp}{49}{section.6.15}%
-\contentsline {subsection}{\numberline {6.15.1}Подробное описание}{49}{subsection.6.15.1}%
-\contentsline {subsection}{\numberline {6.15.2}Функции}{49}{subsection.6.15.2}%
-\contentsline {subsubsection}{\numberline {6.15.2.1}nist\_apEntropy()}{49}{subsubsection.6.15.2.1}%
-\contentsline {subsubsection}{\numberline {6.15.2.2}nist\_cusum()}{50}{subsubsection.6.15.2.2}%
-\contentsline {subsubsection}{\numberline {6.15.2.3}nist\_frequency()}{50}{subsubsection.6.15.2.3}%
-\contentsline {subsubsection}{\numberline {6.15.2.4}nist\_runs()}{51}{subsubsection.6.15.2.4}%
-\contentsline {subsubsection}{\numberline {6.15.2.5}nist\_serial()}{52}{subsubsection.6.15.2.5}%
-\contentsline {section}{\numberline {6.16}nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tests.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{52}{section.6.16}%
-\contentsline {section}{\numberline {6.17}Файл src/prng.cpp}{53}{section.6.17}%
-\contentsline {subsection}{\numberline {6.17.1}Подробное описание}{53}{subsection.6.17.1}%
-\contentsline {section}{\numberline {6.18}prng.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{54}{section.6.18}%
-\contentsline {section}{\numberline {6.19}Файл src/tests.cpp}{55}{section.6.19}%
-\contentsline {subsection}{\numberline {6.19.1}Подробное описание}{55}{subsection.6.19.1}%
-\contentsline {subsection}{\numberline {6.19.2}Функции}{55}{subsection.6.19.2}%
-\contentsline {subsubsection}{\numberline {6.19.2.1}get\_chi2()}{55}{subsubsection.6.19.2.1}%
-\contentsline {subsubsection}{\numberline {6.19.2.2}get\_cv()}{56}{subsubsection.6.19.2.2}%
-\contentsline {subsubsection}{\numberline {6.19.2.3}get\_mean()}{56}{subsubsection.6.19.2.3}%
-\contentsline {subsubsection}{\numberline {6.19.2.4}get\_stdDev()}{57}{subsubsection.6.19.2.4}%
-\contentsline {section}{\numberline {6.20}tests.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{57}{section.6.20}%
-\contentsline {section}{\numberline {6.21}Файл time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}check.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{58}{section.6.21}%
-\contentsline {subsection}{\numberline {6.21.1}Подробное описание}{59}{subsection.6.21.1}%
-\contentsline {subsection}{\numberline {6.21.2}Функции}{59}{subsection.6.21.2}%
-\contentsline {subsubsection}{\numberline {6.21.2.1}check\_time()}{59}{subsubsection.6.21.2.1}%
-\contentsline {subsubsection}{\numberline {6.21.2.2}main()}{60}{subsubsection.6.21.2.2}%
-\contentsline {section}{\numberline {6.22}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}check.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{60}{section.6.22}%
-\contentsline {section}{\numberline {6.23}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}graph.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{62}{section.6.23}%
-\contentsline {chapter}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{63}{section*.35}%
+\contentsline {subsubsection}{\numberline {5.4.4.1}seed}{19}{subsubsection.5.4.4.1}%
+\contentsline {section}{\numberline {5.5}Класс PRNG}{19}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Подробное описание}{20}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Конструктор(ы)}{20}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}PRNG()}{20}{subsubsection.5.5.2.1}%
+\contentsline {subsection}{\numberline {5.5.3}Методы}{20}{subsection.5.5.3}%
+\contentsline {subsubsection}{\numberline {5.5.3.1}generate()}{20}{subsubsection.5.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.5.3.2}generate\_sample()}{20}{subsubsection.5.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.5.3.3}result()}{20}{subsubsection.5.5.3.3}%
+\contentsline {subsection}{\numberline {5.5.4}Данные класса}{21}{subsection.5.5.4}%
+\contentsline {subsubsection}{\numberline {5.5.4.1}max\_lim}{21}{subsubsection.5.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.5.4.2}min\_lim}{21}{subsubsection.5.5.4.2}%
+\contentsline {chapter}{\numberline {6}Файлы}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Файл create\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}samples.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{23}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Подробное описание}{23}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Функции}{24}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}create\_samples()}{24}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}main()}{25}{subsubsection.6.1.2.2}%
+\contentsline {section}{\numberline {6.2}create\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}samples.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{25}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Файл get\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}results.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{26}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Подробное описание}{27}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Функции}{27}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}main()}{27}{subsubsection.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.2.2}process\_sample()}{29}{subsubsection.6.3.2.2}%
+\contentsline {section}{\numberline {6.4}get\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}results.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{29}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Файл include/defs.h}{32}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Подробное описание}{32}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Макросы}{32}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}ALPHA}{32}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}AP\_ENTROPY\_M}{32}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.3}MAX\_LIM}{32}{subsubsection.6.5.2.3}%
+\contentsline {subsubsection}{\numberline {6.5.2.4}MIN\_LIM}{33}{subsubsection.6.5.2.4}%
+\contentsline {subsubsection}{\numberline {6.5.2.5}SAMPLES\_DIR}{33}{subsubsection.6.5.2.5}%
+\contentsline {subsubsection}{\numberline {6.5.2.6}SERIAL\_M}{33}{subsubsection.6.5.2.6}%
+\contentsline {section}{\numberline {6.6}defs.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{33}{section.6.6}%
+\contentsline {section}{\numberline {6.7}cephes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{33}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Файл include/prng.h}{34}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Подробное описание}{34}{subsection.6.8.1}%
+\contentsline {section}{\numberline {6.9}prng.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{34}{section.6.9}%
+\contentsline {section}{\numberline {6.10}Файл include/tests.h}{35}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Подробное описание}{36}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Функции}{36}{subsection.6.10.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.1}get\_apEn()}{36}{subsubsection.6.10.2.1}%
+\contentsline {subsubsection}{\numberline {6.10.2.2}get\_chi2()}{37}{subsubsection.6.10.2.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.3}get\_cv()}{38}{subsubsection.6.10.2.3}%
+\contentsline {subsubsection}{\numberline {6.10.2.4}get\_mean()}{39}{subsubsection.6.10.2.4}%
+\contentsline {subsubsection}{\numberline {6.10.2.5}get\_pattern\_counts()}{39}{subsubsection.6.10.2.5}%
+\contentsline {subsubsection}{\numberline {6.10.2.6}get\_psi2()}{40}{subsubsection.6.10.2.6}%
+\contentsline {subsubsection}{\numberline {6.10.2.7}get\_stdDev()}{40}{subsubsection.6.10.2.7}%
+\contentsline {subsubsection}{\numberline {6.10.2.8}nist\_apEntropy()}{41}{subsubsection.6.10.2.8}%
+\contentsline {subsubsection}{\numberline {6.10.2.9}nist\_cusum()}{41}{subsubsection.6.10.2.9}%
+\contentsline {subsubsection}{\numberline {6.10.2.10}nist\_frequency()}{42}{subsubsection.6.10.2.10}%
+\contentsline {subsubsection}{\numberline {6.10.2.11}nist\_runs()}{42}{subsubsection.6.10.2.11}%
+\contentsline {subsubsection}{\numberline {6.10.2.12}nist\_serial()}{43}{subsubsection.6.10.2.12}%
+\contentsline {subsubsection}{\numberline {6.10.2.13}sample\_to\_bit\_sequence()}{43}{subsubsection.6.10.2.13}%
+\contentsline {section}{\numberline {6.11}tests.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{44}{section.6.11}%
+\contentsline {section}{\numberline {6.12}cephes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{44}{section.6.12}%
+\contentsline {section}{\numberline {6.13}Файл src/nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}funcs.cpp}{48}{section.6.13}%
+\contentsline {subsection}{\numberline {6.13.1}Подробное описание}{49}{subsection.6.13.1}%
+\contentsline {subsection}{\numberline {6.13.2}Функции}{49}{subsection.6.13.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.1}get\_apEn()}{49}{subsubsection.6.13.2.1}%
+\contentsline {subsubsection}{\numberline {6.13.2.2}get\_pattern\_counts()}{49}{subsubsection.6.13.2.2}%
+\contentsline {subsubsection}{\numberline {6.13.2.3}get\_psi2()}{50}{subsubsection.6.13.2.3}%
+\contentsline {subsubsection}{\numberline {6.13.2.4}sample\_to\_bit\_sequence()}{51}{subsubsection.6.13.2.4}%
+\contentsline {section}{\numberline {6.14}nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}funcs.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{51}{section.6.14}%
+\contentsline {section}{\numberline {6.15}Файл src/nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tests.cpp}{52}{section.6.15}%
+\contentsline {subsection}{\numberline {6.15.1}Подробное описание}{53}{subsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.15.2}Функции}{53}{subsection.6.15.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.1}nist\_apEntropy()}{53}{subsubsection.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.2.2}nist\_cusum()}{54}{subsubsection.6.15.2.2}%
+\contentsline {subsubsection}{\numberline {6.15.2.3}nist\_frequency()}{55}{subsubsection.6.15.2.3}%
+\contentsline {subsubsection}{\numberline {6.15.2.4}nist\_runs()}{55}{subsubsection.6.15.2.4}%
+\contentsline {subsubsection}{\numberline {6.15.2.5}nist\_serial()}{56}{subsubsection.6.15.2.5}%
+\contentsline {section}{\numberline {6.16}nist\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tests.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{57}{section.6.16}%
+\contentsline {section}{\numberline {6.17}Файл src/prng.cpp}{58}{section.6.17}%
+\contentsline {subsection}{\numberline {6.17.1}Подробное описание}{58}{subsection.6.17.1}%
+\contentsline {section}{\numberline {6.18}prng.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{58}{section.6.18}%
+\contentsline {section}{\numberline {6.19}Файл src/tests.cpp}{60}{section.6.19}%
+\contentsline {subsection}{\numberline {6.19.1}Подробное описание}{60}{subsection.6.19.1}%
+\contentsline {subsection}{\numberline {6.19.2}Функции}{60}{subsection.6.19.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.1}get\_chi2()}{60}{subsubsection.6.19.2.1}%
+\contentsline {subsubsection}{\numberline {6.19.2.2}get\_cv()}{61}{subsubsection.6.19.2.2}%
+\contentsline {subsubsection}{\numberline {6.19.2.3}get\_mean()}{61}{subsubsection.6.19.2.3}%
+\contentsline {subsubsection}{\numberline {6.19.2.4}get\_stdDev()}{62}{subsubsection.6.19.2.4}%
+\contentsline {section}{\numberline {6.20}tests.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{62}{section.6.20}%
+\contentsline {section}{\numberline {6.21}test.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{63}{section.6.21}%
+\contentsline {section}{\numberline {6.22}Файл time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}check.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{64}{section.6.22}%
+\contentsline {subsection}{\numberline {6.22.1}Подробное описание}{64}{subsection.6.22.1}%
+\contentsline {subsection}{\numberline {6.22.2}Функции}{64}{subsection.6.22.2}%
+\contentsline {subsubsection}{\numberline {6.22.2.1}check\_time()}{64}{subsubsection.6.22.2.1}%
+\contentsline {subsubsection}{\numberline {6.22.2.2}main()}{65}{subsubsection.6.22.2.2}%
+\contentsline {section}{\numberline {6.23}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}check.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{66}{section.6.23}%
+\contentsline {section}{\numberline {6.24}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}graph.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}py}{67}{section.6.24}%
+\contentsline {chapter}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{69}{section*.42}%

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generate_0',['generate',['../classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13',1,'PRNG::generate()'],['../classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa',1,'mid_xor_PRNG::generate()'],['../classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480',1,'mul_xor_PRNG::generate()'],['../classLCG.html#ab12621664f5fd0b560a852aecbdb293d',1,'LCG::generate()']]],
+  ['generate_0',['generate',['../classPRNG.html#abe1ceb726c416fb95a5b03598c9a2a13',1,'PRNG::generate()'],['../classmid__xor__PRNG.html#ac4632cd36fab0a451fc9105d331934aa',1,'mid_xor_PRNG::generate()'],['../classmul__xor__PRNG.html#a4b1a214d738b545d2f6bba84851ec480',1,'mul_xor_PRNG::generate()'],['../classLCG.html#ab12621664f5fd0b560a852aecbdb293d',1,'LCG::generate()'],['../classdiv__PRNG.html#a2edf0c14b5c1e0c5d5055baaeb5d40d6',1,'div_PRNG::generate()']]],
   ['generate_5fsample_1',['generate_sample',['../classPRNG.html#acab864bc62527b1295be0c9faac0ffe4',1,'PRNG']]],
   ['get_5fapen_2',['get_apEn',['../tests_8h.html#a1bcd7d985ebc1df324c7f77c6d10ce5c',1,'get_apEn(std::vector&lt; bool &gt; &amp;, int):&#160;nist_funcs.cpp'],['../nist__funcs_8cpp.html#aa10b0d77510eb836851c63373dd9c4f1',1,'get_apEn(std::vector&lt; bool &gt; &amp;bit_seq, int m):&#160;nist_funcs.cpp']]],
   ['get_5fchi2_3',['get_chi2',['../tests_8h.html#ac51a16d54242d9724145612a1c643dd5',1,'get_chi2(std::vector&lt; unsigned int &gt; &amp;):&#160;tests.cpp'],['../tests_8cpp.html#a2479df567e90952c367166a1b7ce8aad',1,'get_chi2(std::vector&lt; unsigned int &gt; &amp;vec):&#160;tests.cpp']]],

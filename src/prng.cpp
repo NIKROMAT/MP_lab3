@@ -129,3 +129,44 @@ uint32_t LCG::generate ()
 }
 
 
+
+
+
+////////////////////////////////
+//             div            //
+////////////////////////////////
+
+/// @brief 
+/// @param seed Семя генерации
+/// @param min_lim Нижняя  граница генерации
+/// @param max_lim Верхняя граница генерации
+div_PRNG::div_PRNG (uint32_t seed, uint32_t min_lim, uint32_t max_lim)
+: PRNG(min_lim, max_lim), seed(seed), prev(0x9AE77B3D) {}
+
+
+/// @brief Генерация следующего числа
+/// @return Следующее случайное число
+uint32_t div_PRNG::generate ()
+{
+  // Определяем меньшее и большее значения между seed и prev
+  uint32_t min = (prev > seed) ? seed : prev;
+  uint32_t max = (min != seed) ? seed : prev;
+
+  bool flag = (seed == min); // флаг, чтобы понимать, какие изменения проводятся над переменными
+
+  // Изменения, чтобы не возникло проблем с делением
+  if ( min == UINT32_MAX ) min = 0x9AE77B3D;
+  if ( min == max ) 
+    max = (((unsigned long)max + min) > UINT32_MAX) ? UINT32_MAX : max + min;
+
+
+  double div = double(min) / max; // Число в диапазоне (0,1)
+
+  seed = div * (1ul << 48); // Извлекаем 32 бита после запятой, начиная с 16 бита (первые 16 битов обрубаются за счёт типа seed)
+
+  if ( seed == 0 ) seed = 0x9AE77B3D; // Избавляемся от выраждения в 0
+  prev = (flag ? min : max); // Записываем предыдущее значение seed, включая преобразования
+
+  return result(seed);
+}
+
